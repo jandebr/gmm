@@ -1,6 +1,10 @@
 # GMM
 Game Map Maker (GMM), a map editing application for the Scratch platform game "Kersje"
 
+![gmm](https://github.com/jandebr/gmm/blob/master/src/docs/resources/gmm.png)
+
+![Scratch](https://github.com/jandebr/gmm/blob/master/src/docs/resources/scratch.png)
+
 Example Scratch projects created with GMM :
 - [Cowboy kersje](https://scratch.mit.edu/projects/453401204)
 - [Pretpark kersje](https://scratch.mit.edu/projects/552993154)
