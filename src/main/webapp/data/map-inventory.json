@@ -372,43 +372,43 @@
 			"interaction": "tangible"
 		},
 		{
-			"id": "swinging-ship_12x10",
+			"id": "swinging-ship_11x10",
 			"code": 23,
 			"label": "Swinging ship",
-			"image": "swinging-ship_12x10.png",
+			"image": "swinging-ship_11x10.png",
 			"transparency": 0,
-			"widthInTiles": 12,
+			"widthInTiles": 11,
 			"heightInTiles": 10,
 			"parts": [
 				{
-					"idRef": "swinging-ship-vessel_12x9",
+					"idRef": "swinging-ship-vessel_11x9",
 					"dx": 0,
 					"dy": 0
 				},
 				{
-					"idRef": "swinging-ship-cradle_12x10",
+					"idRef": "swinging-ship-cradle_11x10",
 					"dx": 0,
 					"dy": 0
 				}
 			]
 		},
 		{
-			"id": "swinging-ship-cradle_12x10",
+			"id": "swinging-ship-cradle_11x10",
 			"code": 24,
 			"label": "Swinging ship cradle",
-			"image": "swinging-ship-cradle_12x10.png",
+			"image": "swinging-ship-cradle_11x10.png",
 			"appearances": 1,
 			"movement": "none",
 			"transparency": 0,
-			"widthInTiles": 12,
+			"widthInTiles": 11,
 			"heightInTiles": 10,
 			"interaction": "intangible"
 		},
 		{
-			"id": "swinging-ship-vessel_12x9",
+			"id": "swinging-ship-vessel_11x9",
 			"code": 25,
 			"label": "Swinging ship vessel",
-			"image": "swinging-ship-vessel_12x9.png",
+			"image": "swinging-ship-vessel_11x9.png",
 			"appearances": 1,
 			"movement": "smoothRadialSweep",
 			"movementParameter1": 112,
@@ -419,7 +419,7 @@
 			"inactivityTimeMinimum": 0,
 			"inactivityTimeMaximum": 0,
 			"transparency": 0,
-			"widthInTiles": 12,
+			"widthInTiles": 11,
 			"heightInTiles": 9,
 			"offsetHorizontal": 0,
 			"offsetVertical": 130,
