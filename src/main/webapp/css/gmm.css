@@ -1,0 +1,58 @@
+body, html {
+	height: 100%;
+	margin: 0;
+	font-family: Arial;
+	color: white;
+}
+
+body {
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(rgb(220, 230, 245), rgb(76, 102, 120));
+}
+
+div.topbar {
+	position: relative;
+	background-color: black;
+}
+
+div.topbar .icon {
+	margin-right: 8px;
+}
+
+div.topbar .title {
+	font-size: 1em;
+	font-weight: bold;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+ 	transform: translateY(-50%);
+}
+
+div.topbar div.map-badge {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-ms-transform: translate(-50%, -50%);
+ 	transform: translate(-50%, -50%);
+ 	color: orange;
+	font-size: 1.2em;
+}
+
+div.topbar div.mapcollection-badge {
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+ 	transform: translateY(-50%);
+}
+
+div.content-pane {
+	margin: 20px 50px 0px 50px;
+}
+
+div.info {
+	position: absolute;
+	left: 4px;
+	bottom: 4px;
+}

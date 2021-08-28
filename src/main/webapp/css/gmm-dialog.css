@@ -1,0 +1,215 @@
+div.modal-window {
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	background-color: rgba(255, 255, 255, 0.8);
+	display: none;
+}
+
+div.modal-dialog {
+	background-color: rgba(177, 209, 230, 0.6);
+	color: black;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	width: auto;
+	height: auto;
+	opacity: 0.9;
+	border: 8px solid rgb(40,40,40);
+	border-radius: 16px 0px;
+	padding: 16px;
+	box-shadow:0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12),0 3px 5px -1px rgba(0,0,0,.2);
+}
+
+div.dialog-message-pane {
+	padding-bottom: 12px;
+}
+
+div.dialog-content-pane {
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 1px solid rgb(200,200,200);
+	border-radius: 4px;
+	padding: 8px;
+	margin-bottom: 50px;
+}
+
+div.dialog-message-pane .collection-name {
+	font-weight: bold;
+	font-style: italic;
+	background-color: rgb(250, 255, 161);
+}
+
+div.dialog-content-pane .error-message {
+	color: red;
+	font-style: italic;
+	padding-bottom: 8px;
+}
+
+div.dialog-content-pane form {
+	text-align: center;
+}
+
+div.dialog-content-pane input {
+	font-size: 1.8em;
+	font-family: Helvetica;
+	padding: 8px;
+	background-color: rgb(250, 255, 161);
+}
+
+div.dialog-action-pane {
+	position: absolute;
+	left: 50%;
+ 	transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	bottom: 16px;
+}
+
+div.dialog-action-pane .action-button {
+	background-color: rgba(0,0,0,.8);
+	font-size: 1em;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+
+
+div.dialog-mapcollection input {
+	text-align: center;
+}
+
+div.dialog-load div.dialog-content-pane {
+	height: 300px;
+	overflow-y: scroll;
+}
+
+div.dialog-load table {
+	border-collapse: collapse;
+}
+
+div.dialog-load tr {
+	background-color: white;
+	border: 1px solid rgb(200,200,200);
+	cursor: pointer;
+}
+
+div.dialog-load tr.selected {
+	background-color: rgb(250, 255, 161);
+}
+
+div.dialog-load td {
+	padding: 2px;
+}
+
+div.dialog-load td div {
+	padding: 8px;
+}
+
+div.dialog-load tr .map-name {
+	font-size: 1.8em;
+	font-family: Helvetica;
+}
+
+div.dialog-load tr .map-property-key {
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+div.dialog-load tr .map-property-value {
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+
+
+div.dialog-choice {
+	min-width: 450px;
+}
+
+div.dialog-choice div.dialog-content-pane {
+	opacity: 0;
+	padding: 0;
+}
+
+
+
+div.dialog-info {
+	min-width: 450px;
+}
+
+div.dialog-info div.dialog-content-pane {
+	max-height: 450px;
+	overflow-y: scroll;
+}
+
+
+
+div.dialog-background div.dialog-content-pane {
+	height: 360px;
+	overflow-y: scroll;
+}
+
+div.dialog-background table {
+	border-collapse: collapse;
+}
+
+div.dialog-background tr {
+	background-color: white;
+	border: 1px solid rgb(200,200,200);
+	cursor: pointer;
+}
+
+div.dialog-background tr.selected {
+	background-color: rgb(250, 255, 161);
+}
+
+div.dialog-background td {
+	padding: 8px;
+}
+
+div.dialog-background td div {
+	width: 340px;
+	overflow-x: auto;
+}
+
+div.dialog-background tr .background-label {
+	font-size: 1.8em;
+	font-family: Helvetica;
+}
+
+
+
+div.dialog-character div.dialog-content-pane {
+	height: 360px;
+	overflow-y: scroll;
+}
+
+div.dialog-character table {
+	border-collapse: collapse;
+}
+
+div.dialog-character tr {
+	background-color: white;
+	border: 1px solid rgb(200,200,200);
+	cursor: pointer;
+}
+
+div.dialog-character tr.selected {
+	background-color: rgb(250, 255, 161);
+}
+
+div.dialog-character td {
+	padding: 8px;
+}
+
+div.dialog-character td div {
+	width: 200px;
+}
+
+div.dialog-character tr .character-label {
+	font-size: 1.8em;
+	font-family: Helvetica;
+}

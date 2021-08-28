@@ -1,0 +1,94 @@
+div.action-menu {
+}
+
+.action-button {
+	background-color: rgba(0,0,0,.5);
+	color: white;
+	font-size: 1.3em;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 6px 0px 6px 0px;
+	border-radius: 8px;
+	transition: .5s ease;
+	box-shadow:0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12),0 3px 5px -1px rgba(0,0,0,.2);
+	display: inline-block;
+	position: relative;
+}
+
+
+
+.action-button .action {
+	padding: 6px 10px 6px 10px;
+	cursor: pointer;
+	border: 2px solid rgba(0,0,0,0);
+	border-radius: 8px;
+}
+
+.action-button .action:hover {
+	text-decoration-line: underline;
+	text-decoration-color: white;
+}
+
+.action-button .action.run {
+	border: 2px solid white;
+	border-radius: 8px;
+	background-color: rgb(177, 209, 230);
+}
+
+
+
+.action-button .option {
+	padding: 6px 10px 6px 10px;
+	cursor: pointer;
+}
+
+.action-button .option.first {
+	border-right: 1px solid white;
+}
+
+.action-button .option.middle {
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+.action-button .option.last {
+	border-left: 1px solid white;
+}
+
+.action-button .option.selected {
+	background-color: white;
+	color: black;
+}
+
+.action-button .option.first.selected {
+	border-radius: 8px 0px 0px 8px;
+}
+
+.action-button .option.last.selected {
+	border-radius: 0px 8px 8px 0px;
+}
+
+.action-button .option:hover {
+	text-decoration-line: underline;
+	text-decoration-color: white;
+}
+
+
+
+div.disablement {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	background-color: rgba(177, 209, 230, 0.6);
+	display: none;
+}
+
+div.disablement.enabled {
+	display: inline-block;
+}
+
+.action-button div.disablement {
+	border-radius: 8px;
+}

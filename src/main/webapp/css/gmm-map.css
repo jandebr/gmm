@@ -1,0 +1,22 @@
+div.mapview {
+	color: black;
+	background-color: white;
+	border: solid 4px white;
+	height: 388px;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+div.map-resize {
+	position: absolute;
+}
+
+div.map-expand {
+	position: relative;
+	padding: 4px;
+}
+
+div.map-shrink {
+	position: relative;
+	padding: 4px;
+}

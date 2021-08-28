@@ -1,0 +1,38 @@
+div.mapshop {
+	color: black;
+	background: white;
+	border: solid 4px white;
+	border-radius: 16px 16px 0px 0px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 8px;
+	height: 208px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+div.mapshop div.departments {
+	margin-bottom: 4px;
+}
+
+div.mapshop .department {
+	font-size: 20px;
+	font-family: fantasy;
+	fill: black;
+	cursor: pointer;
+}
+
+div.mapshop .department:hover,.department.selected {
+	text-decoration-line: underline;
+	text-decoration-color: black;
+}
+
+div.mapshop .department.selected {
+	fill: rgb(111, 69, 122);
+}
+
+div.mapshop div.racks {
+	background: linear-gradient(rgb(251, 247, 252), rgb(215, 200, 219));
+	padding: 4px;
+	overflow-x: auto;
+}

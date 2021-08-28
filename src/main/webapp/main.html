@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Game Map Maker</title>
+		<link rel="icon" type="image/png" href="/gmm/media/web/map-icon.png">
+		<link rel="stylesheet" type="text/css" href="/gmm/css/gmm.css">
+		<link rel="stylesheet" type="text/css" href="/gmm/css/gmm-shop.css">
+		<link rel="stylesheet" type="text/css" href="/gmm/css/gmm-map.css">
+		<link rel="stylesheet" type="text/css" href="/gmm/css/gmm-action.css">
+		<link rel="stylesheet" type="text/css" href="/gmm/css/gmm-dialog.css">
+		<script type="text/javascript" src="/gmm/js/gmm.js"></script>
+		<script type="text/javascript" src="/gmm/js/gmm-service.js"></script>
+		<script type="text/javascript" src="/gmm/js/gmm-inventory.js"></script>
+		<script type="text/javascript" src="/gmm/js/gmm-dialog.js"></script>
+		<script type="text/javascript" src="/gmm/js/gmm-badge.js"></script>
+		<script type="text/javascript" src="/gmm/js/gmm-shop.js"></script>
+		<script type="text/javascript" src="/gmm/js/gmm-render.js"></script>
+		<script type="text/javascript" src="/gmm/js/d3/v4.2.2/d3.min.js"></script>
+		<script type="text/javascript" src="/gmm/js/d3/v6.7.0/d3.v6.min.js"></script>
+	</head>
+	<body onload="init();">
+		<div class="topbar">
+			<img class="icon" src="/gmm/media/web/map-icon.png" />
+			<span class="title">Game Map Maker</span>
+		</div>
+		<div class="content-pane">
+			<div class="action-menu">
+				<div class="action-button">
+					<span class="action" id="menu-new">New</span>
+				</div>
+				<div class="action-button">
+					<span class="action" id="menu-load">Load</span>
+				</div>
+				<div class="action-button">
+					<span class="action" id="menu-save">Save</span>
+					<div id="menu-save-disablement" class="disablement enabled"></div>
+				</div>
+				<div class="action-button">
+					<span class="action" id="menu-rename">Rename</span>
+				</div>
+				<div class="action-button">
+					<span class="action" id="menu-fork">Fork</span>
+				</div>
+				<div class="action-button">
+					<span class="action" id="menu-delete">Delete</span>
+					<div id="menu-delete-disablement" class="disablement enabled"></div>
+				</div>
+				<div class="action-button">
+					<span class="action" id="menu-download">Download</span>
+				</div>
+				<div class="action-button">
+					<span class="action" id="menu-background">Set background</span>
+					<div id="menu-background-disablement" class="disablement enabled"></div>
+				</div>
+				<div class="action-button">
+					<span class="action" id="menu-character">Set character</span>
+					<div id="menu-character-disablement" class="disablement enabled"></div>
+				</div>
+				<!-- example option button
+				<div class="action-button">
+					<span class="option first selected">A</span><span class="option middle">B</span><span class="option last">C</span>
+					<div class="disablement enabled"></div>
+				</div>
+				-->
+			</div>
+			<div class="mapshop">
+			</div>
+			<div class="mapview">
+			</div>
+		</div>
+		<div class="map-resize">
+			<div class="map-expand">
+				<img src="/gmm/media/web/map-expand.png" id="map-expand" title="Expand map" />
+				<div id="map-expand-disablement" class="disablement enabled"></div>
+			</div>
+			<div class="map-shrink">
+				<img src="/gmm/media/web/map-shrink.png" id="map-shrink" title="Shrink map" />
+				<div id="map-shrink-disablement" class="disablement enabled"></div>
+			</div>
+		</div>
+		<div class="info">
+			<a href="https://docs.google.com/document/d/1NkeZbw061FncABYfNR0MERRcCX9Lv2S9laaNL0Fzj6Q/edit?usp=sharing" target="_blank">
+				<img src="/gmm/media/web/info.png" width="20" alt="info" />
+			</a>
+		</div>
+		<div class="modal-window">
+		</div>
+	</body>
+</html>

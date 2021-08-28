@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<project name="GameMapMakerWeb" default="war">
+
+	<path id="compile.classpath">
+		<fileset dir="lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="init">
+		<mkdir dir="build/classes" />
+		<mkdir dir="dist" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac includeantruntime="false" destdir="build/classes" debug="true" srcdir="src/main/java">
+			<classpath refid="compile.classpath" />
+		</javac>
+		<jar destfile="lib/data.jar" basedir="src/main/webapp/data">
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="dist" />
+		<delete dir="build" />
+	</target>
+
+	<target name="war" depends="clean,compile">
+		<copy file="src/main/webapp/WEB-INF/web.xml" tofile="dist/web.xml" overwrite="true">
+			<filterset>
+				<filter token="mapsBaseDirectory" value="${MAPS_BASE_DIRECTORY}" />
+			</filterset>
+		</copy>
+		<war destfile="dist/gmm.war" webxml="dist/web.xml">
+			<fileset dir="src/main/webapp">
+				<exclude name="WEB-INF/web.xml"/>
+			</fileset>
+			<lib dir="lib" />
+			<classes dir="build/classes" />
+		</war>
+	</target>
+
+</project>

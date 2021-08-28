@@ -1,0 +1,538 @@
+{
+	"meta": {
+		"backgrounds": {
+			"path": "/gmm/media/backgrounds/"
+		},
+		"characters": {
+			"path": "/gmm/media/characters/"
+		},
+		"objectTypes": {
+			"path": "/gmm/media/objectTypes/"
+		}
+	},
+	"backgrounds": [
+		{
+			"id": "MountainTree",
+			"code": 0,
+			"label": "Mountain and tree",
+			"images": [
+				"MountainTree/MountainTree1.png",
+				"MountainTree/MountainTree2.png"
+			]
+		},
+		{
+			"id": "SnowyLandscape",
+			"code": 1,
+			"label": "Snowy landscape",
+			"images": [
+				"SnowyLandscape/SnowyLandscape1.png",
+				"SnowyLandscape/SnowyLandscape2.png"
+			]
+		},
+		{
+			"id": "Themepark",
+			"code": 2,
+			"label": "Themepark",
+			"images": [
+				"Themepark/Themepark1.png",
+				"Themepark/Themepark2.png"
+			]
+		}
+	],
+	"characters": [
+		{
+			"id": "Cowboy",
+			"code": 0,
+			"label": "Cowboy",
+			"image": "cowboy.png",
+			"appearancesRunning": 10
+		}
+	],
+	"objectTypes": [
+		{
+			"id": "META_delete",
+			"label": "Delete",
+			"image": "META/delete.png",
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"transparency": 0
+		},
+		{
+			"id": "META_character",
+			"label": "Character",
+			"image": "META/character.png",
+			"widthInTiles": 3,
+			"heightInTiles": 3,
+			"transparency": 0
+		},
+		{
+			"id": "soil_4x1",
+			"code": 0,
+			"label": "Soil",
+			"image": "soil_4x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "soil_15x1",
+			"code": 1,
+			"label": "Soil",
+			"image": "soil_15x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 15,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "stone_1x1",
+			"code": 2,
+			"label": "Stone",
+			"image": "stone_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "stone_4x1",
+			"code": 3,
+			"label": "Stone",
+			"image": "stone_4x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "plank_4x1",
+			"code": 4,
+			"label": "Plank",
+			"image": "plank_4x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "chest_2x2",
+			"code": 5,
+			"label": "Chest",
+			"image": "chest-dark_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "barrel_2x2",
+			"code": 6,
+			"label": "Barrel",
+			"image": "barrel-dark_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "sea_4x1",
+			"code": 7,
+			"label": "Sea",
+			"image": "sea_4x1.png",
+			"appearances": 6,
+			"movement": "none",
+			"activityCycles": 1,
+			"activitySpeed": 230,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 1,
+			"interaction": "fatal"
+		},
+		{
+			"id": "cloud_3x2",
+			"code": 8,
+			"label": "Cloud",
+			"image": "cloud_3x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 3,
+			"heightInTiles": 2,
+			"interaction": "intangible-back"
+		},
+		{
+			"id": "finish_1x10",
+			"code": 9,
+			"label": "Finish",
+			"image": "finish_1x10.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0.4,
+			"widthInTiles": 1,
+			"heightInTiles": 10,
+			"interaction": "finish"
+		},
+		{
+			"id": "coin_1x1",
+			"code": 10,
+			"label": "Coin",
+			"image": "coin_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "score"
+		},
+		{
+			"id": "bomb_1x1",
+			"code": 11,
+			"label": "Bomb",
+			"image": "bomb_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "fatal"
+		},
+		{
+			"id": "snake_2x2",
+			"code": 12,
+			"label": "Snake",
+			"image": "snake_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "fatal"
+		},
+		{
+			"id": "cactus_2x3",
+			"code": 13,
+			"label": "Cactus",
+			"image": "cactus_2x3.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 3,
+			"interaction": "fatal"
+		},
+		{
+			"id": "ATMOS_dusk_8",
+			"code": 14,
+			"label": "Dusk",
+			"image": "ATMOS/dusk_8.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "atmosphere"
+		},
+		{
+			"id": "ATMOS_night_8",
+			"code": 15,
+			"label": "Night",
+			"image": "ATMOS/night_8.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "atmosphere"
+		},
+		{
+			"id": "cloud-dark_3x2",
+			"code": 16,
+			"label": "Cloud dark",
+			"image": "cloud-dark_3x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 3,
+			"heightInTiles": 2,
+			"interaction": "intangible-back"
+		},
+		{
+			"id": "cart_3x2",
+			"code": 17,
+			"label": "Cart",
+			"image": "cart_3x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 3,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "ticket_1x1",
+			"code": 18,
+			"label": "Ticket",
+			"image": "ticket_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "scoreValue",
+			"value": 10
+		},
+		{
+			"id": "droptower_7x9",
+			"code": 19,
+			"label": "Drop tower",
+			"image": "droptower_7x9.png",
+			"transparency": 0,
+			"widthInTiles": 7,
+			"heightInTiles": 9,
+			"parts": [
+				{
+					"idRef": "droptower-column_7x9",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "droptower-seats_5x2",
+					"dx": 1,
+					"dy": 1
+				}
+			]
+		},
+		{
+			"id": "droptower-column_7x9",
+			"code": 20,
+			"label": "Drop tower column",
+			"image": "droptower-column_7x9.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 7,
+			"heightInTiles": 9,
+			"interaction": "intangible"
+		},
+		{
+			"id": "droptower-seats_5x2",
+			"code": 21,
+			"label": "Drop tower seats",
+			"image": "droptower-seats_5x2.png",
+			"appearances": 1,
+			"movement": "smoothVerticalSweep",
+			"movementParameter1": 148,
+			"movementParameter2": 0,
+			"movementStartAt": "0%",
+			"activityCycles": 2,
+			"activitySpeed": 220,
+			"inactivityTimeMinimum": 3,
+			"inactivityTimeMaximum": 5,
+			"transparency": 0,
+			"widthInTiles": 5,
+			"heightInTiles": 2,
+			"interaction": "fatal"
+		},
+		{
+			"id": "plank-birds_4x2",
+			"code": 22,
+			"label": "Plank elevated by birds",
+			"image": "plank-birds_4x2.png",
+			"appearances": 2,
+			"appearancesSpeedWhileMoving": 250,
+			"movement": "smoothVerticalSweep",
+			"movementParameter1": 0,
+			"movementParameter2": 120,
+			"movementStartAt": "random",
+			"activityCycles": 1,
+			"activitySpeed": 210,
+			"inactivityTimeMinimum": 3,
+			"inactivityTimeMaximum": 5,
+			"inactivityAppearance": 2,
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "swinging-ship_12x10",
+			"code": 23,
+			"label": "Swinging ship",
+			"image": "swinging-ship_12x10.png",
+			"transparency": 0,
+			"widthInTiles": 12,
+			"heightInTiles": 10,
+			"parts": [
+				{
+					"idRef": "swinging-ship-vessel_12x9",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "swinging-ship-cradle_12x10",
+					"dx": 0,
+					"dy": 0
+				}
+			]
+		},
+		{
+			"id": "swinging-ship-cradle_12x10",
+			"code": 24,
+			"label": "Swinging ship cradle",
+			"image": "swinging-ship-cradle_12x10.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 12,
+			"heightInTiles": 10,
+			"interaction": "intangible"
+		},
+		{
+			"id": "swinging-ship-vessel_12x9",
+			"code": 25,
+			"label": "Swinging ship vessel",
+			"image": "swinging-ship-vessel_12x9.png",
+			"appearances": 1,
+			"movement": "smoothRadialSweep",
+			"movementParameter1": 112,
+			"movementParameter2": -112,
+			"movementStartAt": "25%",
+			"activityCycles": 1,
+			"activitySpeed": 155,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"transparency": 0,
+			"widthInTiles": 12,
+			"heightInTiles": 9,
+			"offsetHorizontal": 0,
+			"offsetVertical": 130,
+			"interaction": "fatal"
+		},
+		{
+			"id": "shooting-cannon_4x3",
+			"code": 26,
+			"label": "Shooting cannon",
+			"image": "cannon_4x3.png",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 3,
+			"parts": [
+				{
+					"idRef": "cannon-ball_1x1",
+					"dx": 0,
+					"dy": 2
+				},
+				{
+					"idRef": "cannon_4x3",
+					"dx": 0,
+					"dy": 0
+				}
+			]
+		},
+		{
+			"id": "cannon_4x3",
+			"code": 27,
+			"label": "Cannon",
+			"image": "cannon_4x3.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 3,
+			"interaction": "tangible"
+		},
+		{
+			"id": "cannon-ball_1x1",
+			"code": 28,
+			"label": "Cannon ball",
+			"image": "cannon-ball_1x1.png",
+			"appearances": 1,
+			"movement": "vectorWithGravity",
+			"movementParameter1": -400,
+			"movementParameter2": 130,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 235,
+			"inactivityTimeMinimum": 3,
+			"inactivityTimeMaximum": 3,
+			"inactivityAppearance": 0,
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"offsetHorizontal": -20,
+			"offsetVertical": 0,
+			"interaction": "fatal"
+		},
+		{
+			"id": "treasure-chest_5x4",
+			"code": 29,
+			"label": "Treasure chest",
+			"image": "treasure-chest_5x4.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 5,
+			"heightInTiles": 4,
+			"interaction": "scoreValue",
+			"value": 100
+		},
+		{
+			"id": "seagull_2x2",
+			"code": 30,
+			"label": "Seagull flying",
+			"image": "seagull_2x2.png",
+			"appearances": 2,
+			"appearancesSpeedWhileMoving": 220,
+			"movement": "horizontalSweep",
+			"movementParameter1": 0,
+			"movementParameter2": -180,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 220,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "fatal"
+		},
+		{
+			"id": "shark_3x4",
+			"code": 31,
+			"label": "Shark jumping",
+			"image": "shark_3x4.png",
+			"appearances": 5,
+			"appearancesSpeedWhileMoving": 230,
+			"movement": "smoothVerticalSweep",
+			"movementParameter1": -210,
+			"movementParameter2": 0,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 230,
+			"inactivityTimeMinimum": 3,
+			"inactivityTimeMaximum": 5,
+			"inactivityAppearance": 0,
+			"transparency": 0,
+			"widthInTiles": 3,
+			"heightInTiles": 4,
+			"interaction": "fatal"
+		}
+	]
+}
