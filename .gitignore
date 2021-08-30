@@ -5,6 +5,7 @@
 *.log
 
 # Build and distribution
+/bin
 /build
 /dist
 /dist/**
