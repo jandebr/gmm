@@ -116,6 +116,7 @@ public class GameMapBitmapGenerator {
 		}
 		writer.writeDoubleDigitHexadecimalValue(info.getCode());
 		writer.writeSingleDigitHexadecimalValue(info.getAppearancesRunning());
+		writer.writeDoubleDigitHexadecimalValue(info.getHeight());
 	}
 
 	private void writeObjectTypes(BitmapWriter writer, ObjectTypeRegistry objectTypeRegistry, GameMapInventory inventory) {

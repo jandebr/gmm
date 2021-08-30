@@ -12,6 +12,8 @@ public class MapCharacterInfo {
 
 	private int appearancesRunning;
 
+	private int height;
+
 	public MapCharacterInfo(String id) {
 		this.id = id;
 	}
@@ -29,6 +31,8 @@ public class MapCharacterInfo {
 		builder.append(image);
 		builder.append(", appearancesRunning=");
 		builder.append(appearancesRunning);
+		builder.append(", height=");
+		builder.append(height);
 		builder.append("]");
 		return builder.toString();
 	}
@@ -51,6 +55,10 @@ public class MapCharacterInfo {
 
 	public int getAppearancesRunning() {
 		return appearancesRunning;
+	}
+
+	public int getHeight() {
+		return height;
 	}
 
 }

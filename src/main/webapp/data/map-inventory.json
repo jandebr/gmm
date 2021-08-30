@@ -45,7 +45,8 @@
 			"code": 0,
 			"label": "Cowboy",
 			"image": "cowboy.png",
-			"appearancesRunning": 10
+			"appearancesRunning": 10,
+			"height": 92
 		}
 	],
 	"objectTypes": [
