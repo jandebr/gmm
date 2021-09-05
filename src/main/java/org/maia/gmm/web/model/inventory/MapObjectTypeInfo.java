@@ -12,7 +12,7 @@ public class MapObjectTypeInfo {
 
 	private String image;
 
-	private int appearances = 1;
+	private int appearances;
 
 	private int appearancesSpeedWhileMoving;
 
@@ -32,7 +32,7 @@ public class MapObjectTypeInfo {
 
 	private int inactivityTimeMaximum;
 
-	private int inactivityAppearance = 1;
+	private int inactivityAppearance;
 
 	private double transparency;
 
@@ -50,8 +50,9 @@ public class MapObjectTypeInfo {
 
 	private List<MapObjectTypePart> parts;
 
-	public MapObjectTypeInfo(String id) {
-		this.id = id;
+	public MapObjectTypeInfo() {
+		this.appearances = 1;
+		this.inactivityAppearance = 1;
 	}
 
 	@Override

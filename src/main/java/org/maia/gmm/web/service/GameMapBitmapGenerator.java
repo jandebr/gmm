@@ -325,7 +325,9 @@ public class GameMapBitmapGenerator {
 
 		VECTOR("vector", 10),
 
-		VECTOR_WITH_GRAVITY("vectorWithGravity", 11);
+		VECTOR_WITH_GRAVITY("vectorWithGravity", 11),
+		
+		VERTICAL_JUMP("verticalJump", 12);
 
 		private String symbolicName;
 

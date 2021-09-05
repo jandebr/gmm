@@ -63,6 +63,13 @@
 					]
 				},
 				{
+					"maxWidthInTiles": 6,
+					"items": [
+						"frog-sit_1x1",
+						"frog-jump_1x1"
+					]
+				},
+				{
 					"maxWidthInTiles": 2,
 					"items": [
 						"coin_1x1"

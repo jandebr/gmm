@@ -14,8 +14,7 @@ public class MapCharacterInfo {
 
 	private int height;
 
-	public MapCharacterInfo(String id) {
-		this.id = id;
+	public MapCharacterInfo() {
 	}
 
 	@Override

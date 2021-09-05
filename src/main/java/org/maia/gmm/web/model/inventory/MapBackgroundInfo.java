@@ -12,8 +12,7 @@ public class MapBackgroundInfo {
 
 	private List<String> images;
 
-	public MapBackgroundInfo(String id) {
-		this.id = id;
+	public MapBackgroundInfo() {
 	}
 
 	@Override
