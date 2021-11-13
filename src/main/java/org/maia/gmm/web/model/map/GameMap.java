@@ -26,6 +26,10 @@ public class GameMap {
 		return getDescriptor().getName();
 	}
 
+	public int getObjectCount() {
+		return getDefinition().getObjects().size();
+	}
+
 	public GameMapDescriptor getDescriptor() {
 		return descriptor;
 	}

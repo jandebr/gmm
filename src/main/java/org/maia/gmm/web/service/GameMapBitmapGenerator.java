@@ -21,15 +21,19 @@ import org.maia.gmm.web.model.map.GameMapObject;
 
 public class GameMapBitmapGenerator {
 
-	private static final int VERSION_NUMBER = 3;
+	private static final int VERSION_NUMBER = 4;
+
+	private static final int MAP_WIDTH_IN_TILES = 15;
 
 	private static final int MAP_HEIGHT_IN_TILES = 11;
+
+	private static final String TYPE_TELEPORT_LEAVE = "teleport-destination";
 
 	public GameMapBitmapGenerator() {
 	}
 
 	public BufferedImage generateBitmap(GameMap gameMap, GameMapInventory inventory) {
-		List<GameMapObjectOnLayer> objects = getSortedComponentObjects(gameMap, inventory);
+		List<GameMapObjectOnLayer> objects = getSortedComponentObjects(getGameMapObjects(gameMap, inventory), inventory);
 		ObjectTypeRegistry objectTypeRegistry = createObjectTypeRegistry(objects, inventory);
 		checkCompositeConstraints(objectTypeRegistry, inventory);
 		BitmapWriter writer = new BitmapWriter(120, 90, new ColorMap());
@@ -41,6 +45,55 @@ public class GameMapBitmapGenerator {
 		if (writer.exceedsBoundaries())
 			writer.writeMessageBoundariesExceeded();
 		return writer.getImage();
+	}
+
+	private List<GameMapObject> getGameMapObjects(GameMap gameMap, GameMapInventory inventory) {
+		List<GameMapObject> mapObjects = new Vector<GameMapObject>(gameMap.getObjectCount());
+		for (GameMapObject object : gameMap.getDefinition().getObjects()) {
+			MapObjectTypeInfo info = inventory.getObjectType(object.getType());
+			if (info != null) {
+				mapObjects.add(object);
+				Interaction interaction = Interaction.forSymbolicName(info.getInteraction());
+				if (Interaction.TELEPORT.equals(interaction)) {
+					// Add teleport destination
+					int x = object.getX() + MAP_WIDTH_IN_TILES * info.getValue() - info.getWidthInTiles();
+					int y = object.getY();
+					mapObjects.add(new GameMapObject(x, y, TYPE_TELEPORT_LEAVE));
+				}
+			}
+		}
+		return mapObjects;
+	}
+
+	private List<GameMapObjectOnLayer> getSortedComponentObjects(List<GameMapObject> mapObjects,
+			GameMapInventory inventory) {
+		List<GameMapObjectOnLayer> compObjects = new Vector<GameMapObjectOnLayer>(mapObjects.size());
+		for (GameMapObject mapObject : mapObjects) {
+			MapObjectTypeInfo info = inventory.getObjectType(mapObject.getType());
+			if (info.isCompositeType()) {
+				CompositeGameMapObject composite = new CompositeGameMapObject();
+				for (MapObjectTypePart part : info.getParts()) {
+					int x = mapObject.getX() + part.getDx();
+					int y = mapObject.getY() + part.getDy();
+					ComponentGameMapObjectOnLayer component = new ComponentGameMapObjectOnLayer(x, y, part.getIdRef(),
+							composite);
+					composite.addComponent(component);
+					compObjects.add(component);
+				}
+			} else {
+				compObjects.add(new GameMapObjectOnLayer(mapObject));
+			}
+		}
+		Collections.sort(compObjects, new GameMapObjectSorter(inventory));
+		return compObjects;
+	}
+
+	private ObjectTypeRegistry createObjectTypeRegistry(List<GameMapObjectOnLayer> objects, GameMapInventory inventory) {
+		ObjectTypeRegistry registry = new ObjectTypeRegistry();
+		for (GameMapObjectOnLayer object : objects) {
+			registry.register(object.getType());
+		}
+		return registry;
 	}
 
 	private void checkCompositeConstraints(ObjectTypeRegistry objectTypeRegistry, GameMapInventory inventory) {
@@ -61,39 +114,6 @@ public class GameMapBitmapGenerator {
 				}
 			}
 		}
-	}
-
-	private List<GameMapObjectOnLayer> getSortedComponentObjects(GameMap gameMap, GameMapInventory inventory) {
-		List<GameMapObject> mapObjects = gameMap.getDefinition().getObjects();
-		List<GameMapObjectOnLayer> compObjects = new Vector<GameMapObjectOnLayer>(mapObjects.size());
-		for (GameMapObject mapObject : mapObjects) {
-			MapObjectTypeInfo info = inventory.getObjectType(mapObject.getType());
-			if (info != null) {
-				if (info.isCompositeType()) {
-					CompositeGameMapObject composite = new CompositeGameMapObject();
-					for (MapObjectTypePart part : info.getParts()) {
-						int x = mapObject.getX() + part.getDx();
-						int y = mapObject.getY() + part.getDy();
-						ComponentGameMapObjectOnLayer component = new ComponentGameMapObjectOnLayer(x, y,
-								part.getIdRef(), composite);
-						composite.addComponent(component);
-						compObjects.add(component);
-					}
-				} else {
-					compObjects.add(new GameMapObjectOnLayer(mapObject));
-				}
-			}
-		}
-		Collections.sort(compObjects, new GameMapObjectSorter(inventory));
-		return compObjects;
-	}
-
-	private ObjectTypeRegistry createObjectTypeRegistry(List<GameMapObjectOnLayer> objects, GameMapInventory inventory) {
-		ObjectTypeRegistry registry = new ObjectTypeRegistry();
-		for (GameMapObjectOnLayer object : objects) {
-			registry.register(object.getType());
-		}
-		return registry;
 	}
 
 	private void writeVersionNumber(BitmapWriter writer) {
@@ -152,7 +172,8 @@ public class GameMapBitmapGenerator {
 				}
 			}
 			writer.writeSingleDigitHexadecimalValue((int) Math.round(info.getTransparency() * 10));
-			if (Interaction.SCORE_VALUE.equals(interaction)) {
+			if (Interaction.SCORE_VALUE.equals(interaction) || Interaction.ATMOSPHERE.equals(interaction)
+					|| Interaction.TELEPORT.equals(interaction)) {
 				writer.writeDoubleDigitHexadecimalValue(info.getValue());
 			}
 		}
@@ -326,7 +347,7 @@ public class GameMapBitmapGenerator {
 		VECTOR("vector", 10),
 
 		VECTOR_WITH_GRAVITY("vectorWithGravity", 11),
-		
+
 		VERTICAL_JUMP("verticalJump", 12);
 
 		private String symbolicName;
@@ -413,7 +434,9 @@ public class GameMapBitmapGenerator {
 
 		INTANGIBLE_BACK("intangible-back", 7),
 
-		INTANGIBLE_FRONT("intangible-front", 8);
+		INTANGIBLE_FRONT("intangible-front", 8),
+
+		TELEPORT("teleport", 9);
 
 		private String symbolicName;
 

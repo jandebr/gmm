@@ -86,7 +86,19 @@
 					"maxWidthInTiles": 4,
 					"items": [
 						"ATMOS_dusk_8",
-						"ATMOS_night_8"
+						"ATMOS_night_8",
+						"ATMOS_wind_8",
+						"ATMOS_blast_8"
+					]
+				},
+				{
+					"maxWidthInTiles": 10,
+					"items": [
+						"teleport-entrance-2",
+						"teleport-entrance-5",
+						"teleport-entrance-10",
+						"teleport-entrance-20",
+						"teleport-entrance-50"
 					]
 				}
 			]

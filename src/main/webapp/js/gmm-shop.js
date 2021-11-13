@@ -204,6 +204,7 @@ class MapShop {
 			.attr("height", dims.scaledHeightInTiles * th - 2)
 			.style("fill", "url(#itemGradientBackground)");
 		var originalSizeLabel = dims.originalWidthInTiles + "x" + dims.originalHeightInTiles;
+		var badge
 		container.append("path")
 			.attr("d", edgesDesc)
 			.style("fill", "none")
@@ -255,7 +256,8 @@ class MapShop {
 
 	drawItemBadges(container, objectType, dims, originalSizeLabel) {
 		if (!objectType.isAtmospheric() && !objectType.isMeta()) {
-			this.drawItemSizeBadge(container, originalSizeLabel);
+			var label = objectType.isTeleport() ? "-> " + objectType.value : originalSizeLabel;
+			this.drawItemLabelBadge(container, label);
 		}
 		if (objectType.isAtmospheric()) {
 			this.drawItemAtmosBadge(container);
@@ -264,7 +266,7 @@ class MapShop {
 		}
 	}
 	
-	drawItemSizeBadge(container, originalSizeLabel) {
+	drawItemLabelBadge(container, label) {
 		var badge = container.append("rect")
 			.attr("x", 1)
 			.attr("y", 1)
@@ -276,7 +278,7 @@ class MapShop {
 			.attr("y", 11)
 			.style("fill", this.getStyle("item-sizeBadge-text-color"))
 			.style("font-size", this.getStyle("item-sizeBadge-text-size"))
-			.text(originalSizeLabel);
+			.text(label);
 		badge.attr("width", badgeText.node().getBoundingClientRect().width + 4);
 	}
 

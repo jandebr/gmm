@@ -249,7 +249,8 @@
 			"transparency": 0,
 			"widthInTiles": 8,
 			"heightInTiles": 1,
-			"interaction": "atmosphere"
+			"interaction": "atmosphere",
+			"value": 0
 		},
 		{
 			"id": "ATMOS_night_8",
@@ -261,7 +262,8 @@
 			"transparency": 0,
 			"widthInTiles": 8,
 			"heightInTiles": 1,
-			"interaction": "atmosphere"
+			"interaction": "atmosphere",
+			"value": 0
 		},
 		{
 			"id": "cloud-dark_3x2",
@@ -576,6 +578,109 @@
 			"widthInTiles": 1,
 			"heightInTiles": 1,
 			"interaction": "fatal"
+		},
+		{
+			"id": "ATMOS_wind_8",
+			"code": 34,
+			"label": "Wind",
+			"image": "ATMOS/wind_8.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0.8,
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "atmosphere",
+			"value": 1
+		},
+		{
+			"id": "ATMOS_blast_8",
+			"code": 35,
+			"label": "Blast",
+			"image": "ATMOS/blast_8.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0.8,
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "atmosphere",
+			"value": 2
+		},
+		{
+			"id": "teleport-destination",
+			"code": 36,
+			"label": "Teleport destination",
+			"image": "TELEPORT/teleport-destination.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 3,
+			"interaction": "intangible"
+		},
+		{
+			"id": "teleport-entrance-2",
+			"code": 37,
+			"label": "Teleport 2 screens",
+			"image": "TELEPORT/teleport-entrance.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 3,
+			"interaction": "teleport",
+			"value": 2
+		},
+		{
+			"id": "teleport-entrance-5",
+			"code": 38,
+			"label": "Teleport 5 screens",
+			"image": "TELEPORT/teleport-entrance.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 3,
+			"interaction": "teleport",
+			"value": 5
+		},
+		{
+			"id": "teleport-entrance-10",
+			"code": 39,
+			"label": "Teleport 10 screens",
+			"image": "TELEPORT/teleport-entrance.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 3,
+			"interaction": "teleport",
+			"value": 10
+		},
+		{
+			"id": "teleport-entrance-20",
+			"code": 40,
+			"label": "Teleport 20 screens",
+			"image": "TELEPORT/teleport-entrance.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 3,
+			"interaction": "teleport",
+			"value": 20
+		},
+		{
+			"id": "teleport-entrance-50",
+			"code": 41,
+			"label": "Teleport 50 screens",
+			"image": "TELEPORT/teleport-entrance.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 3,
+			"interaction": "teleport",
+			"value": 50
 		}
 	]
 }

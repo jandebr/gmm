@@ -1,11 +1,13 @@
 const META_OBJECTTYPE_ID_PREFIX = "META_";
 const DELETE_OBJECTTYPE_ID = "META_delete";
 const CHARACTER_OBJECTTYPE_ID = "META_character";
+const TELEPORT_DESTINATION_OBJECTTYPE_ID = "teleport-destination";
 
 const INTERACTION_TANGIBLE = "tangible";
 const INTERACTION_INTANGIBLE_BACK = "intangible-back";
 const INTERACTION_INTANGIBLE_FRONT = "intangible-front";
 const INTERACTION_ATMOSPHERE = "atmosphere";
+const INTERACTION_TELEPORT = "teleport";
 
 const DEPTH_LAYER_DEFAULT = "default";
 const DEPTH_LAYER_BACK = "back";
@@ -96,6 +98,7 @@ class MapInventory {
 				result.isCharacter = function() { return id == CHARACTER_OBJECTTYPE_ID; };
 				result.isTangible = function() { return this.interaction == INTERACTION_TANGIBLE; };
 				result.isAtmospheric = function() { return this.interaction == INTERACTION_ATMOSPHERE; };
+				result.isTeleport = function() { return this.interaction == INTERACTION_TELEPORT; };
 				result.getDepthLayer = function() {
 					if (this.interaction == INTERACTION_INTANGIBLE_BACK) {
 						return DEPTH_LAYER_BACK;
@@ -111,6 +114,10 @@ class MapInventory {
 			}
 		}
 		return result;
+	}
+
+	getTeleportDestinationObjectType() {
+		return this.getObjectType(TELEPORT_DESTINATION_OBJECTTYPE_ID);
 	}
 
 	getDepthLayersInDrawingOrder() {

@@ -15,7 +15,7 @@ var defaultMapRenderOptions = {
 	},
 	"style": {
 		"background-color": "white",
-		"background-image-opacity": 0.3,
+		"background-image-opacity": 0.2,
 		"background-emblems-opacity": 0,
 		"background-emblems-every-tiles-x": 0,
 		"background-emblems-every-tiles-y": 0,
@@ -24,7 +24,9 @@ var defaultMapRenderOptions = {
 		"background-emblems-image-height": 0,
 		"grid-color": "white",
 		"grid-width": 0.2,
-		"simulation-class": "character-simulation"
+		"simulation-class": "character-simulation",
+		"teleport-space-opacity": 0.2,
+		"teleport-space-image-path": "/gmm/media/web/teleport-space.png"
 	}
 };
 
@@ -164,9 +166,11 @@ class MapRenderer {
 	}
 
 	installObjectPanes(container) {
-		this.rootObjectsPane = container.append("g");
-		var layers = this.getInventory().getDepthLayersInDrawingOrder();
-		var panes = this.rootObjectsPane.selectAll("g").data(layers).enter().append("g");
+		this.objectPanesByLayer = new Map();
+		this.getInventory().getDepthLayersInDrawingOrder().forEach(function(layer) {
+			var pane = container.append("g");
+			this.objectPanesByLayer.set(layer, pane);
+		}, this);
 	}
 
 	drawObjects(map) {
@@ -190,21 +194,55 @@ class MapRenderer {
 	}
 	
 	drawObject(container, object) {
-		var y0 = this.getOffsetTilesY();
 		var objectType = this.getInventory().getObjectType(object.type);
-		var imagePath = this.getObjectTypeImagePath(objectType);
 		var tileWidth = this.getDimension("tile-width");
 		var tileHeight = this.getDimension("tile-height");
-		var uiElement = container.append("image")
-			.attr("x", object.x * tileWidth)
-			.attr("y", this.getMapHeight() - (object.y - y0 + objectType.heightInTiles) * tileHeight)
+		var x = object.x * tileWidth;
+		var y0 = this.getOffsetTilesY();
+		var y = this.getMapHeight() - (object.y - y0 + objectType.heightInTiles) * tileHeight;
+		var uiElement = container.append("g");
+		if (objectType.isTeleport()) {
+			this.drawTeleportContinuation(uiElement, object, x, y);
+		}
+		uiElement.append("image")
+			.attr("x", x)
+			.attr("y", y)
 			.attr("width", objectType.widthInTiles * tileWidth)
 			.attr("height", objectType.heightInTiles * tileHeight)
-			.attr("href", imagePath);
+			.attr("href", this.getObjectTypeImagePath(objectType));
 		if (objectType.transparency) {
 			uiElement.attr("opacity", 1 - objectType.transparency);
 		}
 		return uiElement;
+	}
+
+	drawTeleportContinuation(container, teleportObject, x, y) {
+		var objectType = this.getInventory().getObjectType(teleportObject.type);
+		var teleportWidth = objectType.widthInTiles * this.getDimension("tile-width");
+		var teleportHeight = objectType.heightInTiles * this.getDimension("tile-height");
+		var teleportScreens = objectType.value;
+		var screenWidth = this.getScreenWidth();
+		// Space
+		var spaceImagePath = this.getStyle("teleport-space-image-path");
+		var spaceWidth = (teleportScreens * screenWidth - teleportWidth) / teleportScreens;
+		for (var i = 0; i < teleportScreens; i++) {
+			container.append("image")
+				.attr("x", x + teleportWidth / 2 + i * spaceWidth)
+				.attr("y", y)
+				.attr("width", spaceWidth)
+				.attr("height", teleportHeight)
+				.attr("href", spaceImagePath)
+				.attr("opacity", this.getStyle("teleport-space-opacity"));
+		}
+		// Destination gate
+		var destObjectType = this.getInventory().getTeleportDestinationObjectType();
+		var destWidth = destObjectType.widthInTiles * this.getDimension("tile-width");
+		container.append("image")
+			.attr("x", x + teleportScreens * screenWidth - destWidth)
+			.attr("y", y)
+			.attr("width", destWidth)
+			.attr("height", teleportHeight)
+			.attr("href", this.getObjectTypeImagePath(destObjectType));
 	}
 
 	removeObject(object) {
@@ -498,12 +536,12 @@ class MapRenderer {
 		return this.svg;
 	}
 	
-	getRootObjectsPane() {
-		return this.rootObjectsPane;
+	getObjectPanesByLayer() {
+		return this.objectPanesByLayer;
 	}
 
 	getObjectPaneForLayer(layer) {
-		return this.getRootObjectsPane().selectAll("g").filter(d => d == layer);
+		return this.getObjectPanesByLayer().get(layer);
 	}
 
 	getRegionsPane() {
