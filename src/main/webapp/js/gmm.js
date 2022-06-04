@@ -124,13 +124,22 @@ function initControls() {
 }
 
 function addObjectToMap(object) {
-	var shouldUpdateShop = !hasSameTypedObjects(object) && countDistinctObjectTypesInMap() == MAXIMUM_MAP_OBJECTTYPES - 1;
-	mapRenderer.addObject(object);
-	mapAtmosphereRenderer.addObject(object);
-	currentMap.definition.objects.push(object);
-	notifyMapEdited();
-	if (countObjectsInMap() == MAXIMUM_MAP_OBJECTS) shouldUpdateShop = true;
-	if (shouldUpdateShop) updateShop();
+	var objectType = mapInventory.getObjectType(object.type);
+	if (objectType.isStrokeErase()) {
+		removeObjectsInStroke(object.x, object.x + objectType.widthInTiles - 1);
+	} else if (objectType.isStrokeDelete()) {
+		deleteStroke(object.x, object.x + objectType.widthInTiles - 1);
+	} else if (objectType.isStrokeInsert()) {
+		insertStroke(object.x, objectType.widthInTiles);
+	} else {
+		var shouldUpdateShop = !hasSameTypedObjects(object) && countDistinctObjectTypesInMap() == MAXIMUM_MAP_OBJECTTYPES - 1;
+		mapRenderer.addObject(object);
+		mapAtmosphereRenderer.addObject(object);
+		currentMap.definition.objects.push(object);
+		notifyMapEdited();
+		if (countObjectsInMap() == MAXIMUM_MAP_OBJECTS) shouldUpdateShop = true;
+		if (shouldUpdateShop) updateShop();
+	}
 }
 
 function removeObjectFromMap(object) {
@@ -144,6 +153,42 @@ function removeObjectFromMap(object) {
 		if (countObjectsInMap() == MAXIMUM_MAP_OBJECTS - 1) shouldUpdateShop = true;
 		if (shouldUpdateShop) updateShop();
 	}
+}
+
+function removeObjectsInStroke(xFrom, xTo) {
+	var objectsToRemove = currentMap.definition.objects.filter(function(object, index, array) {
+		var x0 = object.x;
+		var x1 = x0 + mapInventory.getObjectType(object.type).widthInTiles - 1;
+		return x0 <= xTo && x1 >= xFrom;
+	});
+	for (var i = 0; i < objectsToRemove.length; i++) {
+		removeObjectFromMap(objectsToRemove[i]);
+	}
+}
+
+function deleteStroke(xFrom, xTo) {
+	removeObjectsInStroke(xFrom, xTo);
+	currentMap.definition.objects.forEach(function(object, index, array) {
+		if (object.x > xTo) {
+			object.x -= (xTo - xFrom + 1);
+		}
+	});
+	fitMapRendererScreens();
+	mapAtmosphereRenderer.draw(currentMap);
+	mapRenderer.draw(currentMap);
+	notifyMapEdited();
+}
+
+function insertStroke(xAt, widthInTiles) {
+	currentMap.definition.objects.forEach(function(object, index, array) {
+		if (object.x >= xAt) {
+			object.x += widthInTiles;
+		}
+	});
+	fitMapRendererScreens();
+	mapAtmosphereRenderer.draw(currentMap);
+	mapRenderer.draw(currentMap);
+	notifyMapEdited();
 }
 
 function hasSameTypedObjects(object) {

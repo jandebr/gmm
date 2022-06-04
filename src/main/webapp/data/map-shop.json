@@ -10,9 +10,17 @@
 			"type": "SHARED",
 			"racks": [
 				{
-					"maxWidthInTiles": 1,
+					"maxWidthInTiles": 4,
 					"items": [
 						"META_delete"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"META_stroke_erase_8",
+						"META_stroke_delete_8",
+						"META_stroke_insert_8"
 					]
 				},
 				{

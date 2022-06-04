@@ -1,5 +1,8 @@
 const META_OBJECTTYPE_ID_PREFIX = "META_";
 const DELETE_OBJECTTYPE_ID = "META_delete";
+const STROKE_ERASE_OBJECTTYPE_ID_PREFIX = "META_stroke_erase_";
+const STROKE_DELETE_OBJECTTYPE_ID_PREFIX = "META_stroke_delete_";
+const STROKE_INSERT_OBJECTTYPE_ID_PREFIX = "META_stroke_insert_";
 const CHARACTER_OBJECTTYPE_ID = "META_character";
 const TELEPORT_DESTINATION_OBJECTTYPE_ID = "teleport-destination";
 
@@ -95,6 +98,9 @@ class MapInventory {
 			if (result) {
 				result.isMeta = function() { return id.startsWith(META_OBJECTTYPE_ID_PREFIX); };
 				result.isDelete = function() { return id == DELETE_OBJECTTYPE_ID; };
+				result.isStrokeErase = function() { return id.startsWith(STROKE_ERASE_OBJECTTYPE_ID_PREFIX); };
+				result.isStrokeDelete = function() { return id.startsWith(STROKE_DELETE_OBJECTTYPE_ID_PREFIX); };
+				result.isStrokeInsert = function() { return id.startsWith(STROKE_INSERT_OBJECTTYPE_ID_PREFIX); };
 				result.isCharacter = function() { return id == CHARACTER_OBJECTTYPE_ID; };
 				result.isTangible = function() { return this.interaction == INTERACTION_TANGIBLE; };
 				result.isAtmospheric = function() { return this.interaction == INTERACTION_ATMOSPHERE; };

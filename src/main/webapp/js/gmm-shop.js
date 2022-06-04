@@ -216,7 +216,9 @@ class MapShop {
 		var panel = container.append("g").attr("transform", "translate(" + offsetX + " " + offsetY + ")");
 		this.drawObjectType(panel, objectType);
 		this.drawItemBadges(container, objectType, dims, originalSizeLabel);
-		container.append("title").text(objectType.label + (objectType.isMeta() ? "" : " (" + originalSizeLabel + ")"));
+		var title = objectType.label;
+		if (!objectType.isMeta() || objectType.isAtmospheric()) title += " (" + originalSizeLabel + ")";
+		container.append("title").text(title);
 		if (!enablementFunction || enablementFunction(objectType)) {
 			var self = this;
 			container.on("click", function(event) {
@@ -255,12 +257,12 @@ class MapShop {
 	}
 
 	drawItemBadges(container, objectType, dims, originalSizeLabel) {
-		if (!objectType.isAtmospheric() && !objectType.isMeta()) {
+		if (!objectType.isMeta() || objectType.isAtmospheric()) {
 			var label = objectType.isTeleport() ? "-> " + objectType.value : originalSizeLabel;
 			this.drawItemLabelBadge(container, label);
 		}
 		if (objectType.isAtmospheric()) {
-			this.drawItemAtmosBadge(container);
+			this.drawItemAtmosBadge(container, dims);
 		} else if (objectType.getDepthLayer() != DEPTH_LAYER_DEFAULT) {
 			this.drawItemDepthBadge(container, dims, objectType.getDepthLayer());
 		}
@@ -282,10 +284,12 @@ class MapShop {
 		badge.attr("width", badgeText.node().getBoundingClientRect().width + 4);
 	}
 
-	drawItemAtmosBadge(container) {
+	drawItemAtmosBadge(container, dims) {
+		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 14;
+		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 13;
 		container.append("image")
-			.attr("x", 3)
-			.attr("y", 2)
+			.attr("x", x0)
+			.attr("y", y0)
 			.attr("href", "/gmm/media/web/atmos-icon.png");
 	}
 

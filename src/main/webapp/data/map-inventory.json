@@ -85,6 +85,30 @@
 			"transparency": 0
 		},
 		{
+			"id": "META_stroke_erase_8",
+			"label": "Erase stroke",
+			"image": "META/stroke_erase_8.png",
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "atmosphere"
+		},
+		{
+			"id": "META_stroke_delete_8",
+			"label": "Delete stroke",
+			"image": "META/stroke_delete_8.png",
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "atmosphere"
+		},
+		{
+			"id": "META_stroke_insert_8",
+			"label": "Insert stroke",
+			"image": "META/stroke_insert_8.png",
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "atmosphere"
+		},
+		{
 			"id": "soil_4x1",
 			"code": 0,
 			"label": "Soil",
