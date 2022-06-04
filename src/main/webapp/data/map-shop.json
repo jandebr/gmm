@@ -173,6 +173,18 @@
 					]
 				}
 			]
+		},
+		{
+			"label": "Christmas",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"ice_15x1"
+					]
+				}
+			]
 		}
 	]
 }

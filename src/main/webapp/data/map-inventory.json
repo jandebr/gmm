@@ -26,7 +26,8 @@
 			"label": "Snowy landscape",
 			"images": [
 				"SnowyLandscape/SnowyLandscape1.png",
-				"SnowyLandscape/SnowyLandscape2.png"
+				"SnowyLandscape/SnowyLandscape2.png",
+				"SnowyLandscape/SnowyLandscape3.png"
 			]
 		},
 		{
@@ -37,6 +38,15 @@
 				"Themepark/Themepark1.png",
 				"Themepark/Themepark2.png"
 			]
+		},
+		{
+			"id": "SnowyVillage",
+			"code": 3,
+			"label": "Snowy village",
+			"images": [
+				"SnowyVillage/SnowyVillage1.png",
+				"SnowyVillage/SnowyVillage2.png"
+			]
 		}
 	],
 	"characters": [
@@ -46,6 +56,14 @@
 			"label": "Cowboy",
 			"image": "cowboy.png",
 			"appearancesRunning": 10,
+			"height": 92
+		},
+		{
+			"id": "SantaClaus",
+			"code": 1,
+			"label": "Santa Claus",
+			"image": "santa-claus.png",
+			"appearancesRunning": 15,
 			"height": 92
 		}
 	],
@@ -201,7 +219,8 @@
 			"transparency": 0,
 			"widthInTiles": 1,
 			"heightInTiles": 1,
-			"interaction": "score"
+			"interaction": "score",
+			"value": 1
 		},
 		{
 			"id": "bomb_1x1",
@@ -299,7 +318,7 @@
 			"transparency": 0,
 			"widthInTiles": 1,
 			"heightInTiles": 1,
-			"interaction": "scoreValue",
+			"interaction": "score",
 			"value": 10
 		},
 		{
@@ -496,7 +515,7 @@
 			"transparency": 0,
 			"widthInTiles": 5,
 			"heightInTiles": 4,
-			"interaction": "scoreValue",
+			"interaction": "score",
 			"value": 100
 		},
 		{
@@ -681,6 +700,19 @@
 			"heightInTiles": 3,
 			"interaction": "teleport",
 			"value": 50
+		},
+		{
+			"id": "ice_15x1",
+			"code": 42,
+			"label": "Ice",
+			"image": "ice_15x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 15,
+			"heightInTiles": 1,
+			"interaction": "tangible",
+			"value": 1
 		}
 	]
 }

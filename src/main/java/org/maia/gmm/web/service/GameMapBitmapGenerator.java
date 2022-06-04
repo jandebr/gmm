@@ -21,7 +21,7 @@ import org.maia.gmm.web.model.map.GameMapObject;
 
 public class GameMapBitmapGenerator {
 
-	private static final int VERSION_NUMBER = 4;
+	private static final int VERSION_NUMBER = 5;
 
 	private static final int MAP_WIDTH_IN_TILES = 15;
 
@@ -172,9 +172,10 @@ public class GameMapBitmapGenerator {
 				}
 			}
 			writer.writeSingleDigitHexadecimalValue((int) Math.round(info.getTransparency() * 10));
-			if (Interaction.SCORE_VALUE.equals(interaction) || Interaction.ATMOSPHERE.equals(interaction)
-					|| Interaction.TELEPORT.equals(interaction)) {
+			if (Interaction.SCORE.equals(interaction) || Interaction.TELEPORT.equals(interaction)) {
 				writer.writeDoubleDigitHexadecimalValue(info.getValue());
+			} else if (Interaction.ATMOSPHERE.equals(interaction) || Interaction.TANGIBLE.equals(interaction)) {
+				writer.writeSingleDigitHexadecimalValue(info.getValue());
 			}
 		}
 	}
@@ -430,13 +431,11 @@ public class GameMapBitmapGenerator {
 
 		ATMOSPHERE("atmosphere", 5),
 
-		SCORE_VALUE("scoreValue", 6),
+		INTANGIBLE_BACK("intangible-back", 6),
 
-		INTANGIBLE_BACK("intangible-back", 7),
+		INTANGIBLE_FRONT("intangible-front", 7),
 
-		INTANGIBLE_FRONT("intangible-front", 8),
-
-		TELEPORT("teleport", 9);
+		TELEPORT("teleport", 8);
 
 		private String symbolicName;
 
