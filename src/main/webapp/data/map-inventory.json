@@ -742,17 +742,30 @@
 			"value": 50
 		},
 		{
-			"id": "ice_15x1",
+			"id": "ice_8x1",
 			"code": 42,
 			"label": "Ice",
-			"image": "ice_15x1.png",
+			"image": "ice_8x1.png",
 			"appearances": 1,
 			"movement": "none",
 			"transparency": 0,
-			"widthInTiles": 15,
+			"widthInTiles": 8,
 			"heightInTiles": 1,
 			"interaction": "tangible",
 			"value": 1
+		},
+		{
+			"id": "snow_8x1",
+			"code": 43,
+			"label": "Snow",
+			"image": "snow_8x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "tangible",
+			"value": 0
 		}
 	]
 }

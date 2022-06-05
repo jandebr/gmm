@@ -191,7 +191,8 @@
 				{
 					"maxWidthInTiles": 4,
 					"items": [
-						"ice_15x1"
+						"snow_8x1",
+						"ice_8x1"
 					]
 				}
 			]
