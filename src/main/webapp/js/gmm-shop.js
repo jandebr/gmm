@@ -203,8 +203,6 @@ class MapShop {
 			.attr("width", dims.scaledWidthInTiles * tw - 2)
 			.attr("height", dims.scaledHeightInTiles * th - 2)
 			.style("fill", "url(#itemGradientBackground)");
-		var originalSizeLabel = dims.originalWidthInTiles + "x" + dims.originalHeightInTiles;
-		var badge
 		container.append("path")
 			.attr("d", edgesDesc)
 			.style("fill", "none")
@@ -215,10 +213,8 @@ class MapShop {
 		var offsetY = dims.scaledHeightInTiles * tm;
 		var panel = container.append("g").attr("transform", "translate(" + offsetX + " " + offsetY + ")");
 		this.drawObjectType(panel, objectType);
-		this.drawItemBadges(container, objectType, dims, originalSizeLabel);
-		var title = objectType.label;
-		if (!objectType.isMeta() || objectType.isAtmospheric()) title += " (" + originalSizeLabel + ")";
-		container.append("title").text(title);
+		this.drawItemBadges(container, objectType, dims);
+		container.append("title").text(this.getObjectTypeTitle(objectType));
 		if (!enablementFunction || enablementFunction(objectType)) {
 			var self = this;
 			container.on("click", function(event) {
@@ -256,13 +252,15 @@ class MapShop {
 		}
 	}
 
-	drawItemBadges(container, objectType, dims, originalSizeLabel) {
-		if (!objectType.isMeta() || objectType.isAtmospheric()) {
-			var label = objectType.isTeleport() ? "-> " + objectType.value : originalSizeLabel;
+	drawItemBadges(container, objectType, dims) {
+		var label = this.getObjectTypeBadgeLabel(objectType);
+		if (label != null) {
 			this.drawItemLabelBadge(container, label);
 		}
 		if (objectType.isAtmospheric()) {
-			this.drawItemAtmosBadge(container, dims);
+			if (!objectType.isMeta()) {
+				this.drawItemAtmosBadge(container, dims);
+			}
 		} else if (objectType.getDepthLayer() != DEPTH_LAYER_DEFAULT) {
 			this.drawItemDepthBadge(container, dims, objectType.getDepthLayer());
 		}
@@ -300,6 +298,29 @@ class MapShop {
 			.attr("x", x0)
 			.attr("y", y0)
 			.attr("href", "/gmm/media/web/depth-" + depthLayer + ".png");
+	}
+
+	getObjectTypeTitle(objectType) {
+		var title = objectType.label;
+		var label = this.getObjectTypeBadgeLabel(objectType);
+		if (label != null) {
+			title += " (" + label + ")";
+		}
+		return title;
+	}
+	
+	getObjectTypeBadgeLabel(objectType) {
+		var label = null;
+		if (!objectType.isMeta() || objectType.isAtmospheric()) {
+			if (objectType.isAtmospheric()) {
+				label = "-" + objectType.widthInTiles + "-";
+			} else if (objectType.isTeleport()) {
+				label = "-> " + objectType.value;
+			} else {
+				label = objectType.widthInTiles + "x" + objectType.heightInTiles;
+			}
+		}
+		return label;
 	}
 	
 	getObjectTypeInfoInHtml(objectType) {

@@ -101,10 +101,26 @@
 			"interaction": "atmosphere"
 		},
 		{
+			"id": "META_stroke_delete_1",
+			"label": "Delete stroke",
+			"image": "META/stroke_delete_1.png",
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "atmosphere"
+		},
+		{
 			"id": "META_stroke_insert_8",
 			"label": "Insert stroke",
 			"image": "META/stroke_insert_8.png",
 			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "atmosphere"
+		},
+		{
+			"id": "META_stroke_insert_1",
+			"label": "Insert stroke",
+			"image": "META/stroke_insert_1.png",
+			"widthInTiles": 1,
 			"heightInTiles": 1,
 			"interaction": "atmosphere"
 		},
@@ -663,7 +679,7 @@
 		{
 			"id": "teleport-entrance-2",
 			"code": 37,
-			"label": "Teleport 2 screens",
+			"label": "Teleport screens",
 			"image": "TELEPORT/teleport-entrance.png",
 			"appearances": 1,
 			"movement": "none",
@@ -676,7 +692,7 @@
 		{
 			"id": "teleport-entrance-5",
 			"code": 38,
-			"label": "Teleport 5 screens",
+			"label": "Teleport screens",
 			"image": "TELEPORT/teleport-entrance.png",
 			"appearances": 1,
 			"movement": "none",
@@ -689,7 +705,7 @@
 		{
 			"id": "teleport-entrance-10",
 			"code": 39,
-			"label": "Teleport 10 screens",
+			"label": "Teleport screens",
 			"image": "TELEPORT/teleport-entrance.png",
 			"appearances": 1,
 			"movement": "none",
@@ -702,7 +718,7 @@
 		{
 			"id": "teleport-entrance-20",
 			"code": 40,
-			"label": "Teleport 20 screens",
+			"label": "Teleport screens",
 			"image": "TELEPORT/teleport-entrance.png",
 			"appearances": 1,
 			"movement": "none",
@@ -715,7 +731,7 @@
 		{
 			"id": "teleport-entrance-50",
 			"code": 41,
-			"label": "Teleport 50 screens",
+			"label": "Teleport screens",
 			"image": "TELEPORT/teleport-entrance.png",
 			"appearances": 1,
 			"movement": "none",

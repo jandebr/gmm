@@ -20,7 +20,9 @@
 					"items": [
 						"META_stroke_erase_8",
 						"META_stroke_delete_8",
-						"META_stroke_insert_8"
+						"META_stroke_insert_8",
+						"META_stroke_delete_1",
+						"META_stroke_insert_1"
 					]
 				},
 				{
