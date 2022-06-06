@@ -18,6 +18,7 @@ var defaultMapShopOptions = {
 		"item-sizeBadge-background-opacity": 0.5,
 		"item-sizeBadge-text-color": "gray",
 		"item-sizeBadge-text-size": "10px",
+		"item-fatalBadge-opacity": 0.3,
 		"basket-opacity": 0.4
 	}
 };
@@ -264,6 +265,9 @@ class MapShop {
 		} else if (objectType.getDepthLayer() != DEPTH_LAYER_DEFAULT) {
 			this.drawItemDepthBadge(container, dims, objectType.getDepthLayer());
 		}
+		if (objectType.isFatal()) {
+			this.drawItemFatalBadge(container, dims);
+		}
 	}
 	
 	drawItemLabelBadge(container, label) {
@@ -298,6 +302,18 @@ class MapShop {
 			.attr("x", x0)
 			.attr("y", y0)
 			.attr("href", "/gmm/media/web/depth-" + depthLayer + ".png");
+	}
+
+	drawItemFatalBadge(container, dims) {
+		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 16;
+		var y0 = 2;
+		container.append("image")
+			.attr("x", x0)
+			.attr("y", y0)
+			.attr("width", 12)
+			.attr("height", 15)
+			.attr("href", "/gmm/media/web/fatal-icon.png")
+			.style("opacity", this.getStyle("item-fatalBadge-opacity"));
 	}
 
 	getObjectTypeTitle(objectType) {
