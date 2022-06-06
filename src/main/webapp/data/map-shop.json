@@ -53,6 +53,17 @@
 					]
 				},
 				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"soil-surface_8x1",
+						"meadow-surface_8x1",
+						"stone-surface_8x1",
+						"lava-surface_8x1",
+						"snow-surface_8x1",
+						"ice-surface_8x1"
+					]
+				},
+				{
 					"maxWidthInTiles": 4,
 					"items": [
 						"plank_4x1",
@@ -191,8 +202,14 @@
 				{
 					"maxWidthInTiles": 4,
 					"items": [
-						"snow_8x1",
-						"ice_8x1"
+						"snow-surface_8x1",
+						"ice-surface_8x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"iglo-finish_9x6"
 					]
 				}
 			]
