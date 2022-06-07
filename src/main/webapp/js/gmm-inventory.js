@@ -97,6 +97,7 @@ class MapInventory {
 		if (!result) {
 			result = this.getData().objectTypes.find((e) => e.id == id);
 			if (result) {
+				var inventory = this;
 				result.isMeta = function() { return id.startsWith(META_OBJECTTYPE_ID_PREFIX); };
 				result.isDelete = function() { return id == DELETE_OBJECTTYPE_ID; };
 				result.isStrokeErase = function() { return id.startsWith(STROKE_ERASE_OBJECTTYPE_ID_PREFIX); };
@@ -104,9 +105,18 @@ class MapInventory {
 				result.isStrokeInsert = function() { return id.startsWith(STROKE_INSERT_OBJECTTYPE_ID_PREFIX); };
 				result.isCharacter = function() { return id == CHARACTER_OBJECTTYPE_ID; };
 				result.isTangible = function() { return this.interaction == INTERACTION_TANGIBLE; };
-				result.isFatal = function() { return this.interaction == INTERACTION_FATAL; };
 				result.isAtmospheric = function() { return this.interaction == INTERACTION_ATMOSPHERE; };
 				result.isTeleport = function() { return this.interaction == INTERACTION_TELEPORT; };
+				result.isFatal = function() {
+					if (this.interaction == INTERACTION_FATAL) return true;
+					if (this.parts) {
+						for (var i = 0; i < this.parts.length; i++) {
+							var part = inventory.getObjectType(this.parts[i].idRef);
+							if (part.interaction == INTERACTION_FATAL) return true;
+						}
+					}
+					return false;
+				};
 				result.getDepthLayer = function() {
 					if (this.interaction == INTERACTION_INTANGIBLE_BACK) {
 						return DEPTH_LAYER_BACK;

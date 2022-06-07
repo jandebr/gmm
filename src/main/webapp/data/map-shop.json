@@ -47,9 +47,7 @@
 					"maxWidthInTiles": 4,
 					"items": [
 						"soil_15x1",
-						"soil_4x1",
-						"stone_4x1",
-						"stone_1x1"
+						"soil_4x1"
 					]
 				},
 				{
@@ -60,7 +58,15 @@
 						"stone-surface_8x1",
 						"lava-surface_8x1",
 						"snow-surface_8x1",
-						"ice-surface_8x1"
+						"ice-surface_8x1",
+						"sea_4x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"stone_4x1",
+						"stone_1x1"
 					]
 				},
 				{
@@ -68,12 +74,6 @@
 					"items": [
 						"plank_4x1",
 						"plank-birds_4x2"
-					]
-				},
-				{
-					"maxWidthInTiles": 4,
-					"items": [
-						"sea_4x1"
 					]
 				},
 				{
