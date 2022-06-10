@@ -19,7 +19,9 @@ var defaultMapShopOptions = {
 		"item-sizeBadge-text-color": "gray",
 		"item-sizeBadge-text-size": "10px",
 		"item-scoreBadge-opacity": 0.9,
-		"item-fatalBadge-opacity": 0.8,
+		"item-fatalBadge-opacity": 0.9,
+		"item-atmosBadge-opacity": 0.9,
+		"item-depthBadge-opacity": 0.9,
 		"basket-opacity": 0.4
 	}
 };
@@ -260,7 +262,7 @@ class MapShop {
 		if (label != null) {
 			this.drawItemLabelBadge(container, label);
 		}
-		// Upper right corner
+		// Lower left corner
 		if (objectType.isScore()) {
 			this.drawItemScoreBadge(container, dims);
 		}
@@ -293,8 +295,8 @@ class MapShop {
 	}
 
 	drawItemScoreBadge(container, dims) {
-		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 13;
-		var y0 = 3;
+		var x0 = 3;
+		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 13;
 		container.append("image")
 			.attr("x", x0)
 			.attr("y", y0)
@@ -320,7 +322,8 @@ class MapShop {
 		container.append("image")
 			.attr("x", x0)
 			.attr("y", y0)
-			.attr("href", "/gmm/media/web/atmos-icon.png");
+			.attr("href", "/gmm/media/web/atmos-icon.png")
+			.style("opacity", this.getStyle("item-atmosBadge-opacity"));
 	}
 
 	drawItemDepthBadge(container, dims, depthLayer) {
@@ -329,14 +332,19 @@ class MapShop {
 		container.append("image")
 			.attr("x", x0)
 			.attr("y", y0)
-			.attr("href", "/gmm/media/web/depth-" + depthLayer + ".png");
+			.attr("href", "/gmm/media/web/depth-" + depthLayer + ".png")
+			.style("opacity", this.getStyle("item-depthBadge-opacity"));
 	}
 
 	getObjectTypeTitle(objectType) {
 		var title = objectType.label;
 		var label = this.getObjectTypeBadgeLabel(objectType);
 		if (label != null) {
-			title += " (" + label + ")";
+			if (label.charAt(0) == '-' || label.charAt(0) == '|') {
+				title += " " + label;
+			} else {
+				title += " (" + label + ")";
+			}
 		}
 		return title;
 	}
@@ -345,7 +353,7 @@ class MapShop {
 		var label = null;
 		if (!objectType.isMeta() || objectType.isAtmospheric()) {
 			if (objectType.isAtmospheric()) {
-				label = "-" + objectType.widthInTiles + "-";
+				label = "|-" + objectType.widthInTiles + "-|";
 			} else if (objectType.isTeleport()) {
 				label = "-> " + objectType.value;
 			} else {

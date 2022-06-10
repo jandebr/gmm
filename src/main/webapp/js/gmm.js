@@ -99,7 +99,7 @@ function initControls() {
 				}
 			} else {
 				box.setRegion(cursor.x, cursor.y, objectType.widthInTiles, objectType.heightInTiles);
-				if (box.isEmptyAtLayer(objectType.getDepthLayer()) && canEditMap() && countObjectsInMap() < MAXIMUM_MAP_OBJECTS) {
+				if (canEditMap() && (objectType.isStrokeOperation() || (box.isEmptyAtLayer(objectType.getDepthLayer()) && countObjectsInMap() < MAXIMUM_MAP_OBJECTS))) {
 					box.setStyle("fill:green; fill-opacity:0.2; stroke:green; stroke-width:2; stroke-opacity:0.4");
 					if (cursor.pressed) {
 						var y = cursor.mapRenderer.getOffsetTilesY() + box.getY();

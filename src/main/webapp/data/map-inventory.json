@@ -829,6 +829,65 @@
 			"widthInTiles": 9,
 			"heightInTiles": 6,
 			"interaction": "finish"
+		},
+		{
+			"id": "christmas-tree_4x5",
+			"code": 49,
+			"label": "Christmas tree",
+			"image": "christmas-tree_4x5.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 5,
+			"interaction": "intangible-back"
+		},
+		{
+			"id": "gift_2x2",
+			"code": 50,
+			"label": "Gift",
+			"image": "gift_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "score",
+			"value": 1
+		},
+		{
+			"id": "ATMOS_snowfall_15",
+			"code": 51,
+			"label": "Snowfall",
+			"image": "ATMOS/snowfall_15.png",
+			"appearances": 3,
+			"movement": "none",
+			"activityCycles": 1,
+			"activitySpeed": 245,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"transparency": 0,
+			"widthInTiles": 15,
+			"heightInTiles": 1,
+			"interaction": "atmosphere",
+			"value": 0
+		},
+		{
+			"id": "ATMOS_blizzard_15",
+			"code": 52,
+			"label": "Blizzard",
+			"image": "ATMOS/blizzard_15.png",
+			"appearances": 3,
+			"movement": "none",
+			"activityCycles": 1,
+			"activitySpeed": 250,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"transparency": 0,
+			"widthInTiles": 15,
+			"heightInTiles": 1,
+			"interaction": "atmosphere",
+			"value": 0
 		}
 	]
 }

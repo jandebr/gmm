@@ -209,6 +209,25 @@
 				{
 					"maxWidthInTiles": 4,
 					"items": [
+						"ATMOS_snowfall_15",
+						"ATMOS_blizzard_15"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"gift_2x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"christmas-tree_4x5"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
 						"iglo-finish_9x6"
 					]
 				}

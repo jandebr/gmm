@@ -101,6 +101,7 @@ class MapInventory {
 				var inventory = this;
 				result.isMeta = function() { return id.startsWith(META_OBJECTTYPE_ID_PREFIX); };
 				result.isDelete = function() { return id == DELETE_OBJECTTYPE_ID; };
+				result.isStrokeOperation = function() { return this.isStrokeErase() || this.isStrokeDelete() || this.isStrokeInsert(); };
 				result.isStrokeErase = function() { return id.startsWith(STROKE_ERASE_OBJECTTYPE_ID_PREFIX); };
 				result.isStrokeDelete = function() { return id.startsWith(STROKE_DELETE_OBJECTTYPE_ID_PREFIX); };
 				result.isStrokeInsert = function() { return id.startsWith(STROKE_INSERT_OBJECTTYPE_ID_PREFIX); };
