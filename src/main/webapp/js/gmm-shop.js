@@ -18,6 +18,7 @@ var defaultMapShopOptions = {
 		"item-sizeBadge-background-opacity": 0.5,
 		"item-sizeBadge-text-color": "gray",
 		"item-sizeBadge-text-size": "10px",
+		"item-scoreBadge-opacity": 0.9,
 		"item-fatalBadge-opacity": 0.8,
 		"basket-opacity": 0.4
 	}
@@ -254,10 +255,16 @@ class MapShop {
 	}
 
 	drawItemBadges(container, objectType, dims) {
+		// Upper left corner
 		var label = this.getObjectTypeBadgeLabel(objectType);
 		if (label != null) {
 			this.drawItemLabelBadge(container, label);
 		}
+		// Upper right corner
+		if (objectType.isScore()) {
+			this.drawItemScoreBadge(container, dims);
+		}
+		// Lower right corner
 		if (objectType.isFatal()) {
 			this.drawItemFatalBadge(container, dims);
 		} else if (objectType.isAtmospheric()) {
@@ -283,6 +290,16 @@ class MapShop {
 			.style("font-size", this.getStyle("item-sizeBadge-text-size"))
 			.text(label);
 		badge.attr("width", badgeText.node().getBoundingClientRect().width + 4);
+	}
+
+	drawItemScoreBadge(container, dims) {
+		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 13;
+		var y0 = 3;
+		container.append("image")
+			.attr("x", x0)
+			.attr("y", y0)
+			.attr("href", "/gmm/media/web/score-icon.png")
+			.style("opacity", this.getStyle("item-scoreBadge-opacity"));
 	}
 
 	drawItemFatalBadge(container, dims) {

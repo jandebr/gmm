@@ -9,6 +9,7 @@ const TELEPORT_DESTINATION_OBJECTTYPE_ID = "teleport-destination";
 const INTERACTION_TANGIBLE = "tangible";
 const INTERACTION_INTANGIBLE_BACK = "intangible-back";
 const INTERACTION_INTANGIBLE_FRONT = "intangible-front";
+const INTERACTION_SCORE = "score";
 const INTERACTION_FATAL = "fatal";
 const INTERACTION_ATMOSPHERE = "atmosphere";
 const INTERACTION_TELEPORT = "teleport";
@@ -107,12 +108,14 @@ class MapInventory {
 				result.isTangible = function() { return this.interaction == INTERACTION_TANGIBLE; };
 				result.isAtmospheric = function() { return this.interaction == INTERACTION_ATMOSPHERE; };
 				result.isTeleport = function() { return this.interaction == INTERACTION_TELEPORT; };
-				result.isFatal = function() {
-					if (this.interaction == INTERACTION_FATAL) return true;
+				result.isScore = function() { return this.isSelfOrPartsOfInteraction(INTERACTION_SCORE); };
+				result.isFatal = function() { return this.isSelfOrPartsOfInteraction(INTERACTION_FATAL); };
+				result.isSelfOrPartsOfInteraction = function(interaction) {
+					if (this.interaction == interaction) return true;
 					if (this.parts) {
 						for (var i = 0; i < this.parts.length; i++) {
 							var part = inventory.getObjectType(this.parts[i].idRef);
-							if (part.interaction == INTERACTION_FATAL) return true;
+							if (part.interaction == interaction) return true;
 						}
 					}
 					return false;
