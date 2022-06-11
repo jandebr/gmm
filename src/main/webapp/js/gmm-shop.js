@@ -20,7 +20,9 @@ var defaultMapShopOptions = {
 		"item-sizeBadge-text-size": "10px",
 		"item-scoreBadge-opacity": 0.9,
 		"item-fatalBadge-opacity": 0.9,
+		"item-finishBadge-opacity": 0.7,
 		"item-atmosBadge-opacity": 0.9,
+		"item-teleportBadge-opacity": 0.9,
 		"item-depthBadge-opacity": 0.9,
 		"basket-opacity": 0.4
 	}
@@ -273,6 +275,10 @@ class MapShop {
 			if (!objectType.isMeta()) {
 				this.drawItemAtmosBadge(container, dims);
 			}
+		} else if (objectType.isTeleport()) {
+			this.drawItemTeleportBadge(container, dims);
+		} else if (objectType.isFinish()) {
+			this.drawItemFinishBadge(container, dims);
 		} else if (objectType.getDepthLayer() != DEPTH_LAYER_DEFAULT) {
 			this.drawItemDepthBadge(container, dims, objectType.getDepthLayer());
 		}
@@ -324,6 +330,26 @@ class MapShop {
 			.attr("y", y0)
 			.attr("href", "/gmm/media/web/atmos-icon.png")
 			.style("opacity", this.getStyle("item-atmosBadge-opacity"));
+	}
+
+	drawItemTeleportBadge(container, dims) {
+		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 12;
+		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 12;
+		container.append("image")
+			.attr("x", x0)
+			.attr("y", y0)
+			.attr("href", "/gmm/media/web/teleport-icon.png")
+			.style("opacity", this.getStyle("item-teleportBadge-opacity"));
+	}
+
+	drawItemFinishBadge(container, dims) {
+		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 13;
+		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 13;
+		container.append("image")
+			.attr("x", x0)
+			.attr("y", y0)
+			.attr("href", "/gmm/media/web/finish-icon.png")
+			.style("opacity", this.getStyle("item-finishBadge-opacity"));
 	}
 
 	drawItemDepthBadge(container, dims, depthLayer) {

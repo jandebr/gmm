@@ -153,13 +153,13 @@ public class GameMapBitmapGenerator {
 			writer.writeSingleDigitHexadecimalValue(movement.getNumericValue());
 			if (!Movement.NONE.equals(movement) || info.getAppearances() > 1) {
 				writer.writeSingleDigitHexadecimalValue(info.getActivityCycles());
-				writer.writeDoubleDigitHexadecimalValue(info.getActivitySpeed());
+				writer.writeDoubleDigitHexadecimalValue(convertSpeedValue(info.getActivitySpeed(), info));
 				writer.writeSingleDigitHexadecimalValue(info.getInactivityTimeMinimum());
 				writer.writeSingleDigitHexadecimalValue(info.getInactivityTimeMaximum());
 				writer.writeSingleDigitHexadecimalValue(info.getInactivityAppearance());
 			}
 			if (!Movement.NONE.equals(movement) && info.getAppearances() > 1) {
-				writer.writeDoubleDigitHexadecimalValue(info.getAppearancesSpeedWhileMoving());
+				writer.writeDoubleDigitHexadecimalValue(convertSpeedValue(info.getAppearancesSpeedWhileMoving(), info));
 			}
 			if (!Movement.NONE.equals(movement)) {
 				writer.writeDoubleDigitHexadecimalValue(convertMovementParameterValue(info.getMovementParameter1()));
@@ -208,6 +208,11 @@ public class GameMapBitmapGenerator {
 			writer.writeSingleDigitHexadecimalValue(tileSize);
 			writer.writeDoubleDigitHexadecimalValue(offset);
 		}
+	}
+
+	private int convertSpeedValue(int value, MapObjectTypeInfo info) {
+		int appearances = info.getAppearances();
+		return Math.max(Math.min(value - (appearances - 1), 255), 0);
 	}
 
 	/**

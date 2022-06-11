@@ -880,7 +880,7 @@
 			"appearances": 3,
 			"movement": "none",
 			"activityCycles": 1,
-			"activitySpeed": 250,
+			"activitySpeed": 252,
 			"inactivityTimeMinimum": 0,
 			"inactivityTimeMaximum": 0,
 			"transparency": 0,
