@@ -104,12 +104,16 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 4,
+					"maxWidthInTiles": 8,
 					"items": [
 						"ATMOS_dusk_8",
 						"ATMOS_night_8",
 						"ATMOS_wind_8",
-						"ATMOS_blast_8"
+						"ATMOS_blast_8",
+						"ATMOS_rain_15",
+						"ATMOS_heavyrain_15",
+						"ATMOS_snowfall_15",
+						"ATMOS_blizzard_15"
 					]
 				},
 				{

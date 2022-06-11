@@ -888,6 +888,40 @@
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
 			"value": 0
+		},
+		{
+			"id": "ATMOS_rain_15",
+			"code": 53,
+			"label": "Rain",
+			"image": "ATMOS/rain_15.png",
+			"appearances": 3,
+			"movement": "none",
+			"activityCycles": 1,
+			"activitySpeed": 250,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"transparency": 0,
+			"widthInTiles": 15,
+			"heightInTiles": 1,
+			"interaction": "atmosphere",
+			"value": 0
+		},
+		{
+			"id": "ATMOS_heavyrain_15",
+			"code": 54,
+			"label": "Heavy rain",
+			"image": "ATMOS/heavyrain_15.png",
+			"appearances": 3,
+			"movement": "none",
+			"activityCycles": 1,
+			"activitySpeed": 252,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"transparency": 0,
+			"widthInTiles": 15,
+			"heightInTiles": 1,
+			"interaction": "atmosphere",
+			"value": 0
 		}
 	]
 }
