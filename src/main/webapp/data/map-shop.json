@@ -206,6 +206,13 @@
 				{
 					"maxWidthInTiles": 4,
 					"items": [
+						"ATMOS_snowfall_15",
+						"ATMOS_blizzard_15"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
 						"snow-surface_8x1",
 						"ice-surface_8x1"
 					]
@@ -213,8 +220,22 @@
 				{
 					"maxWidthInTiles": 4,
 					"items": [
-						"ATMOS_snowfall_15",
-						"ATMOS_blizzard_15"
+						"ice-block_4x1",
+						"ice-block_2x2",
+						"ice-block_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"ice-berg_5x4"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"polar-bear_7x4",
+						"penguin-sliding_2x1"
 					]
 				},
 				{
@@ -224,9 +245,11 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 4,
+					"maxWidthInTiles": 12,
 					"items": [
-						"christmas-tree_4x5"
+						"christmas-tree_4x5",
+						"christmas-tree-back_4x5",
+						"polar-bears_8x4"
 					]
 				},
 				{

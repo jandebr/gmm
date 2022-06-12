@@ -11,6 +11,7 @@ const INTERACTION_INTANGIBLE_BACK = "intangible-back";
 const INTERACTION_INTANGIBLE_FRONT = "intangible-front";
 const INTERACTION_SCORE = "score";
 const INTERACTION_FATAL = "fatal";
+const INTERACTION_FATAL_ACTIVE = "fatal-active";
 const INTERACTION_FINISH = "finish";
 const INTERACTION_ATMOSPHERE = "atmosphere";
 const INTERACTION_TELEPORT = "teleport";
@@ -112,7 +113,7 @@ class MapInventory {
 				result.isTeleport = function() { return this.interaction == INTERACTION_TELEPORT; };
 				result.isFinish = function() { return this.interaction == INTERACTION_FINISH; };
 				result.isScore = function() { return this.isSelfOrPartsOfInteraction(INTERACTION_SCORE); };
-				result.isFatal = function() { return this.isSelfOrPartsOfInteraction(INTERACTION_FATAL); };
+				result.isFatal = function() { return this.isSelfOrPartsOfInteraction(INTERACTION_FATAL) || this.isSelfOrPartsOfInteraction(INTERACTION_FATAL_ACTIVE); };
 				result.isSelfOrPartsOfInteraction = function(interaction) {
 					if (this.interaction == interaction) return true;
 					if (this.parts) {

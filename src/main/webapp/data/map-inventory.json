@@ -840,7 +840,7 @@
 			"transparency": 0,
 			"widthInTiles": 4,
 			"heightInTiles": 5,
-			"interaction": "intangible-back"
+			"interaction": "intangible-front"
 		},
 		{
 			"id": "gift_2x2",
@@ -922,6 +922,111 @@
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
 			"value": 0
+		},
+		{
+			"id": "ice-block_1x1",
+			"code": 55,
+			"label": "Ice block",
+			"image": "ice-block_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "ice-block_2x2",
+			"code": 56,
+			"label": "Ice block",
+			"image": "ice-block_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "ice-block_4x1",
+			"code": 57,
+			"label": "Ice block",
+			"image": "ice-block_4x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "ice-berg_5x4",
+			"code": 58,
+			"label": "Ice berg",
+			"image": "ice-berg_5x4.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 5,
+			"heightInTiles": 4,
+			"interaction": "tangible"
+		},
+		{
+			"id": "polar-bears_8x4",
+			"code": 59,
+			"label": "Polar bears",
+			"image": "polar-bears_8x4.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 4,
+			"interaction": "intangible-back"
+		},
+		{
+			"id": "polar-bear_7x4",
+			"code": 60,
+			"label": "Polar bear",
+			"image": "polar-bear_7x4.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 7,
+			"heightInTiles": 4,
+			"interaction": "fatal"
+		},
+		{
+			"id": "penguin-sliding_2x1",
+			"code": 61,
+			"label": "Penguin sliding",
+			"image": "penguin-sliding_2x1.png",
+			"appearances": 2,
+			"appearancesSpeedWhileMoving": 220,
+			"movement": "smoothHorizontalSweep",
+			"movementParameter1": 0,
+			"movementParameter2": -180,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 220,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 1,
+			"interaction": "fatal"
+		},
+		{
+			"id": "christmas-tree-back_4x5",
+			"code": 62,
+			"label": "Christmas tree",
+			"image": "christmas-tree-back_4x5.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 5,
+			"interaction": "intangible-back"
 		}
 	]
 }
