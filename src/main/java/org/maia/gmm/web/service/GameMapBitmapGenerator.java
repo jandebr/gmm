@@ -440,7 +440,9 @@ public class GameMapBitmapGenerator {
 
 		INTANGIBLE_FRONT("intangible-front", 7),
 
-		TELEPORT("teleport", 8);
+		TELEPORT("teleport", 8),
+
+		FATAL_ACTIVE("fatal-active", 9);
 
 		private String symbolicName;
 
