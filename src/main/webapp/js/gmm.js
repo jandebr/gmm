@@ -9,6 +9,7 @@ var mapCollectionBadge = null;
 var currentMapCollectionId = null;
 var currentMap = null;
 var unsavedMapChanges = false;
+var strokeOperationInProgress = false;
 
 const NEW_MAP_NAME = "(new)";
 
@@ -125,12 +126,8 @@ function initControls() {
 
 function addObjectToMap(object) {
 	var objectType = mapInventory.getObjectType(object.type);
-	if (objectType.isStrokeErase()) {
-		removeObjectsInStroke(object.x, object.x + objectType.widthInTiles - 1);
-	} else if (objectType.isStrokeDelete()) {
-		deleteStroke(object.x, object.x + objectType.widthInTiles - 1);
-	} else if (objectType.isStrokeInsert()) {
-		insertStroke(object.x, objectType.widthInTiles);
+	if (objectType.isStrokeOperation()) {
+		doStrokeOperation(object);
 	} else {
 		var shouldUpdateShop = !hasSameTypedObjects(object) && countDistinctObjectTypesInMap() == MAXIMUM_MAP_OBJECTTYPES - 1;
 		mapRenderer.addObject(object);
@@ -152,6 +149,21 @@ function removeObjectFromMap(object) {
 		var shouldUpdateShop = !hasSameTypedObjects(object) && countDistinctObjectTypesInMap() == MAXIMUM_MAP_OBJECTTYPES - 1;
 		if (countObjectsInMap() == MAXIMUM_MAP_OBJECTS - 1) shouldUpdateShop = true;
 		if (shouldUpdateShop) updateShop();
+	}
+}
+
+function doStrokeOperation(object) {
+	if (!strokeOperationInProgress) {
+		strokeOperationInProgress = true;
+		var objectType = mapInventory.getObjectType(object.type);
+		if (objectType.isStrokeErase()) {
+			removeObjectsInStroke(object.x, object.x + objectType.widthInTiles - 1);
+		} else if (objectType.isStrokeDelete()) {
+			deleteStroke(object.x, object.x + objectType.widthInTiles - 1);
+		} else if (objectType.isStrokeInsert()) {
+			insertStroke(object.x, objectType.widthInTiles);
+		}
+		strokeOperationInProgress = false;
 	}
 }
 
