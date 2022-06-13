@@ -46,6 +46,7 @@ class MapInventory {
 		if (!result) {
 			result = this.getData().backgrounds.find((e) => e.id == id);
 			if (result) {
+				result.getGmmStyle = function() { return this["gmm-style"]; };
 				this.storeInBackgroundsCache(result);
 			}
 		}

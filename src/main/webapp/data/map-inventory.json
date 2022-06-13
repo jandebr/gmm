@@ -18,7 +18,11 @@
 			"images": [
 				"MountainTree/MountainTree1.png",
 				"MountainTree/MountainTree2.png"
-			]
+			],
+			"gmm-style": {
+				"opacity": 0.3,
+				"grid-brightness": 1.0
+			}
 		},
 		{
 			"id": "SnowyLandscape",
@@ -28,7 +32,11 @@
 				"SnowyLandscape/SnowyLandscape1.png",
 				"SnowyLandscape/SnowyLandscape2.png",
 				"SnowyLandscape/SnowyLandscape3.png"
-			]
+			],
+			"gmm-style": {
+				"opacity": 0.6,
+				"grid-brightness": 0.7
+			}
 		},
 		{
 			"id": "Themepark",
@@ -37,7 +45,11 @@
 			"images": [
 				"Themepark/Themepark1.png",
 				"Themepark/Themepark2.png"
-			]
+			],
+			"gmm-style": {
+				"opacity": 0.3,
+				"grid-brightness": 0.7
+			}
 		},
 		{
 			"id": "SnowyVillage",
@@ -46,7 +58,11 @@
 			"images": [
 				"SnowyVillage/SnowyVillage1.png",
 				"SnowyVillage/SnowyVillage2.png"
-			]
+			],
+			"gmm-style": {
+				"opacity": 0.2,
+				"grid-brightness": 0.7
+			}
 		}
 	],
 	"characters": [

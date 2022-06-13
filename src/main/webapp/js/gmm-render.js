@@ -22,7 +22,7 @@ var defaultMapRenderOptions = {
 		"background-emblems-image-path": "/",
 		"background-emblems-image-width": 0,
 		"background-emblems-image-height": 0,
-		"grid-color": "white",
+		"grid-brightness": 1.0,
 		"grid-width": 0.2,
 		"simulation-class": "character-simulation",
 		"teleport-space-opacity": 0.2,
@@ -67,7 +67,7 @@ class MapRenderer {
 		this.initActions();
 		this.initCursor();
 		this.drawBackground(this.svg, map);
-		this.drawGrid(this.svg);
+		this.drawGrid(this.svg, map);
 		this.installObjectPanes(this.svg);
 		this.drawObjects(map);
 		this.regionsPane = this.svg.append("g");
@@ -95,13 +95,14 @@ class MapRenderer {
 		var height = this.getScreenHeight();
 		for (var i = 0; i < this.getScreens(); i++) {
 			var imagePath = path + background.images[i % background.images.length];
+			var opacity = this.getBackgroundStyle(background, "opacity", "background-image-opacity");
 			container.append("image")
 				.attr("x", i * width)
 				.attr("y", 0)
 				.attr("width", width)
 				.attr("height", height)
 				.attr("href", imagePath)
-				.style("opacity", this.getStyle("background-image-opacity"));
+				.style("opacity", opacity);
 		}
 	}
 	
@@ -129,10 +130,13 @@ class MapRenderer {
 		}
 	}
 	
-	drawGrid(container) {
-		var g = container.append("g");
-		var strokeColor = this.getStyle("grid-color");
+	drawGrid(container, map) {
+		var background = this.getInventory().getBackground(map.definition.background);
+		var brightness = this.getBackgroundStyle(background, "grid-brightness", "grid-brightness");
+		var c = Math.max(Math.min(Math.floor(brightness * 255), 255), 0);
+		var strokeColor = "rgb(" + c + "," + c + "," + c + ")";
 		var strokeWidth = this.getStyle("grid-width");
+		var g = container.append("g");
 		g.append("path")
 			.attr("d", this.createHorizontalGrid())
 			.attr("stroke", strokeColor)
@@ -610,6 +614,18 @@ class MapRenderer {
 
 	getStyle(key) {
 		return this.getOptions()["style"][key];
+	}
+
+	getBackgroundStyle(background, backgroundStyleKey, renderOptionsDefaultKey) {
+		var value;
+		var bgStyle = background.getGmmStyle();
+		if (bgStyle) {
+			value = bgStyle[backgroundStyleKey];
+		}
+		if (value === undefined) {
+			value = this.getStyle(renderOptionsDefaultKey);
+		}
+		return value;
 	}
 
 }
