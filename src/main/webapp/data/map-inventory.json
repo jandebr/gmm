@@ -937,7 +937,7 @@
 			"widthInTiles": 15,
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
-			"value": 0
+			"value": 3
 		},
 		{
 			"id": "ice-block_1x1",
@@ -1043,6 +1043,180 @@
 			"widthInTiles": 4,
 			"heightInTiles": 5,
 			"interaction": "intangible-back"
+		},
+		{
+			"id": "ocean_8x1",
+			"code": 63,
+			"label": "Ocean",
+			"image": "ocean_8x1.png",
+			"appearances": 6,
+			"movement": "none",
+			"activityCycles": 1,
+			"activitySpeed": 230,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "fatal"
+		},
+		{
+			"id": "killer-whale-ocean-ascent_8x4",
+			"code": 64,
+			"label": "Killer whale ascent from ocean",
+			"image": "killer-whale-ocean-ascent_8x4.png",
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 4,
+			"parts": [
+				{
+					"idRef": "killer-whale-steps1_8x3",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "killer-whale-steps2_8x2",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "killer-whale-steps3_8x1",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "killer-whale_8x4",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "ocean_8x1",
+					"dx": 0,
+					"dy": 0
+				}
+			]
+		},
+		{
+			"id": "killer-whale-steps1_8x3",
+			"code": 65,
+			"label": "Killer whale steps",
+			"image": "killer-whale-steps1_8x3.png",
+			"appearances": 1,
+			"movement": "smoothVerticalSweep",
+			"movementParameter1": -120,
+			"movementParameter2": 10,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 10,
+			"inactivityTimeMinimum": 4,
+			"inactivityTimeMaximum": 4,
+			"inactivityAppearance": 1,
+			"transparency": 1.0,
+			"widthInTiles": 8,
+			"heightInTiles": 3,
+			"interaction": "tangible"
+		},
+		{
+			"id": "killer-whale-steps2_8x2",
+			"code": 66,
+			"label": "Killer whale steps",
+			"image": "killer-whale-steps2_8x2.png",
+			"appearances": 1,
+			"movement": "smoothVerticalSweep",
+			"movementParameter1": -120,
+			"movementParameter2": 10,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 10,
+			"inactivityTimeMinimum": 4,
+			"inactivityTimeMaximum": 4,
+			"inactivityAppearance": 1,
+			"transparency": 1.0,
+			"widthInTiles": 8,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "killer-whale-steps3_8x1",
+			"code": 67,
+			"label": "Killer whale steps",
+			"image": "killer-whale-steps3_8x1.png",
+			"appearances": 1,
+			"movement": "smoothVerticalSweep",
+			"movementParameter1": -120,
+			"movementParameter2": 10,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 10,
+			"inactivityTimeMinimum": 4,
+			"inactivityTimeMaximum": 4,
+			"inactivityAppearance": 1,
+			"transparency": 1.0,
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "killer-whale_8x4",
+			"code": 68,
+			"label": "Killer whale",
+			"image": "killer-whale_8x4.png",
+			"appearances": 1,
+			"movement": "smoothVerticalSweep",
+			"movementParameter1": -120,
+			"movementParameter2": 10,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 10,
+			"inactivityTimeMinimum": 4,
+			"inactivityTimeMaximum": 4,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 4,
+			"interaction": "intangible-back"
+		},
+		{
+			"id": "drift-ice-ocean-ascent_8x2",
+			"code": 69,
+			"label": "Drift ice ascent from ocean",
+			"image": "drift-ice-ocean-ascent_8x2.png",
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 2,
+			"parts": [
+				{
+					"idRef": "drift-ice_8x2",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "ocean_8x1",
+					"dx": 0,
+					"dy": 0
+				}
+			]
+		},
+		{
+			"id": "drift-ice_8x2",
+			"code": 70,
+			"label": "Drift ice",
+			"image": "drift-ice_8x2.png",
+			"appearances": 1,
+			"movement": "smoothVerticalSweep",
+			"movementParameter1": -60,
+			"movementParameter2": 0,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 120,
+			"inactivityTimeMinimum": 3,
+			"inactivityTimeMaximum": 5,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 2,
+			"interaction": "tangible"
 		}
 	]
 }

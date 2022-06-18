@@ -59,6 +59,7 @@
 						"lava-surface_8x1",
 						"snow-surface_8x1",
 						"ice-surface_8x1",
+						"ocean_8x1",
 						"sea_4x1"
 					]
 				},
@@ -214,7 +215,9 @@
 					"maxWidthInTiles": 4,
 					"items": [
 						"snow-surface_8x1",
-						"ice-surface_8x1"
+						"ice-surface_8x1",
+						"ocean_8x1",
+						"sea_4x1"
 					]
 				},
 				{
@@ -226,9 +229,11 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 4,
+					"maxWidthInTiles": 8,
 					"items": [
-						"ice-berg_5x4"
+						"ice-berg_5x4",
+						"killer-whale-ocean-ascent_8x4",
+						"drift-ice-ocean-ascent_8x2"
 					]
 				},
 				{
