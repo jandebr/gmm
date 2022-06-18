@@ -239,7 +239,8 @@
 			"transparency": 0,
 			"widthInTiles": 4,
 			"heightInTiles": 1,
-			"interaction": "fatal"
+			"interaction": "fatal",
+			"depthLayer": "front"
 		},
 		{
 			"id": "cloud_3x2",
@@ -251,7 +252,8 @@
 			"transparency": 0,
 			"widthInTiles": 3,
 			"heightInTiles": 2,
-			"interaction": "intangible-back"
+			"interaction": "intangible",
+			"depthLayer": "back"
 		},
 		{
 			"id": "finish_1x10",
@@ -325,6 +327,7 @@
 			"widthInTiles": 8,
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
+			"depthLayer": "atmos",
 			"value": 0
 		},
 		{
@@ -338,6 +341,7 @@
 			"widthInTiles": 8,
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
+			"depthLayer": "atmos",
 			"value": 0
 		},
 		{
@@ -350,7 +354,8 @@
 			"transparency": 0,
 			"widthInTiles": 3,
 			"heightInTiles": 2,
-			"interaction": "intangible-back"
+			"interaction": "intangible",
+			"depthLayer": "back"
 		},
 		{
 			"id": "cart_3x2",
@@ -428,7 +433,7 @@
 			"transparency": 0,
 			"widthInTiles": 5,
 			"heightInTiles": 2,
-			"interaction": "fatal"
+			"interaction": "fatal-active"
 		},
 		{
 			"id": "plank-birds_4x2",
@@ -559,7 +564,7 @@
 			"heightInTiles": 1,
 			"offsetHorizontal": -20,
 			"offsetVertical": 0,
-			"interaction": "fatal"
+			"interaction": "fatal-active"
 		},
 		{
 			"id": "treasure-chest_5x4",
@@ -614,7 +619,7 @@
 			"transparency": 0,
 			"widthInTiles": 3,
 			"heightInTiles": 4,
-			"interaction": "fatal"
+			"interaction": "fatal-active"
 		},
 		{
 			"id": "frog-sit_1x1",
@@ -665,6 +670,7 @@
 			"widthInTiles": 8,
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
+			"depthLayer": "atmos",
 			"value": 1
 		},
 		{
@@ -678,6 +684,7 @@
 			"widthInTiles": 8,
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
+			"depthLayer": "atmos",
 			"value": 2
 		},
 		{
@@ -856,7 +863,8 @@
 			"transparency": 0,
 			"widthInTiles": 4,
 			"heightInTiles": 5,
-			"interaction": "intangible-front"
+			"interaction": "intangible",
+			"depthLayer": "front"
 		},
 		{
 			"id": "gift_2x2",
@@ -886,6 +894,7 @@
 			"widthInTiles": 15,
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
+			"depthLayer": "atmos",
 			"value": 0
 		},
 		{
@@ -903,6 +912,7 @@
 			"widthInTiles": 15,
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
+			"depthLayer": "atmos",
 			"value": 0
 		},
 		{
@@ -920,6 +930,7 @@
 			"widthInTiles": 15,
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
+			"depthLayer": "atmos",
 			"value": 0
 		},
 		{
@@ -937,6 +948,7 @@
 			"widthInTiles": 15,
 			"heightInTiles": 1,
 			"interaction": "atmosphere",
+			"depthLayer": "atmos",
 			"value": 3
 		},
 		{
@@ -997,7 +1009,8 @@
 			"transparency": 0,
 			"widthInTiles": 8,
 			"heightInTiles": 4,
-			"interaction": "intangible-back"
+			"interaction": "intangible",
+			"depthLayer": "back"
 		},
 		{
 			"id": "polar-bear_7x4",
@@ -1042,7 +1055,8 @@
 			"transparency": 0,
 			"widthInTiles": 4,
 			"heightInTiles": 5,
-			"interaction": "intangible-back"
+			"interaction": "intangible",
+			"depthLayer": "back"
 		},
 		{
 			"id": "ocean_8x1",
@@ -1059,29 +1073,30 @@
 			"transparency": 0,
 			"widthInTiles": 8,
 			"heightInTiles": 1,
-			"interaction": "fatal"
+			"interaction": "fatal",
+			"depthLayer": "front"
 		},
 		{
-			"id": "killer-whale-ocean-ascent_8x4",
+			"id": "killer-whale-ascent_8x4",
 			"code": 64,
-			"label": "Killer whale ascent from ocean",
-			"image": "killer-whale-ocean-ascent_8x4.png",
+			"label": "Killer whale ascending",
+			"image": "killer-whale-ascent_8x4.png",
 			"transparency": 0,
 			"widthInTiles": 8,
 			"heightInTiles": 4,
 			"parts": [
 				{
-					"idRef": "killer-whale-steps1_8x3",
+					"idRef": "killer-whale-support1_8x3",
 					"dx": 0,
 					"dy": 0
 				},
 				{
-					"idRef": "killer-whale-steps2_8x2",
+					"idRef": "killer-whale-support2_8x2",
 					"dx": 0,
 					"dy": 0
 				},
 				{
-					"idRef": "killer-whale-steps3_8x1",
+					"idRef": "killer-whale-support3_8x1",
 					"dx": 0,
 					"dy": 0
 				},
@@ -1089,19 +1104,14 @@
 					"idRef": "killer-whale_8x4",
 					"dx": 0,
 					"dy": 0
-				},
-				{
-					"idRef": "ocean_8x1",
-					"dx": 0,
-					"dy": 0
 				}
 			]
 		},
 		{
-			"id": "killer-whale-steps1_8x3",
+			"id": "killer-whale-support1_8x3",
 			"code": 65,
-			"label": "Killer whale steps",
-			"image": "killer-whale-steps1_8x3.png",
+			"label": "Killer whale support",
+			"image": "killer-whale-support1_8x3.png",
 			"appearances": 1,
 			"movement": "smoothVerticalSweep",
 			"movementParameter1": -120,
@@ -1118,10 +1128,10 @@
 			"interaction": "tangible"
 		},
 		{
-			"id": "killer-whale-steps2_8x2",
+			"id": "killer-whale-support2_8x2",
 			"code": 66,
-			"label": "Killer whale steps",
-			"image": "killer-whale-steps2_8x2.png",
+			"label": "Killer whale support",
+			"image": "killer-whale-support2_8x2.png",
 			"appearances": 1,
 			"movement": "smoothVerticalSweep",
 			"movementParameter1": -120,
@@ -1138,10 +1148,10 @@
 			"interaction": "tangible"
 		},
 		{
-			"id": "killer-whale-steps3_8x1",
+			"id": "killer-whale-support3_8x1",
 			"code": 67,
-			"label": "Killer whale steps",
-			"image": "killer-whale-steps3_8x1.png",
+			"label": "Killer whale support",
+			"image": "killer-whale-support3_8x1.png",
 			"appearances": 1,
 			"movement": "smoothVerticalSweep",
 			"movementParameter1": -120,
@@ -1175,34 +1185,13 @@
 			"transparency": 0,
 			"widthInTiles": 8,
 			"heightInTiles": 4,
-			"interaction": "intangible-back"
+			"interaction": "intangible"
 		},
 		{
-			"id": "drift-ice-ocean-ascent_8x2",
+			"id": "drift-ice-ascent_8x2",
 			"code": 69,
-			"label": "Drift ice ascent from ocean",
-			"image": "drift-ice-ocean-ascent_8x2.png",
-			"transparency": 0,
-			"widthInTiles": 8,
-			"heightInTiles": 2,
-			"parts": [
-				{
-					"idRef": "drift-ice_8x2",
-					"dx": 0,
-					"dy": 0
-				},
-				{
-					"idRef": "ocean_8x1",
-					"dx": 0,
-					"dy": 0
-				}
-			]
-		},
-		{
-			"id": "drift-ice_8x2",
-			"code": 70,
-			"label": "Drift ice",
-			"image": "drift-ice_8x2.png",
+			"label": "Drift ice ascending",
+			"image": "drift-ice-ascent_8x2.png",
 			"appearances": 1,
 			"movement": "smoothVerticalSweep",
 			"movementParameter1": -60,
@@ -1213,6 +1202,18 @@
 			"inactivityTimeMinimum": 3,
 			"inactivityTimeMaximum": 5,
 			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "drift-ice_8x2",
+			"code": 70,
+			"label": "Drift ice",
+			"image": "drift-ice_8x2.png",
+			"appearances": 1,
+			"movement": "none",
 			"transparency": 0,
 			"widthInTiles": 8,
 			"heightInTiles": 2,

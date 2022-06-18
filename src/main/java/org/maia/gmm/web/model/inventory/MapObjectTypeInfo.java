@@ -46,13 +46,22 @@ public class MapObjectTypeInfo {
 
 	private String interaction;
 
+	private String depthLayer;
+
 	private int value;
 
 	private List<MapObjectTypePart> parts;
 
+	private static final int DEFAULT_APPEARANCES = 1;
+
+	private static final int DEFAULT_INACTIVITY_APPEARANCE = 1;
+
+	private static final String DEFAULT_DEPTH_LAYER = "default";
+
 	public MapObjectTypeInfo() {
-		this.appearances = 1;
-		this.inactivityAppearance = 1;
+		this.appearances = DEFAULT_APPEARANCES;
+		this.inactivityAppearance = DEFAULT_INACTIVITY_APPEARANCE;
+		this.depthLayer = DEFAULT_DEPTH_LAYER;
 	}
 
 	@Override
@@ -74,6 +83,8 @@ public class MapObjectTypeInfo {
 		builder.append(heightInTiles);
 		builder.append(", interaction=");
 		builder.append(interaction);
+		builder.append(", depthLayer=");
+		builder.append(depthLayer);
 		builder.append(", value=");
 		builder.append(value);
 		builder.append(", parts=");
@@ -168,6 +179,10 @@ public class MapObjectTypeInfo {
 
 	public String getInteraction() {
 		return interaction;
+	}
+
+	public String getDepthLayer() {
+		return depthLayer;
 	}
 
 	public int getValue() {

@@ -232,8 +232,9 @@
 					"maxWidthInTiles": 8,
 					"items": [
 						"ice-berg_5x4",
-						"killer-whale-ocean-ascent_8x4",
-						"drift-ice-ocean-ascent_8x2"
+						"killer-whale-ascent_8x4",
+						"drift-ice-ascent_8x2",
+						"drift-ice_8x2"
 					]
 				},
 				{

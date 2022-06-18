@@ -7,8 +7,6 @@ const CHARACTER_OBJECTTYPE_ID = "META_character";
 const TELEPORT_DESTINATION_OBJECTTYPE_ID = "teleport-destination";
 
 const INTERACTION_TANGIBLE = "tangible";
-const INTERACTION_INTANGIBLE_BACK = "intangible-back";
-const INTERACTION_INTANGIBLE_FRONT = "intangible-front";
 const INTERACTION_SCORE = "score";
 const INTERACTION_FATAL = "fatal";
 const INTERACTION_FATAL_ACTIVE = "fatal-active";
@@ -126,12 +124,8 @@ class MapInventory {
 					return false;
 				};
 				result.getDepthLayer = function() {
-					if (this.interaction == INTERACTION_INTANGIBLE_BACK) {
-						return DEPTH_LAYER_BACK;
-					} else if (this.interaction == INTERACTION_INTANGIBLE_FRONT) {
-						return DEPTH_LAYER_FRONT;
-					} else if (this.interaction == INTERACTION_ATMOSPHERE) {
-						return DEPTH_LAYER_ATMOS;
+					if (this.depthLayer) {
+						return this.depthLayer;
 					} else {
 						return DEPTH_LAYER_DEFAULT;
 					}

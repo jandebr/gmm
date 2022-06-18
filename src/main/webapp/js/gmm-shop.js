@@ -267,11 +267,15 @@ class MapShop {
 		// Lower left corner
 		if (objectType.isScore()) {
 			this.drawItemScoreBadge(container, dims);
+		} else if (objectType.isFatal()) {
+			this.drawItemFatalBadge(container, dims);
+		}
+		// Upper right corner
+		if (objectType.getDepthLayer() != DEPTH_LAYER_DEFAULT && objectType.getDepthLayer() != DEPTH_LAYER_ATMOS) {
+			this.drawItemDepthBadge(container, dims, objectType.getDepthLayer());
 		}
 		// Lower right corner
-		if (objectType.isFatal()) {
-			this.drawItemFatalBadge(container, dims);
-		} else if (objectType.isAtmospheric()) {
+		if (objectType.isAtmospheric()) {
 			if (!objectType.isMeta()) {
 				this.drawItemAtmosBadge(container, dims);
 			}
@@ -279,9 +283,7 @@ class MapShop {
 			this.drawItemTeleportBadge(container, dims);
 		} else if (objectType.isFinish()) {
 			this.drawItemFinishBadge(container, dims);
-		} else if (objectType.getDepthLayer() != DEPTH_LAYER_DEFAULT) {
-			this.drawItemDepthBadge(container, dims, objectType.getDepthLayer());
-		}
+		} 
 	}
 	
 	drawItemLabelBadge(container, label) {
@@ -311,7 +313,7 @@ class MapShop {
 	}
 
 	drawItemFatalBadge(container, dims) {
-		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 14;
+		var x0 = 4;
 		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 15;
 		container.append("image")
 			.attr("x", x0)
@@ -353,8 +355,8 @@ class MapShop {
 	}
 
 	drawItemDepthBadge(container, dims, depthLayer) {
-		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 17;
-		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 12;
+		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 18;
+		var y0 = 4;
 		container.append("image")
 			.attr("x", x0)
 			.attr("y", y0)

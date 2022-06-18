@@ -21,7 +21,7 @@ import org.maia.gmm.web.model.map.GameMapObject;
 
 public class GameMapBitmapGenerator {
 
-	private static final int VERSION_NUMBER = 5;
+	private static final int VERSION_NUMBER = 6;
 
 	private static final int MAP_WIDTH_IN_TILES = 15;
 
@@ -106,7 +106,7 @@ public class GameMapBitmapGenerator {
 					if (partInfo.isCompositeType()) {
 						throw new IllegalStateException("All composite parts must be singular. " + detailMsg);
 					}
-					DepthLayer layer = DepthLayer.getDepthLayer(partInfo);
+					DepthLayer layer = DepthLayer.forSymbolicName(partInfo.getDepthLayer());
 					if (!DepthLayer.DEFAULT.equals(layer)) {
 						throw new IllegalStateException("All composite parts must be on the default layer. "
 								+ detailMsg);
@@ -144,11 +144,13 @@ public class GameMapBitmapGenerator {
 		for (String typeId : objectTypeRegistry.getRegisteredObjectTypes()) {
 			MapObjectTypeInfo info = inventory.getObjectType(typeId);
 			Interaction interaction = Interaction.forSymbolicName(info.getInteraction());
+			DepthLayer depthLayer = DepthLayer.forSymbolicName(info.getDepthLayer());
 			Movement movement = Movement.forSymbolicName(info.getMovement());
 			writer.writeTripleDigitHexadecimalValue(info.getCode());
 			writeObjectTypeHorizontalDimension(writer, info);
 			writeObjectTypeVerticalDimension(writer, info);
 			writer.writeSingleDigitHexadecimalValue(interaction.getNumericValue());
+			writer.writeSingleDigitHexadecimalValue(depthLayer.getNumericValue());
 			writer.writeSingleDigitHexadecimalValue(info.getAppearances());
 			writer.writeSingleDigitHexadecimalValue(movement.getNumericValue());
 			if (!Movement.NONE.equals(movement) || info.getAppearances() > 1) {
@@ -240,7 +242,8 @@ public class GameMapBitmapGenerator {
 					writer.writeSingleDigitHexadecimalValue(14);
 					writer.writeSingleDigitHexadecimalValue(pileSize);
 				}
-				if (DepthLayer.DEFAULT.equals(DepthLayer.getDepthLayer(info))) {
+				DepthLayer depthLayer = DepthLayer.forSymbolicName(info.getDepthLayer());
+				if (DepthLayer.DEFAULT.equals(depthLayer)) {
 					for (int i = index; i < index + pileSize; i++) {
 						objects.get(i).setLayerIndex(nextLayerIndex++);
 					}
@@ -432,17 +435,13 @@ public class GameMapBitmapGenerator {
 
 		FATAL("fatal", 3),
 
-		FINISH("finish", 4),
+		FATAL_ACTIVE("fatal-active", 4),
 
-		ATMOSPHERE("atmosphere", 5),
+		FINISH("finish", 5),
 
-		INTANGIBLE_BACK("intangible-back", 6),
+		ATMOSPHERE("atmosphere", 6),
 
-		INTANGIBLE_FRONT("intangible-front", 7),
-
-		TELEPORT("teleport", 8),
-
-		FATAL_ACTIVE("fatal-active", 9);
+		TELEPORT("teleport", 7);
 
 		private String symbolicName;
 
@@ -473,31 +472,37 @@ public class GameMapBitmapGenerator {
 
 	private static enum DepthLayer {
 
-		BACK(Interaction.INTANGIBLE_BACK),
+		DEFAULT("default", 0),
 
-		DEFAULT(null),
+		BACK("back", 1),
 
-		FRONT(Interaction.INTANGIBLE_FRONT),
+		FRONT("front", 2),
 
-		ATMOS(Interaction.ATMOSPHERE);
+		ATMOS("atmos", 3);
 
-		private Interaction interaction;
+		private String symbolicName;
 
-		private DepthLayer(Interaction interaction) {
-			this.interaction = interaction;
+		private int numericValue;
+
+		private DepthLayer(String symbolicName, int numericValue) {
+			this.symbolicName = symbolicName;
+			this.numericValue = numericValue;
 		}
 
-		public static DepthLayer getDepthLayer(MapObjectTypeInfo objectType) {
-			Interaction interaction = Interaction.forSymbolicName(objectType.getInteraction());
+		public static DepthLayer forSymbolicName(String name) {
 			for (DepthLayer layer : DepthLayer.values()) {
-				if (interaction.equals(layer.getInteraction()))
+				if (layer.getSymbolicName().equals(name))
 					return layer;
 			}
-			return DepthLayer.DEFAULT;
+			return null;
 		}
 
-		public Interaction getInteraction() {
-			return interaction;
+		public String getSymbolicName() {
+			return symbolicName;
+		}
+
+		public int getNumericValue() {
+			return numericValue;
 		}
 
 	}
