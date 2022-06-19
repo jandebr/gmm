@@ -240,9 +240,10 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 4,
+					"maxWidthInTiles": 8,
 					"items": [
 						"polar-bear_7x4",
+						"snowman-throwing_5x5",
 						"penguin-sliding_2x1"
 					]
 				},

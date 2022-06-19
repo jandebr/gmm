@@ -1373,6 +1373,88 @@
 			"heightInTiles": 6,
 			"interaction": "intangible",
 			"depthLayer": "back"
+		},
+		{
+			"id": "snowman-throwing_5x5",
+			"code": 82,
+			"label": "Snowman throwing snow",
+			"image": "snowman-throwing_5x5.png",
+			"transparency": 0,
+			"widthInTiles": 5,
+			"heightInTiles": 5,
+			"parts": [
+				{
+					"idRef": "snowman_5x5",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "snowman-snowball-flying-far_1x1",
+					"dx": 1,
+					"dy": 3
+				},
+				{
+					"idRef": "snowman-snowball-flying-high_1x1",
+					"dx": 5,
+					"dy": 2
+				}
+			]
+		},
+		{
+			"id": "snowman_5x5",
+			"code": 83,
+			"label": "Snowman",
+			"image": "snowman_5x5.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 5,
+			"heightInTiles": 5,
+			"interaction": "intangible"
+		},
+		{
+			"id": "snowman-snowball-flying-far_1x1",
+			"code": 84,
+			"label": "Snowball",
+			"image": "snowball_1x1.png",
+			"appearances": 1,
+			"movement": "vectorWithGravity",
+			"movementParameter1": -400,
+			"movementParameter2": 130,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 235,
+			"inactivityTimeMinimum": 3,
+			"inactivityTimeMaximum": 3,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"offsetHorizontal": -8,
+			"offsetVertical": 0,
+			"interaction": "fatal"
+		},
+		{
+			"id": "snowman-snowball-flying-high_1x1",
+			"code": 85,
+			"label": "Snowball",
+			"image": "snowball_1x1.png",
+			"appearances": 1,
+			"movement": "vectorWithGravity",
+			"movementParameter1": -250,
+			"movementParameter2": 300,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 235,
+			"inactivityTimeMinimum": 4,
+			"inactivityTimeMaximum": 4,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"offsetHorizontal": -22,
+			"offsetVertical": 6,
+			"interaction": "fatal"
 		}
 	]
 }
