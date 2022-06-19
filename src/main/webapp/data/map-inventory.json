@@ -225,10 +225,10 @@
 			"interaction": "tangible"
 		},
 		{
-			"id": "sea_4x1",
+			"id": "rapid-river_4x1",
 			"code": 7,
-			"label": "Sea",
-			"image": "sea_4x1.png",
+			"label": "Rapid river",
+			"image": "rapid-river_4x1.png",
 			"appearances": 6,
 			"movement": "none",
 			"activityCycles": 1,
@@ -1059,10 +1059,10 @@
 			"depthLayer": "back"
 		},
 		{
-			"id": "ocean_8x1",
+			"id": "sea_8x1",
 			"code": 63,
-			"label": "Ocean",
-			"image": "ocean_8x1.png",
+			"label": "Sea",
+			"image": "sea_8x1.png",
 			"appearances": 6,
 			"movement": "none",
 			"activityCycles": 1,

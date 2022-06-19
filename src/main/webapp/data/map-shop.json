@@ -59,8 +59,8 @@
 						"lava-surface_8x1",
 						"snow-surface_8x1",
 						"ice-surface_8x1",
-						"ocean_8x1",
-						"sea_4x1"
+						"sea_8x1",
+						"rapid-river_4x1"
 					]
 				},
 				{
@@ -216,8 +216,8 @@
 					"items": [
 						"snow-surface_8x1",
 						"ice-surface_8x1",
-						"ocean_8x1",
-						"sea_4x1"
+						"sea_8x1",
+						"rapid-river_4x1"
 					]
 				},
 				{
