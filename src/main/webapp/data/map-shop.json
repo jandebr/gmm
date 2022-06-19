@@ -229,12 +229,14 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 8,
+					"maxWidthInTiles": 10,
 					"items": [
 						"ice-berg_5x4",
 						"killer-whale-ascent_8x4",
 						"drift-ice-ascent_8x2",
-						"drift-ice_8x2"
+						"drift-ice_8x2",
+						"drift-ice-ascent_2x2",
+						"drift-ice_2x2"
 					]
 				},
 				{
@@ -245,16 +247,23 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 4,
+					"maxWidthInTiles": 5,
 					"items": [
+						"ginger-bread-boy_2x2",
+						"ginger-bread-girl_2x2",
+						"ginger-bread-boy_1x1",
+						"ginger-bread-girl_1x1",
+						"ginger-bread-boot_2x2",
 						"gift_2x2"
 					]
 				},
 				{
-					"maxWidthInTiles": 12,
+					"maxWidthInTiles": 16,
 					"items": [
 						"christmas-tree_4x5",
 						"christmas-tree-back_4x5",
+						"santa-sleigh-deer_27x8",
+						"santa-sleigh-sky_12x6",
 						"polar-bears_8x4"
 					]
 				},

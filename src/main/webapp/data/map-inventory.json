@@ -877,7 +877,7 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
-			"value": 1
+			"value": 10
 		},
 		{
 			"id": "ATMOS_snowfall_15",
@@ -1218,6 +1218,161 @@
 			"widthInTiles": 8,
 			"heightInTiles": 2,
 			"interaction": "tangible"
+		},
+		{
+			"id": "drift-ice-ascent_2x2",
+			"code": 71,
+			"label": "Drift ice ascending",
+			"image": "drift-ice-ascent_2x2.png",
+			"appearances": 1,
+			"movement": "smoothVerticalSweep",
+			"movementParameter1": -60,
+			"movementParameter2": 0,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 120,
+			"inactivityTimeMinimum": 3,
+			"inactivityTimeMaximum": 5,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "drift-ice_2x2",
+			"code": 72,
+			"label": "Drift ice",
+			"image": "drift-ice_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "ginger-bread-boot_2x2",
+			"code": 73,
+			"label": "Gingerbread boot",
+			"image": "ginger-bread-boot_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "score",
+			"value": 2
+		},
+		{
+			"id": "ginger-bread-boy_2x2",
+			"code": 74,
+			"label": "Gingerbread boy",
+			"image": "ginger-bread-boy_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "score",
+			"value": 2
+		},
+		{
+			"id": "ginger-bread-girl_2x2",
+			"code": 75,
+			"label": "Gingerbread girl",
+			"image": "ginger-bread-girl_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "score",
+			"value": 2
+		},
+		{
+			"id": "ginger-bread-boy_1x1",
+			"code": 76,
+			"label": "Gingerbread boy",
+			"image": "ginger-bread-boy_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "score",
+			"value": 1
+		},
+		{
+			"id": "ginger-bread-girl_1x1",
+			"code": 77,
+			"label": "Gingerbread girl",
+			"image": "ginger-bread-girl_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "score",
+			"value": 1
+		},
+		{
+			"id": "santa-sleigh-deer_27x8",
+			"code": 78,
+			"label": "Santa sleigh with deer",
+			"image": "santa-sleigh-deer_27x8.png",
+			"transparency": 0,
+			"widthInTiles": 27,
+			"heightInTiles": 8,
+			"parts": [
+				{
+					"idRef": "santa-sleigh-deer1_14x8",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "santa-sleigh-deer2_13x8",
+					"dx": 14,
+					"dy": 0
+				}
+			]
+		},
+		{
+			"id": "santa-sleigh-deer1_14x8",
+			"code": 79,
+			"label": "Santa sleigh with deer 1",
+			"image": "santa-sleigh-deer1_14x8.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 14,
+			"heightInTiles": 8,
+			"interaction": "intangible"
+		},
+		{
+			"id": "santa-sleigh-deer2_13x8",
+			"code": 80,
+			"label": "Santa sleigh with deer 2",
+			"image": "santa-sleigh-deer2_13x8.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 13,
+			"heightInTiles": 8,
+			"interaction": "intangible"
+		},
+		{
+			"id": "santa-sleigh-sky_12x6",
+			"code": 81,
+			"label": "Santa sleigh in the sky",
+			"image": "santa-sleigh-sky_12x6.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0.5,
+			"widthInTiles": 12,
+			"heightInTiles": 6,
+			"interaction": "intangible",
+			"depthLayer": "back"
 		}
 	]
 }
