@@ -7,8 +7,10 @@ import java.awt.image.BufferedImage;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
 
 import org.maia.gmm.web.model.inventory.GameMapInventory;
@@ -33,18 +35,48 @@ public class GameMapBitmapGenerator {
 	}
 
 	public BufferedImage generateBitmap(GameMap gameMap, GameMapInventory inventory) {
-		List<GameMapObjectOnLayer> objects = getSortedComponentObjects(getGameMapObjects(gameMap, inventory), inventory);
-		ObjectTypeRegistry objectTypeRegistry = createObjectTypeRegistry(objects, inventory);
-		checkCompositeConstraints(objectTypeRegistry, inventory);
 		BitmapWriter writer = new BitmapWriter(120, 90, new ColorMap());
-		writeVersionNumber(writer);
-		writeBackground(writer, gameMap, inventory);
-		writeCharacter(writer, gameMap, inventory);
-		writeObjectTypes(writer, objectTypeRegistry, inventory);
-		writeObjects(writer, objectTypeRegistry, objects, inventory);
-		if (writer.exceedsBoundaries())
-			writer.writeMessageBoundariesExceeded();
+		if (checkCompositeConstraints(gameMap, inventory)) {
+			List<GameMapObjectOnLayer> objects = getSortedComponentObjects(getGameMapObjects(gameMap, inventory),
+					inventory);
+			ObjectTypeRegistry objectTypeRegistry = createObjectTypeRegistry(objects, inventory);
+			writeVersionNumber(writer);
+			writeBackground(writer, gameMap, inventory);
+			writeCharacter(writer, gameMap, inventory);
+			writeObjectTypes(writer, objectTypeRegistry, inventory);
+			writeObjects(writer, objectTypeRegistry, objects, inventory);
+			if (writer.exceedsBoundaries())
+				writer.writeMessageBoundariesExceeded();
+		} else {
+			writer.writeCompositeConstraintViolated();
+		}
 		return writer.getImage();
+	}
+
+	private boolean checkCompositeConstraints(GameMap gameMap, GameMapInventory inventory) {
+		Set<String> typeIdsChecked = new HashSet<String>(100);
+		for (GameMapObject object : gameMap.getDefinition().getObjects()) {
+			String typeId = object.getType();
+			if (typeIdsChecked.add(typeId)) {
+				MapObjectTypeInfo info = inventory.getObjectType(typeId);
+				if (info.isCompositeType()) {
+					for (MapObjectTypePart part : info.getParts()) {
+						String detailMsg = "Violating part '" + part.getIdRef() + "' referenced by '" + typeId + "'";
+						MapObjectTypeInfo partInfo = inventory.getObjectType(part.getIdRef());
+						if (partInfo.isCompositeType()) {
+							System.err.println("All composite parts must be singular. " + detailMsg);
+							return false;
+						}
+						DepthLayer layer = DepthLayer.forSymbolicName(partInfo.getDepthLayer());
+						if (!DepthLayer.DEFAULT.equals(layer)) {
+							System.err.println("All composite parts must be on the default layer. " + detailMsg);
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
 	}
 
 	private List<GameMapObject> getGameMapObjects(GameMap gameMap, GameMapInventory inventory) {
@@ -94,26 +126,6 @@ public class GameMapBitmapGenerator {
 			registry.register(object.getType());
 		}
 		return registry;
-	}
-
-	private void checkCompositeConstraints(ObjectTypeRegistry objectTypeRegistry, GameMapInventory inventory) {
-		for (String typeId : objectTypeRegistry.getRegisteredObjectTypes()) {
-			MapObjectTypeInfo info = inventory.getObjectType(typeId);
-			if (info.isCompositeType()) {
-				for (MapObjectTypePart part : info.getParts()) {
-					String detailMsg = "Violating part '" + part.getIdRef() + "' referenced by '" + typeId + "'";
-					MapObjectTypeInfo partInfo = inventory.getObjectType(part.getIdRef());
-					if (partInfo.isCompositeType()) {
-						throw new IllegalStateException("All composite parts must be singular. " + detailMsg);
-					}
-					DepthLayer layer = DepthLayer.forSymbolicName(partInfo.getDepthLayer());
-					if (!DepthLayer.DEFAULT.equals(layer)) {
-						throw new IllegalStateException("All composite parts must be on the default layer. "
-								+ detailMsg);
-					}
-				}
-			}
-		}
 	}
 
 	private void writeVersionNumber(BitmapWriter writer) {
@@ -550,12 +562,21 @@ public class GameMapBitmapGenerator {
 		}
 
 		public void writeMessageBoundariesExceeded() {
+			writeMessage("Map is too large", "Remove some objects");
+		}
+
+		public void writeCompositeConstraintViolated() {
+			writeMessage("Composite constraint", "violated", "Fix in inventory");
+		}
+
+		private void writeMessage(String... lines) {
 			getCanvas().setColor(Color.WHITE);
 			getCanvas().fillRect(0, 0, getImage().getWidth(), getImage().getHeight());
 			getCanvas().setColor(Color.BLACK);
 			getCanvas().setFont(new Font(Font.MONOSPACED, Font.PLAIN, 8));
-			getCanvas().drawString("Map is too large", 10, 20);
-			getCanvas().drawString("Remove some objects", 10, 40);
+			for (int i = 0; i < lines.length; i++) {
+				getCanvas().drawString(lines[i], 10, (i + 1) * 20);
+			}
 		}
 
 		public boolean exceedsBoundaries() {
