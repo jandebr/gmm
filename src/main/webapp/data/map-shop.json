@@ -242,19 +242,26 @@
 				{
 					"maxWidthInTiles": 8,
 					"items": [
+						"whale-jumping_10x11",
+						"whale-surfacing_10x5"
+					]
+				},
+				{
+					"maxWidthInTiles": 8,
+					"items": [
 						"polar-bear_7x4",
 						"snowman-throwing_5x5",
 						"penguin-sliding_2x1"
 					]
 				},
 				{
-					"maxWidthInTiles": 5,
+					"maxWidthInTiles": 6,
 					"items": [
 						"ginger-bread-boy_2x2",
 						"ginger-bread-girl_2x2",
-						"ginger-bread-boy_1x1",
-						"ginger-bread-girl_1x1",
+						"ginger-bread-tree_2x2",
 						"ginger-bread-boot_2x2",
+						"christmas-tree-ball_2x2",
 						"gift_2x2"
 					]
 				},

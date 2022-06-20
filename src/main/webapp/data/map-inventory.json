@@ -1262,7 +1262,7 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
-			"value": 2
+			"value": 1
 		},
 		{
 			"id": "ginger-bread-boy_2x2",
@@ -1275,7 +1275,7 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
-			"value": 2
+			"value": 1
 		},
 		{
 			"id": "ginger-bread-girl_2x2",
@@ -1288,33 +1288,33 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
-			"value": 2
+			"value": 1
 		},
 		{
-			"id": "ginger-bread-boy_1x1",
+			"id": "ginger-bread-tree_2x2",
 			"code": 76,
-			"label": "Gingerbread boy",
-			"image": "ginger-bread-boy_1x1.png",
+			"label": "Gingerbread tree",
+			"image": "ginger-bread-tree_2x2.png",
 			"appearances": 1,
 			"movement": "none",
 			"transparency": 0,
-			"widthInTiles": 1,
-			"heightInTiles": 1,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
 			"interaction": "score",
 			"value": 1
 		},
 		{
-			"id": "ginger-bread-girl_1x1",
+			"id": "christmas-tree-ball_2x2",
 			"code": 77,
-			"label": "Gingerbread girl",
-			"image": "ginger-bread-girl_1x1.png",
+			"label": "Christmas tree ball",
+			"image": "christmas-tree-ball_2x2.png",
 			"appearances": 1,
 			"movement": "none",
 			"transparency": 0,
-			"widthInTiles": 1,
-			"heightInTiles": 1,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
 			"interaction": "score",
-			"value": 1
+			"value": 5
 		},
 		{
 			"id": "santa-sleigh-deer_27x8",
@@ -1455,6 +1455,50 @@
 			"offsetHorizontal": -22,
 			"offsetVertical": 6,
 			"interaction": "fatal"
+		},
+		{
+			"id": "whale-jumping_10x11",
+			"code": 86,
+			"label": "Whale jumping",
+			"image": "whale-jumping_10x11.png",
+			"appearances": 6,
+			"appearancesSpeedWhileMoving": 210,
+			"movement": "verticalJump",
+			"movementParameter1": -330,
+			"movementParameter2": 0,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 210,
+			"inactivityTimeMinimum": 6,
+			"inactivityTimeMaximum": 12,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 10,
+			"heightInTiles": 11,
+			"interaction": "intangible",
+			"depthLayer": "back"
+		},
+		{
+			"id": "whale-surfacing_10x5",
+			"code": 87,
+			"label": "Whale surfacing",
+			"image": "whale-surfacing_10x5.png",
+			"appearances": 6,
+			"appearancesSpeedWhileMoving": 150,
+			"movement": "verticalJump",
+			"movementParameter1": -150,
+			"movementParameter2": 0,
+			"movementStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 150,
+			"inactivityTimeMinimum": 6,
+			"inactivityTimeMaximum": 12,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 10,
+			"heightInTiles": 5,
+			"interaction": "intangible",
+			"depthLayer": "back"
 		}
 	]
 }
