@@ -247,22 +247,34 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 8,
+					"maxWidthInTiles": 7,
 					"items": [
-						"polar-bear_7x4",
-						"snowman-throwing_5x5",
-						"penguin-sliding_2x1"
+						"snowy-owl_2x2",
+						"snowy-owl_3x3",
+						"grinch-face_2x3",
+						"halloween-pumpkin_2x2"
 					]
 				},
 				{
-					"maxWidthInTiles": 6,
+					"maxWidthInTiles": 12,
+					"items": [
+						"polar-bear_7x4",
+						"snowman-throwing_5x5",
+						"grinch_4x6"
+					]
+				},
+				{
+					"maxWidthInTiles": 10,
 					"items": [
 						"ginger-bread-boy_2x2",
 						"ginger-bread-girl_2x2",
 						"ginger-bread-tree_2x2",
 						"ginger-bread-boot_2x2",
+						"candy-cane-4x8",
 						"christmas-tree-ball_2x2",
-						"gift_2x2"
+						"gift_2x2",
+						"snow-flake_2x2",
+						"candy-cane-1x2"
 					]
 				},
 				{
