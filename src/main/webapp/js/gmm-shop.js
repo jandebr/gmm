@@ -24,6 +24,7 @@ var defaultMapShopOptions = {
 		"item-atmosBadge-opacity": 0.9,
 		"item-teleportBadge-opacity": 0.9,
 		"item-depthBadge-opacity": 0.9,
+		"item-aliveBadge-opacity": 0.9,
 		"basket-opacity": 0.4
 	}
 };
@@ -283,7 +284,9 @@ class MapShop {
 			this.drawItemTeleportBadge(container, dims);
 		} else if (objectType.isFinish()) {
 			this.drawItemFinishBadge(container, dims);
-		} 
+		} else if (objectType.isSelfOrPartsMoving() || objectType.isSelfOrPartsMultipleAppearances()) {
+			this.drawItemAliveBadge(objectType, container, dims);
+		}
 	}
 	
 	drawItemLabelBadge(container, label) {
@@ -352,6 +355,20 @@ class MapShop {
 			.attr("y", y0)
 			.attr("href", "/gmm/media/web/finish-icon.png")
 			.style("opacity", this.getStyle("item-finishBadge-opacity"));
+	}
+
+	drawItemAliveBadge(objectType, container, dims) {
+		var x0 = dims.scaledWidthInTiles * this.getDimension("tile-width") - 12;
+		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 12;
+		var icon = "alive";
+		if (objectType.isSelfOrPartsMoving()) icon += "-movement";
+		if (objectType.isSelfOrPartsMultipleAppearances()) icon += "-appearances";
+		icon += "-icon.png";
+		container.append("image")
+			.attr("x", x0)
+			.attr("y", y0)
+			.attr("href", "/gmm/media/web/" + icon)
+			.style("opacity", this.getStyle("item-aliveBadge-opacity"));
 	}
 
 	drawItemDepthBadge(container, dims, depthLayer) {

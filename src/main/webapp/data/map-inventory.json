@@ -278,6 +278,7 @@
 			"widthInTiles": 1,
 			"heightInTiles": 1,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 1
 		},
 		{
@@ -380,6 +381,7 @@
 			"widthInTiles": 1,
 			"heightInTiles": 1,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 10
 		},
 		{
@@ -877,6 +879,7 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 10
 		},
 		{
@@ -1262,6 +1265,7 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 1
 		},
 		{
@@ -1275,6 +1279,7 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 1
 		},
 		{
@@ -1288,6 +1293,7 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 1
 		},
 		{
@@ -1301,6 +1307,7 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 1
 		},
 		{
@@ -1314,6 +1321,7 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 5
 		},
 		{
@@ -1511,6 +1519,7 @@
 			"widthInTiles": 1,
 			"heightInTiles": 2,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 1
 		},
 		{
@@ -1524,6 +1533,7 @@
 			"widthInTiles": 4,
 			"heightInTiles": 8,
 			"interaction": "score",
+			"depthLayer": "front",
 			"value": 20
 		},
 		{
@@ -1600,7 +1610,8 @@
 			"widthInTiles": 2,
 			"heightInTiles": 2,
 			"interaction": "score",
-			"value": 5
+			"depthLayer": "front",
+			"value": 1
 		},
 		{
 			"id": "grinch-face_2x3",

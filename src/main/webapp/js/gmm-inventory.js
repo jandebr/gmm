@@ -14,6 +14,8 @@ const INTERACTION_FINISH = "finish";
 const INTERACTION_ATMOSPHERE = "atmosphere";
 const INTERACTION_TELEPORT = "teleport";
 
+const MOVEMENT_NONE = "none";
+
 const DEPTH_LAYER_DEFAULT = "default";
 const DEPTH_LAYER_BACK = "back";
 const DEPTH_LAYER_FRONT = "front";
@@ -119,6 +121,26 @@ class MapInventory {
 						for (var i = 0; i < this.parts.length; i++) {
 							var part = inventory.getObjectType(this.parts[i].idRef);
 							if (part.interaction == interaction) return true;
+						}
+					}
+					return false;
+				};
+				result.isSelfOrPartsMoving = function() {
+					if (this.movement && this.movement != MOVEMENT_NONE) return true;
+					if (this.parts) {
+						for (var i = 0; i < this.parts.length; i++) {
+							var part = inventory.getObjectType(this.parts[i].idRef);
+							if (part.movement && part.movement != MOVEMENT_NONE) return true;
+						}
+					}
+					return false;
+				};
+				result.isSelfOrPartsMultipleAppearances = function() {
+					if (this.appearances > 1) return true;
+					if (this.parts) {
+						for (var i = 0; i < this.parts.length; i++) {
+							var part = inventory.getObjectType(this.parts[i].idRef);
+							if (part.appearances > 1) return true;
 						}
 					}
 					return false;
