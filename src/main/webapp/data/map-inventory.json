@@ -1653,16 +1653,16 @@
 			"interaction": "fatal-active"
 		},
 		{
-			"id": "dynamite-box-firecrackers_3x2",
+			"id": "fireworks-box-firecrackers_3x2",
 			"code": 96,
-			"label": "Dynamite box with firecrackers",
-			"image": "dynamite-box-firecrackers_3x2.png",
+			"label": "Fireworks box with firecrackers",
+			"image": "fireworks-box-firecrackers_3x2.png",
 			"transparency": 0,
 			"widthInTiles": 3,
 			"heightInTiles": 2,
 			"parts": [
 				{
-					"idRef": "dynamite-box_3x2",
+					"idRef": "fireworks-box_3x2",
 					"dx": 0,
 					"dy": 0
 				},
@@ -1679,10 +1679,10 @@
 			]
 		},
 		{
-			"id": "dynamite-box_3x2",
+			"id": "fireworks-box_3x2",
 			"code": 97,
-			"label": "Dynamite box",
-			"image": "dynamite-box_3x2.png",
+			"label": "Fireworks box",
+			"image": "fireworks-box_3x2.png",
 			"appearances": 1,
 			"movement": "none",
 			"transparency": 0,
@@ -1735,6 +1735,77 @@
 			"offsetHorizontal": 0,
 			"offsetVertical": 0,
 			"interaction": "fatal-active"
+		},
+		{
+			"id": "geyser_8x11",
+			"code": 100,
+			"label": "Geyser",
+			"image": "geyser-8x11.png",
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 11,
+			"parts": [
+				{
+					"idRef": "geyser-lake_8x1",
+					"dx": 0,
+					"dy": 0
+				},
+				{
+					"idRef": "geyser-spring_8x10",
+					"dx": 0,
+					"dy": 1
+				}
+			]
+		},
+		{
+			"id": "geyser-lake_8x1",
+			"code": 101,
+			"label": "Geyser lake",
+			"image": "geyser-lake_8x1.png",
+			"appearances": 5,
+			"movement": "none",
+			"activityStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 210,
+			"inactivityTimeMinimum": 10,
+			"inactivityTimeMaximum": 10,
+			"inactivityAppearance": 5,
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "geyser-spring_8x10",
+			"code": 102,
+			"label": "Geyser spring",
+			"image": "geyser-spring_8x10.png",
+			"appearances": 2,
+			"movement": "none",
+			"activityStartAt": "inactive",
+			"activityCycles": 9,
+			"activitySpeed": 250,
+			"inactivityTimeMinimum": 8,
+			"inactivityTimeMaximum": 8,
+			"inactivityAppearance": 0,
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 10,
+			"offsetHorizontal": 0,
+			"offsetVertical": -10,
+			"interaction": "fatal-active"
+		},
+		{
+			"id": "dynamite-box_3x2",
+			"code": 103,
+			"label": "Dynamite box",
+			"image": "dynamite-box_3x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 3,
+			"heightInTiles": 2,
+			"interaction": "tangible"
 		}
 	]
 }
