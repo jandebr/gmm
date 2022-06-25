@@ -23,7 +23,7 @@ import org.maia.gmm.web.model.map.GameMapObject;
 
 public class GameMapBitmapGenerator {
 
-	private static final int VERSION_NUMBER = 6;
+	private static final int VERSION_NUMBER = 7;
 
 	private static final int MAP_WIDTH_IN_TILES = 15;
 
@@ -166,6 +166,8 @@ public class GameMapBitmapGenerator {
 			writer.writeSingleDigitHexadecimalValue(info.getAppearances());
 			writer.writeSingleDigitHexadecimalValue(movement.getNumericValue());
 			if (!Movement.NONE.equals(movement) || info.getAppearances() > 1) {
+				writer.writeSingleDigitHexadecimalValue(ActivityStart.forSymbolicName(info.getActivityStartAt())
+						.getNumericValue());
 				writer.writeSingleDigitHexadecimalValue(info.getActivityCycles());
 				writer.writeDoubleDigitHexadecimalValue(convertSpeedValue(info.getActivitySpeed(), info));
 				writer.writeSingleDigitHexadecimalValue(info.getInactivityTimeMinimum());
@@ -178,12 +180,6 @@ public class GameMapBitmapGenerator {
 			if (!Movement.NONE.equals(movement)) {
 				writer.writeDoubleDigitHexadecimalValue(convertMovementParameterValue(info.getMovementParameter1()));
 				writer.writeDoubleDigitHexadecimalValue(convertMovementParameterValue(info.getMovementParameter2()));
-				if (info.getMovementStartAt() != null) {
-					writer.writeSingleDigitHexadecimalValue(MovementStart.forSymbolicName(info.getMovementStartAt())
-							.getNumericValue());
-				} else {
-					writer.writeSingleDigitHexadecimalValue(MovementStart.RANDOM.getNumericValue());
-				}
 			}
 			writer.writeSingleDigitHexadecimalValue((int) Math.round(info.getTransparency() * 10));
 			if (Interaction.SCORE.equals(interaction) || Interaction.TELEPORT.equals(interaction)) {
@@ -398,7 +394,7 @@ public class GameMapBitmapGenerator {
 
 	}
 
-	private static enum MovementStart {
+	private static enum ActivityStart {
 
 		BEGIN("0%", 0),
 
@@ -408,21 +404,23 @@ public class GameMapBitmapGenerator {
 
 		THIRD_QUARTILE("75%", 3),
 
+		INACTIVE("inactive", 4),
+
 		RANDOM("random", 15);
 
 		private String symbolicName;
 
 		private int numericValue;
 
-		private MovementStart(String symbolicName, int numericValue) {
+		private ActivityStart(String symbolicName, int numericValue) {
 			this.symbolicName = symbolicName;
 			this.numericValue = numericValue;
 		}
 
-		public static MovementStart forSymbolicName(String name) {
-			for (MovementStart m : MovementStart.values()) {
-				if (m.getSymbolicName().equals(name))
-					return m;
+		public static ActivityStart forSymbolicName(String name) {
+			for (ActivityStart as : ActivityStart.values()) {
+				if (as.getSymbolicName().equals(name))
+					return as;
 			}
 			return null;
 		}

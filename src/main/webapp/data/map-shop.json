@@ -81,7 +81,8 @@
 					"maxWidthInTiles": 4,
 					"items": [
 						"chest_2x2",
-						"barrel_2x2"
+						"barrel_2x2",
+						"dynamite-box_3x2"
 					]
 				},
 				{
@@ -256,11 +257,12 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 12,
+					"maxWidthInTiles": 16,
 					"items": [
 						"polar-bear_7x4",
 						"snowman-throwing_5x5",
-						"grinch_4x6"
+						"grinch_4x6",
+						"dynamite-box-firecrackers_3x2"
 					]
 				},
 				{
