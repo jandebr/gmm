@@ -78,6 +78,18 @@
 					]
 				},
 				{
+					"maxWidthInTiles": 18,
+					"items": [
+						"wood-pillar_1x3",
+						"wood-log-trunk_12x2",
+						"wood-log-trunk_6x2",
+						"wood-log-platform_6x5",
+						"wood-log-platform-cut_6x6",
+						"wood-log-cut_12x4",
+						"wood-trunk-chopped_2x1"
+					]
+				},
+				{
 					"maxWidthInTiles": 6,
 					"items": [
 						"chest_2x2",

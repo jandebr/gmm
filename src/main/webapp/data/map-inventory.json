@@ -1806,6 +1806,178 @@
 			"widthInTiles": 3,
 			"heightInTiles": 2,
 			"interaction": "tangible"
+		},
+		{
+			"id": "wood-trunk-chopped_2x1",
+			"code": 104,
+			"label": "Chopped tree trunk",
+			"image": "wood-trunk-chopped_2x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 1,
+			"interaction": "tangible"
+		},
+		{
+			"id": "wood-pillar_1x3",
+			"code": 105,
+			"label": "Wooden pillar",
+			"image": "wood-pillar_1x3.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 3,
+			"interaction": "intangible"
+		},
+		{
+			"id": "wood-log-trunk_12x2",
+			"code": 106,
+			"label": "Log",
+			"image": "wood-log-trunk_12x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 12,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "wood-log-trunk_6x2",
+			"code": 107,
+			"label": "Log",
+			"image": "wood-log-trunk_6x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 6,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "wood-log-platform_6x5",
+			"code": 108,
+			"label": "Log platform",
+			"image": "wood-log-platform_6x5.png",
+			"transparency": 0,
+			"widthInTiles": 6,
+			"heightInTiles": 5,
+			"parts": [
+				{
+					"idRef": "wood-log-trunk_6x2",
+					"dx": 0,
+					"dy": 3
+				},
+				{
+					"idRef": "wood-pillar_1x3",
+					"dx": 1,
+					"dy": 0
+				},
+				{
+					"idRef": "wood-pillar_1x3",
+					"dx": 4,
+					"dy": 0
+				}
+			]
+		},
+		{
+			"id": "circular-saw_2x2",
+			"code": 109,
+			"label": "Circular saw",
+			"image": "circular-saw_2x2.png",
+			"appearances": 3,
+			"appearancesSpeedWhileMoving": 255,
+			"movement": "horizontalSweep",
+			"movementParameter1": 0,
+			"movementParameter2": -120,
+			"activityStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 220,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"offsetHorizontal": 0,
+			"offsetVertical": -4,
+			"interaction": "fatal"
+		},
+		{
+			"id": "circular-saw_3x3",
+			"code": 110,
+			"label": "Circular saw",
+			"image": "circular-saw_3x3.png",
+			"appearances": 3,
+			"appearancesSpeedWhileMoving": 255,
+			"movement": "horizontalSweep",
+			"movementParameter1": 0,
+			"movementParameter2": -270,
+			"activityStartAt": "0%",
+			"activityCycles": 1,
+			"activitySpeed": 190,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 3,
+			"heightInTiles": 3,
+			"offsetHorizontal": 0,
+			"offsetVertical": -6,
+			"interaction": "fatal"
+		},
+		{
+			"id": "wood-log-platform-cut_6x6",
+			"code": 111,
+			"label": "Log platform with saw",
+			"image": "wood-log-platform-cut_6x6.png",
+			"transparency": 0,
+			"widthInTiles": 6,
+			"heightInTiles": 6,
+			"parts": [
+				{
+					"idRef": "circular-saw_2x2",
+					"dx": 4,
+					"dy": 4
+				},
+				{
+					"idRef": "wood-log-trunk_6x2",
+					"dx": 0,
+					"dy": 3
+				},
+				{
+					"idRef": "wood-pillar_1x3",
+					"dx": 1,
+					"dy": 0
+				},
+				{
+					"idRef": "wood-pillar_1x3",
+					"dx": 4,
+					"dy": 0
+				}
+			]
+		},
+		{
+			"id": "wood-log-cut_12x4",
+			"code": 112,
+			"label": "Log with saw",
+			"image": "wood-log-cut_12x4.png",
+			"transparency": 0,
+			"widthInTiles": 12,
+			"heightInTiles": 4,
+			"parts": [
+				{
+					"idRef": "circular-saw_3x3",
+					"dx": 9,
+					"dy": 1
+				},
+				{
+					"idRef": "wood-log-trunk_12x2",
+					"dx": 0,
+					"dy": 0
+				}
+			]
 		}
 	]
 }
