@@ -245,6 +245,17 @@
 				{
 					"maxWidthInTiles": 10,
 					"items": [
+						"ice-field-side-left_1x3",
+						"ice-field_3x3",
+						"ice-field-side-right_1x3",
+						"snow-field-side-left_1x3",
+						"snow-field_3x3",
+						"snow-field-side-right_1x3"
+					]
+				},
+				{
+					"maxWidthInTiles": 10,
+					"items": [
 						"ice-berg_5x4",
 						"killer-whale-ascent_8x4",
 						"drift-ice-ascent_8x2",
@@ -261,12 +272,22 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 7,
+					"maxWidthInTiles": 10,
 					"items": [
 						"snowy-owl_2x2",
 						"snowy-owl_3x3",
-						"grinch-face_2x3",
-						"halloween-pumpkin_2x2"
+						"albatros-3x2",
+						"halloween-pumpkin_2x2",
+						"narwhal_9x3"
+					]
+				},
+				{
+					"maxWidthInTiles": 16,
+					"items": [
+						"icicles-falling-down_4x3",
+						"icicles-down-solid_4x3",
+						"icicles-up-solid_4x3",
+						"icicles-left-solid_3x4"
 					]
 				},
 				{
@@ -294,13 +315,16 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 16,
+					"maxWidthInTiles": 22,
 					"items": [
 						"christmas-tree_4x5",
 						"christmas-tree-back_4x5",
 						"santa-sleigh-deer_27x8",
 						"santa-sleigh-sky_12x6",
-						"polar-bears_8x4"
+						"eskimo-boy_2x3",
+						"eskimo-girl_3x3",
+						"polar-bears_8x4",
+						"penguin-dancing_2x2"
 					]
 				},
 				{

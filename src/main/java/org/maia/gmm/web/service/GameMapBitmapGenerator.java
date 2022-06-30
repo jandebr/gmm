@@ -59,7 +59,7 @@ public class GameMapBitmapGenerator {
 			String typeId = object.getType();
 			if (typeIdsChecked.add(typeId)) {
 				MapObjectTypeInfo info = inventory.getObjectType(typeId);
-				if (info.isCompositeType()) {
+				if (info != null && info.isCompositeType()) {
 					for (MapObjectTypePart part : info.getParts()) {
 						String detailMsg = "Violating part '" + part.getIdRef() + "' referenced by '" + typeId + "'";
 						MapObjectTypeInfo partInfo = inventory.getObjectType(part.getIdRef());
