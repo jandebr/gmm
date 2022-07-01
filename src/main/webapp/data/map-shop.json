@@ -38,8 +38,9 @@
 			"type": "COMMON",
 			"racks": [
 				{
-					"maxWidthInTiles": 1,
+					"maxWidthInTiles": 4,
 					"items": [
+						"level-sign_3x4",
 						"finish_1x10"
 					]
 				},
@@ -250,18 +251,24 @@
 						"ice-field-side-right_1x3",
 						"snow-field-side-left_1x3",
 						"snow-field_3x3",
-						"snow-field-side-right_1x3"
+						"snow-field-side-right_1x3",
+						"snow-topping-side-left_1x1",
+						"snow-topping_2x1",
+						"snow-topping_3x1",
+						"snow-topping-side-right_1x1"
 					]
 				},
 				{
-					"maxWidthInTiles": 10,
+					"maxWidthInTiles": 12,
 					"items": [
 						"ice-berg_5x4",
 						"killer-whale-ascent_8x4",
 						"drift-ice-ascent_8x2",
 						"drift-ice_8x2",
 						"drift-ice-ascent_2x2",
-						"drift-ice_2x2"
+						"drift-ice_2x2",
+						"drift-ice-descent_4x1",
+						"drift-ice_4x1"
 					]
 				},
 				{
@@ -278,7 +285,9 @@
 						"snowy-owl_3x3",
 						"albatros-3x2",
 						"halloween-pumpkin_2x2",
-						"narwhal_9x3"
+						"narwhal_9x3",
+						"penguin-sliding_2x1",
+						"penguin-diving_2x1"
 					]
 				},
 				{
@@ -291,12 +300,14 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 20,
+					"maxWidthInTiles": 22,
 					"items": [
 						"geyser_8x11",
 						"polar-bear_7x4",
 						"snowman-throwing_5x5",
 						"grinch_4x6",
+						"snowball-rolling_3x3",
+						"snowball-rolling_2x2",
 						"fireworks-box-firecrackers_3x2"
 					]
 				},
