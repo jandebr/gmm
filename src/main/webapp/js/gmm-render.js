@@ -335,8 +335,12 @@ class MapRenderer {
 	}
 	
 	removeCharacterSimulation() {
-		if (this.simulationTimer) this.simulationTimer.stop();
-		this.getSvg().selectAll("." + this.getStyle("simulation-class")).remove();
+		if (this.simulationTimer) {
+			this.simulationTimer.stop();
+		}
+		if (this.getSvg()) {
+			this.getSvg().selectAll("." + this.getStyle("simulation-class")).remove();
+		}
 	}
 
 	initActions() {
