@@ -166,7 +166,7 @@ public class GameMapBitmapGenerator {
 			writer.writeSingleDigitHexadecimalValue(info.getAppearances());
 			writer.writeSingleDigitHexadecimalValue(movement.getNumericValue());
 			if (!Movement.NONE.equals(movement) || info.getAppearances() > 1) {
-				writer.writeSingleDigitHexadecimalValue(ActivityStart.forSymbolicName(info.getActivityStartAt())
+				writer.writeSingleDigitHexadecimalValue(LifeStart.forSymbolicName(info.getLifeStartAt())
 						.getNumericValue());
 				writer.writeSingleDigitHexadecimalValue(info.getActivityCycles());
 				writer.writeDoubleDigitHexadecimalValue(convertSpeedValue(info.getActivitySpeed(), info));
@@ -394,33 +394,47 @@ public class GameMapBitmapGenerator {
 
 	}
 
-	private static enum ActivityStart {
+	private static enum LifeStart {
 
-		BEGIN("0%", 0),
+		ACTIVITY("activity", 0),
 
-		FIRST_QUARTILE("25%", 1),
+		ACTIVITY_FIRST_QUARTILE("activity 25%", 1),
 
-		MIDWAY("50%", 2),
+		ACTIVITY_MIDWAY("activity 50%", 2),
 
-		THIRD_QUARTILE("75%", 3),
+		ACTIVITY_THIRD_QUARTILE("activity 75%", 3),
 
-		INACTIVE("inactive", 4),
+		ACTIVITY_RANDOM("activity random", 4),
 
-		RANDOM("random", 15);
+		INACTIVITY("inactivity", 5),
+
+		INACTIVITY_IN_REACH("inactivity in reach", 6),
+
+		INACTIVITY_IN_REACH_DELTA_1("inactivity in reach+1", 7),
+
+		INACTIVITY_IN_REACH_DELTA_2("inactivity in reach+2", 8),
+
+		INACTIVITY_IN_REACH_DELTA_3("inactivity in reach+3", 9),
+
+		INACTIVITY_IN_REACH_DELTA_4("inactivity in reach+4", 10),
+
+		INACTIVITY_IN_REACH_DELTA_5("inactivity in reach+5", 11),
+
+		INACTIVITY_IN_REACH_DELTA_6("inactivity in reach+6", 12);
 
 		private String symbolicName;
 
 		private int numericValue;
 
-		private ActivityStart(String symbolicName, int numericValue) {
+		private LifeStart(String symbolicName, int numericValue) {
 			this.symbolicName = symbolicName;
 			this.numericValue = numericValue;
 		}
 
-		public static ActivityStart forSymbolicName(String name) {
-			for (ActivityStart as : ActivityStart.values()) {
-				if (as.getSymbolicName().equals(name))
-					return as;
+		public static LifeStart forSymbolicName(String name) {
+			for (LifeStart start : LifeStart.values()) {
+				if (start.getSymbolicName().equals(name))
+					return start;
 			}
 			return null;
 		}

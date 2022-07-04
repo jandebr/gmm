@@ -22,7 +22,7 @@ public class MapObjectTypeInfo {
 
 	private int movementParameter2;
 
-	private String activityStartAt;
+	private String lifeStartAt;
 
 	private int activityCycles;
 
@@ -54,7 +54,7 @@ public class MapObjectTypeInfo {
 
 	private static final int DEFAULT_APPEARANCES = 1;
 
-	private static final String DEFAULT_ACTIVITY_START_AT = "random";
+	private static final String DEFAULT_LIFE_START_AT = "activity random";
 
 	private static final int DEFAULT_INACTIVITY_APPEARANCE = 1;
 
@@ -62,7 +62,7 @@ public class MapObjectTypeInfo {
 
 	public MapObjectTypeInfo() {
 		this.appearances = DEFAULT_APPEARANCES;
-		this.activityStartAt = DEFAULT_ACTIVITY_START_AT;
+		this.lifeStartAt = DEFAULT_LIFE_START_AT;
 		this.inactivityAppearance = DEFAULT_INACTIVITY_APPEARANCE;
 		this.depthLayer = DEFAULT_DEPTH_LAYER;
 	}
@@ -136,8 +136,8 @@ public class MapObjectTypeInfo {
 		return movementParameter2;
 	}
 
-	public String getActivityStartAt() {
-		return activityStartAt;
+	public String getLifeStartAt() {
+		return lifeStartAt;
 	}
 
 	public int getActivityCycles() {
