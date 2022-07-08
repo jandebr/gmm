@@ -24,6 +24,8 @@ public class MapObjectTypeInfo {
 
 	private String lifeStartAt;
 
+	private int lifeStartAtProximity;
+
 	private int activityCycles;
 
 	private int activitySpeed;
@@ -138,6 +140,10 @@ public class MapObjectTypeInfo {
 
 	public String getLifeStartAt() {
 		return lifeStartAt;
+	}
+
+	public int getLifeStartAtProximity() {
+		return lifeStartAtProximity;
 	}
 
 	public int getActivityCycles() {

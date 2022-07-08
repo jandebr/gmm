@@ -312,17 +312,20 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 10,
+					"maxWidthInTiles": 12,
 					"items": [
+						"candy-cane-4x8",
+						"candy-cane-1x2",
+						"ginger-bread-boy_1x1",
 						"ginger-bread-boy_2x2",
 						"ginger-bread-girl_2x2",
 						"ginger-bread-tree_2x2",
 						"ginger-bread-boot_2x2",
-						"candy-cane-4x8",
+						"ginger-bread-girl_1x1",
 						"christmas-tree-ball_2x2",
 						"gift_2x2",
 						"snow-flake_2x2",
-						"candy-cane-1x2"
+						"snowglobe_2x2"
 					]
 				},
 				{

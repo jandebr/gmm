@@ -158,6 +158,7 @@ public class GameMapBitmapGenerator {
 			Interaction interaction = Interaction.forSymbolicName(info.getInteraction());
 			DepthLayer depthLayer = DepthLayer.forSymbolicName(info.getDepthLayer());
 			Movement movement = Movement.forSymbolicName(info.getMovement());
+			LifeStart lifeStart = LifeStart.forSymbolicName(info.getLifeStartAt());
 			writer.writeTripleDigitHexadecimalValue(info.getCode());
 			writeObjectTypeHorizontalDimension(writer, info);
 			writeObjectTypeVerticalDimension(writer, info);
@@ -166,8 +167,10 @@ public class GameMapBitmapGenerator {
 			writer.writeSingleDigitHexadecimalValue(info.getAppearances());
 			writer.writeSingleDigitHexadecimalValue(movement.getNumericValue());
 			if (!Movement.NONE.equals(movement) || info.getAppearances() > 1) {
-				writer.writeSingleDigitHexadecimalValue(LifeStart.forSymbolicName(info.getLifeStartAt())
-						.getNumericValue());
+				writer.writeSingleDigitHexadecimalValue(lifeStart.getNumericValue());
+				if (LifeStart.ACTIVITY_IN_REACH.equals(lifeStart) || LifeStart.INACTIVITY_IN_REACH.equals(lifeStart)) {
+					writer.writeDoubleDigitHexadecimalValue(info.getLifeStartAtProximity());
+				}
 				writer.writeSingleDigitHexadecimalValue(info.getActivityCycles());
 				writer.writeDoubleDigitHexadecimalValue(convertSpeedValue(info.getActivitySpeed(), info));
 				writer.writeSingleDigitHexadecimalValue(info.getInactivityTimeMinimum());
@@ -184,7 +187,8 @@ public class GameMapBitmapGenerator {
 			writer.writeSingleDigitHexadecimalValue((int) Math.round(info.getTransparency() * 10));
 			if (Interaction.SCORE.equals(interaction) || Interaction.TELEPORT.equals(interaction)) {
 				writer.writeDoubleDigitHexadecimalValue(info.getValue());
-			} else if (Interaction.ATMOSPHERE.equals(interaction) || Interaction.TANGIBLE.equals(interaction)) {
+			} else if (Interaction.ATMOSPHERE.equals(interaction) || Interaction.TANGIBLE.equals(interaction)
+					|| Interaction.SHIELD.equals(interaction)) {
 				writer.writeSingleDigitHexadecimalValue(info.getValue());
 			}
 		}
@@ -408,19 +412,9 @@ public class GameMapBitmapGenerator {
 
 		INACTIVITY("inactivity", 5),
 
-		INACTIVITY_IN_REACH("inactivity in reach", 6),
+		ACTIVITY_IN_REACH("activity in reach", 6),
 
-		INACTIVITY_IN_REACH_DELTA_1("inactivity in reach+1", 7),
-
-		INACTIVITY_IN_REACH_DELTA_2("inactivity in reach+2", 8),
-
-		INACTIVITY_IN_REACH_DELTA_3("inactivity in reach+3", 9),
-
-		INACTIVITY_IN_REACH_DELTA_4("inactivity in reach+4", 10),
-
-		INACTIVITY_IN_REACH_DELTA_5("inactivity in reach+5", 11),
-
-		INACTIVITY_IN_REACH_DELTA_6("inactivity in reach+6", 12);
+		INACTIVITY_IN_REACH("inactivity in reach", 7);
 
 		private String symbolicName;
 
@@ -465,7 +459,13 @@ public class GameMapBitmapGenerator {
 
 		ATMOSPHERE("atmosphere", 6),
 
-		TELEPORT("teleport", 7);
+		TELEPORT("teleport", 7),
+
+		SIZE_SHRINK("size-shrink", 8),
+
+		SIZE_RESTORE("size-restore", 9),
+
+		SHIELD("shield", 10);
 
 		private String symbolicName;
 
