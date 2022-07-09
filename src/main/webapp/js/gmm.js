@@ -1,6 +1,7 @@
 var mapService = null;
 var mapInventory = null;
 var mapShop = null;
+var mapShopBasket = null;
 var mapRenderer = null;
 var mapAtmosphereRenderer = null;
 var mapBadge = null;
@@ -24,7 +25,8 @@ function init() {
 	mapBadge = new MapBadge(d3.select("div.topbar"));
 	mapCollectionBadge = new MapCollectionBadge(d3.select("div.topbar"), mapCollectionLogoutHandler);
 	mapInventory = new MapInventory(function() {
-		mapShop = new MapShop(d3.select("div.mapshop"), mapInventory, function() {
+		mapShopBasket = new MapShopBasket(d3.select("body"), mapInventory);
+		mapShop = new MapShop(d3.select("div.mapshop"), mapInventory, mapShopBasket, function() {
 			mapRenderer = createMapRenderer(mapInventory);
 			mapAtmosphereRenderer = createMapAtmosphereRenderer(mapInventory);
 			initControls();
@@ -66,12 +68,11 @@ function initControls() {
 	var observer = { "deletesAtLayer" : null };
 	observer.notifyMapCursorUpdate = function(cursor) {
 		if (!cursor.pressed) this.deletesAtLayer = null;
-		var basket = mapShop.getBasket();
-		var objectType = basket.getObjectType();
+		var objectType = mapShopBasket.getObjectType();
 		var isAtmosphericMap = cursor.mapRenderer == mapAtmosphereRenderer;
-		var isAtmosphericBasket = !basket.isEmpty() && objectType.isAtmospheric();
+		var isAtmosphericBasket = !mapShopBasket.isEmpty() && objectType.isAtmospheric();
 		var box = isAtmosphericMap ? boxAtmos : boxMap;
-		if (basket.isEmpty() || (isAtmosphericMap != isAtmosphericBasket && !objectType.isDelete())) {
+		if (mapShopBasket.isEmpty() || (isAtmosphericMap != isAtmosphericBasket && !objectType.isDelete())) {
 			box.setVisible(false);
 		} else {
 			if (objectType.isDelete()) {
@@ -121,7 +122,7 @@ function initControls() {
 	};
 	mapRenderer.addCursorObserver(observer);
 	mapAtmosphereRenderer.addCursorObserver(observer);
-	mapShop.getBasket().addActionListener(observer);
+	mapShopBasket.addActionListener(observer);
 }
 
 function addObjectToMap(object) {
@@ -255,7 +256,7 @@ function registerActionHandler(actionId, actionHandler) {
 	d3.select("#" + actionId).on("click", function(event) {
 		var button = d3.select(this);
 		button.classed("run", true);
-		mapShop.getBasket().empty();
+		mapShopBasket.empty();
 		actionHandler();
 		d3.timeout(function(elapsed) {
 			button.classed("run", false);
@@ -535,6 +536,7 @@ function updateCharacter() {
 		character = mapInventory.getCharactersList()[0];
 	}
 	mapShop.setReferenceCharacter(character);
+	mapShopBasket.setReferenceCharacter(character);
 	mapRenderer.setReferenceCharacter(character);
 }
 

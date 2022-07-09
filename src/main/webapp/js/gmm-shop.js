@@ -24,8 +24,7 @@ var defaultMapShopOptions = {
 		"item-atmosBadge-opacity": 0.9,
 		"item-teleportBadge-opacity": 0.9,
 		"item-depthBadge-opacity": 0.9,
-		"item-aliveBadge-opacity": 0.9,
-		"basket-opacity": 0.4
+		"item-aliveBadge-opacity": 0.9
 	}
 };
 
@@ -37,11 +36,11 @@ const DEPARTMENT_TYPE_COMMON = "COMMON";
 
 class MapShop {
 
-	constructor(container, inventory, callback, options) {
+	constructor(container, inventory, basket, callback, options) {
 		this.rootPane = container;
 		this.inventory = inventory;
 		this.options = options ? options : JSON.parse(JSON.stringify(defaultMapShopOptions));
-		this.basket = new MapShopBasket(d3.select("body"), this);
+		this.basket = basket;
 		this.departmentScrolling = false;
 		this.departmentScrollOffset = 0;
 		this.departmentScrollPaneWidth = 0;
@@ -239,7 +238,7 @@ class MapShop {
 		}
 	}
 	
-	drawObjectType(container, objectType, forBasket) {
+	drawObjectType(container, objectType) {
 		var dims = this.getItemDimensions(objectType);
 		var margin = this.getDimension("tile-margin");
 		var imageWidth = dims.scaledWidthInTiles * (this.getDimension("tile-width") - 2 * margin);
@@ -251,10 +250,7 @@ class MapShop {
 			.attr("width", imageWidth)
 			.attr("height", imageHeight)
 			.attr("href", imagePath);
-		if (forBasket) {
-			container.attr("width", imageWidth).attr("height", imageHeight);
-		}
-		if (!forBasket && objectType.isCharacter()) {
+		if (objectType.isCharacter()) {
 			this.referenceCharacterImage = image;
 		}
 	}
@@ -585,108 +581,6 @@ class MapShop {
 			}
 		});
 		return items.sort();
-	}
-
-}
-
-
-
-class MapShopBasket {
-
-	constructor(container, shop) {
-		this.rootPane = container;
-		this.shop = shop;
-		this.coordinates = null;
-		this.actionListeners = [];
-		this.initControls();
-	}
-
-	initControls() {
-		var self = this;
-		var pane = this.getRootPane();
-		pane.on("mouseover mousemove", function(event) {
-			self.coordinates = d3.pointer(event, pane.node());
-			if (self.getUiElement() != null) self.updatePosition();
-		});
-		pane.on("contextmenu", function(event) {
-			event.preventDefault();
-			self.empty();
-			return false;
-		});
-	}
-
-	addActionListener(listener) {
-		this.getActionListeners().push(listener);
-	}
-
-	isEmpty() {
-		return this.getObjectType() == null;
-	}
-	
-	empty() {
-		this.objectType = null;
-		this.erase();
-		var self = this;
-		self.getActionListeners().forEach(function(listener) {
-			if (listener.notifyBasketEmptied) listener.notifyBasketEmptied(self);
-		});
-	}
-	
-	fill(objectType) {
-		this.objectType = objectType;
-		this.draw();
-		var self = this;
-		self.getActionListeners().forEach(function(listener) {
-			if (listener.notifyBasketFilled) listener.notifyBasketFilled(self);
-		});
-	}
-
-	erase() {
-		if (this.uiElement != null) {
-			this.uiElement.remove();
-			this.uiElement = null;
-		}
-	}
-
-	draw() {
-		this.erase();
-		if (!this.isEmpty()) {
-			var svg = this.getRootPane().append("svg").style("position", "absolute");
-			this.getShop().drawObjectType(svg, this.getObjectType(), true);
-			this.uiElement = svg;
-			this.updatePosition();
-		}
-	}
-
-	updatePosition() {
-		if (this.coordinates != null) {
-			this.getUiElement()
-				.style("left", this.coordinates[0] + 10)
-				.style("top", this.coordinates[1] + 20)
-				.style("opacity", this.getObjectType().isDelete() ? 1 : this.getShop().getStyle("basket-opacity"));
-		} else {
-			this.getUiElement().style("opacity", 0);
-		}
-	}
-
-	getRootPane() {
-		return this.rootPane;
-	}
-
-	getUiElement() {
-		return this.uiElement;
-	}
-
-	getShop() {
-		return this.shop;
-	}
-
-	getObjectType() {
-		return this.objectType;
-	}
-
-	getActionListeners() {
-		return this.actionListeners;
 	}
 
 }
