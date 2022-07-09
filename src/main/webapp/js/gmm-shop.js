@@ -1,4 +1,5 @@
 var defaultMapShopOptions = {
+	"dataUrl": "/gmm/data/map-shop.json",
 	"dimension": {
 		"departmentsBar-height": 24,
 		"departmentsBar-margin": 38,
@@ -20,6 +21,9 @@ var defaultMapShopOptions = {
 		"item-sizeBadge-text-size": "10px",
 		"item-scoreBadge-opacity": 0.9,
 		"item-fatalBadge-opacity": 0.9,
+		"item-sizeShrinkBadge-opacity": 0.9,
+		"item-sizeRestoreBadge-opacity": 0.9,
+		"item-shieldBadge-opacity": 1.0,
 		"item-finishBadge-opacity": 0.7,
 		"item-atmosBadge-opacity": 0.9,
 		"item-teleportBadge-opacity": 0.9,
@@ -36,11 +40,11 @@ const DEPARTMENT_TYPE_COMMON = "COMMON";
 
 class MapShop {
 
-	constructor(container, inventory, basket, callback, options) {
+	constructor(container, inventory, basket, options, callback) {
 		this.rootPane = container;
 		this.inventory = inventory;
-		this.options = options ? options : JSON.parse(JSON.stringify(defaultMapShopOptions));
 		this.basket = basket;
+		this.options = options ? options : JSON.parse(JSON.stringify(defaultMapShopOptions));
 		this.departmentScrolling = false;
 		this.departmentScrollOffset = 0;
 		this.departmentScrollPaneWidth = 0;
@@ -49,7 +53,7 @@ class MapShop {
 
 	init(callback) {
 		var self = this;
-		d3.request("/gmm/data/map-shop.json").get(function(error, response) {
+		d3.request(this.getOptions().dataUrl).get(function(error, response) {
 			self.data = JSON.parse(response.responseText);
 			console.log("Loaded shop");
 			console.log(self.data);
@@ -68,32 +72,34 @@ class MapShop {
 	}
 	
 	drawDepartmentsBar(container, enablementFunction) {
-		var pane = container.append("div").classed("departments", true);
 		var barHeight = this.getDimension("departmentsBar-height");
-		var self = this;
-		pane.append("img")
-			.attr("src", "/gmm/media/web/arrow-left.png")
-			.attr("height", barHeight)
-			.on("mousedown", function() {
-				self.departmentScrolling = true;
-				self.scrollDepartments(svg, -1);
+		if (barHeight > 0) {
+			var pane = container.append("div").classed("departments", true);
+			var self = this;
+			pane.append("img")
+				.attr("src", "/gmm/media/web/arrow-left.png")
+				.attr("height", barHeight)
+				.on("mousedown", function() {
+					self.departmentScrolling = true;
+					self.scrollDepartments(svg, -1);
+				});
+			var svg = pane.append("svg")
+				.attr("width", this.getDepartmentsBarWidth() - 2 * barHeight)
+				.attr("height", barHeight);
+			var panel = svg.append("g");
+			pane.append("img")
+				.attr("src", "/gmm/media/web/arrow-right.png")
+				.attr("height", barHeight)
+				.on("mousedown", function() {
+					self.departmentScrolling = true;
+					self.scrollDepartments(svg, +1);
+				});
+			this.drawDepartments(panel, barHeight, enablementFunction);
+			this.departmentScrollPaneWidth = panel.node().getBoundingClientRect().width;
+			container.on("mouseup", function() {
+				self.departmentScrolling = false;
 			});
-		var svg = pane.append("svg")
-			.attr("width", this.getDepartmentsBarWidth() - 2 * barHeight)
-			.attr("height", barHeight);
-		var panel = svg.append("g");
-		pane.append("img")
-			.attr("src", "/gmm/media/web/arrow-right.png")
-			.attr("height", barHeight)
-			.on("mousedown", function() {
-				self.departmentScrolling = true;
-				self.scrollDepartments(svg, +1);
-			});
-		this.drawDepartments(panel, barHeight, enablementFunction);
-		this.departmentScrollPaneWidth = panel.node().getBoundingClientRect().width;
-		container.on("mouseup", function() {
-			self.departmentScrolling = false;
-		});
+		}
 	}
 	
 	drawDepartments(container, barHeight, enablementFunction) {
@@ -266,6 +272,12 @@ class MapShop {
 			this.drawItemScoreBadge(container, dims);
 		} else if (objectType.isFatal()) {
 			this.drawItemFatalBadge(container, dims);
+		} else if (objectType.isSizeShrink()) {
+			this.drawItemSizeShrinkBadge(container, dims);
+		} else if (objectType.isSizeRestore()) {
+			this.drawItemSizeRestoreBadge(container, dims);
+		} else if (objectType.isShield()) {
+			this.drawItemShieldBadge(container, dims);
 		}
 		// Upper right corner
 		if (objectType.getDepthLayer() != DEPTH_LAYER_DEFAULT && objectType.getDepthLayer() != DEPTH_LAYER_ATMOS) {
@@ -321,6 +333,36 @@ class MapShop {
 			.attr("height", 12)
 			.attr("href", "/gmm/media/web/fatal-icon.png")
 			.style("opacity", this.getStyle("item-fatalBadge-opacity"));
+	}
+
+	drawItemSizeShrinkBadge(container, dims) {
+		var x0 = 3;
+		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 13;
+		container.append("image")
+			.attr("x", x0)
+			.attr("y", y0)
+			.attr("href", "/gmm/media/web/size-shrink-icon.png")
+			.style("opacity", this.getStyle("item-sizeShrinkBadge-opacity"));
+	}
+
+	drawItemSizeRestoreBadge(container, dims) {
+		var x0 = 3;
+		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 13;
+		container.append("image")
+			.attr("x", x0)
+			.attr("y", y0)
+			.attr("href", "/gmm/media/web/size-restore-icon.png")
+			.style("opacity", this.getStyle("item-sizeRestoreBadge-opacity"));
+	}
+
+	drawItemShieldBadge(container, dims) {
+		var x0 = 3;
+		var y0 = dims.scaledHeightInTiles * this.getDimension("tile-height") - 14;
+		container.append("image")
+			.attr("x", x0)
+			.attr("y", y0)
+			.attr("href", "/gmm/media/web/shield-icon.png")
+			.style("opacity", this.getStyle("item-shieldBadge-opacity"));
 	}
 
 	drawItemAtmosBadge(container, dims) {
@@ -558,7 +600,10 @@ class MapShop {
 			return dept;
 		} else {
 			var unfoldDept = Object.assign({}, dept);
-			unfoldDept.racks = this.getSharedDepartment().racks.concat(dept.racks);
+			var sharedDept = this.getSharedDepartment();
+			if (sharedDept) {
+				unfoldDept.racks = sharedDept.racks.concat(dept.racks);
+			}
 			if (dept.type == DEPARTMENT_TYPE_ALL) {
 				unfoldDept.racks.push({
 					"maxWidthInTiles": 10000,

@@ -12,23 +12,8 @@
 				{
 					"maxWidthInTiles": 4,
 					"items": [
-						"META_delete"
-					]
-				},
-				{
-					"maxWidthInTiles": 4,
-					"items": [
-						"META_stroke_erase_8",
-						"META_stroke_delete_8",
-						"META_stroke_insert_8",
-						"META_stroke_delete_1",
-						"META_stroke_insert_1"
-					]
-				},
-				{
-					"maxWidthInTiles": 3,
-					"items": [
-						"META_character"
+						"level-sign_3x4",
+						"finish_1x10"
 					]
 				}
 			]
@@ -37,13 +22,6 @@
 			"label": "Common",
 			"type": "COMMON",
 			"racks": [
-				{
-					"maxWidthInTiles": 4,
-					"items": [
-						"level-sign_3x4",
-						"finish_1x10"
-					]
-				},
 				{
 					"maxWidthInTiles": 4,
 					"items": [
@@ -222,6 +200,12 @@
 				{
 					"maxWidthInTiles": 4,
 					"items": [
+						"iglo-finish_9x6"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
 						"ATMOS_snowfall_15",
 						"ATMOS_blizzard_15"
 					]
@@ -339,12 +323,6 @@
 						"eskimo-girl_3x3",
 						"polar-bears_8x4",
 						"penguin-dancing_2x2"
-					]
-				},
-				{
-					"maxWidthInTiles": 4,
-					"items": [
-						"iglo-finish_9x6"
 					]
 				}
 			]

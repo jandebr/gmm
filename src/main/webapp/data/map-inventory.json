@@ -86,7 +86,7 @@
 	"objectTypes": [
 		{
 			"id": "META_delete",
-			"label": "Delete",
+			"label": "Remove selected objects",
 			"image": "META/delete.png",
 			"widthInTiles": 1,
 			"heightInTiles": 1,
@@ -94,7 +94,7 @@
 		},
 		{
 			"id": "META_character",
-			"label": "Character",
+			"label": "Character simulation",
 			"image": "META/character.png",
 			"widthInTiles": 3,
 			"heightInTiles": 3,
@@ -102,7 +102,7 @@
 		},
 		{
 			"id": "META_stroke_erase_8",
-			"label": "Erase stroke",
+			"label": "Remove objects in stroke",
 			"image": "META/stroke_erase_8.png",
 			"widthInTiles": 8,
 			"heightInTiles": 1,
@@ -110,7 +110,7 @@
 		},
 		{
 			"id": "META_stroke_delete_8",
-			"label": "Delete stroke",
+			"label": "Ripple delete stroke",
 			"image": "META/stroke_delete_8.png",
 			"widthInTiles": 8,
 			"heightInTiles": 1,
@@ -118,7 +118,7 @@
 		},
 		{
 			"id": "META_stroke_delete_1",
-			"label": "Delete stroke",
+			"label": "Ripple delete one tile",
 			"image": "META/stroke_delete_1.png",
 			"widthInTiles": 1,
 			"heightInTiles": 1,
@@ -134,7 +134,7 @@
 		},
 		{
 			"id": "META_stroke_insert_1",
-			"label": "Insert stroke",
+			"label": "Insert one tile",
 			"image": "META/stroke_insert_1.png",
 			"widthInTiles": 1,
 			"heightInTiles": 1,
@@ -1271,7 +1271,7 @@
 		{
 			"id": "ginger-bread-boy_2x2",
 			"code": 74,
-			"label": "Gingerbread boy !RESTORE",
+			"label": "Gingerbread boy (restore size)",
 			"image": "ginger-bread-boy_2x2.png",
 			"appearances": 1,
 			"movement": "none",
@@ -1284,7 +1284,7 @@
 		{
 			"id": "ginger-bread-girl_2x2",
 			"code": 75,
-			"label": "Gingerbread girl !RESTORE",
+			"label": "Gingerbread girl (restore size)",
 			"image": "ginger-bread-girl_2x2.png",
 			"appearances": 1,
 			"movement": "none",
@@ -2382,7 +2382,7 @@
 		{
 			"id": "ginger-bread-boy_1x1",
 			"code": 140,
-			"label": "Gingerbread boy !SHRINK",
+			"label": "Gingerbread boy (shrink)",
 			"image": "ginger-bread-boy_1x1.png",
 			"appearances": 1,
 			"movement": "none",
@@ -2395,7 +2395,7 @@
 		{
 			"id": "ginger-bread-girl_1x1",
 			"code": 141,
-			"label": "Gingerbread girl !SHRINK",
+			"label": "Gingerbread girl (shrink)",
 			"image": "ginger-bread-girl_1x1.png",
 			"appearances": 1,
 			"movement": "none",
@@ -2408,7 +2408,7 @@
 		{
 			"id": "snowglobe_2x2",
 			"code": 142,
-			"label": "Snowglobe !SHIELD",
+			"label": "Snowglobe (shield)",
 			"image": "snowglobe_2x2.png",
 			"appearances": 1,
 			"movement": "none",

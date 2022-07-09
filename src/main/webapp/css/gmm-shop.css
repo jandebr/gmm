@@ -1,9 +1,18 @@
+div.mapshop-toolbox {
+	color: black;
+	margin-top: 20px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+
+
 div.mapshop {
 	color: black;
 	background: white;
 	border: solid 4px white;
 	border-radius: 16px 16px 0px 0px;
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-bottom: 20px;
 	padding: 8px;
 	height: 208px;

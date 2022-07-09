@@ -1,0 +1,37 @@
+{
+	"departments": [
+		{
+			"label": "Common",
+			"type": "COMMON",
+			"racks": [
+				{
+					"maxWidthInTiles": 5,
+					"items": [
+						"META_delete",
+						"META_stroke_erase_8"
+					]
+				},
+				{
+					"maxWidthInTiles": 5,
+					"items": [
+						"META_stroke_delete_1",
+						"META_stroke_delete_8"
+					]
+				},
+				{
+					"maxWidthInTiles": 5,
+					"items": [
+						"META_stroke_insert_1",
+						"META_stroke_insert_8"
+					]
+				},
+				{
+					"maxWidthInTiles": 1,
+					"items": [
+						"META_character"
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,7 +1,8 @@
 var mapService = null;
 var mapInventory = null;
-var mapShop = null;
 var mapShopBasket = null;
+var mapShopToolbox = null;
+var mapShop = null;
 var mapRenderer = null;
 var mapAtmosphereRenderer = null;
 var mapBadge = null;
@@ -26,7 +27,8 @@ function init() {
 	mapCollectionBadge = new MapCollectionBadge(d3.select("div.topbar"), mapCollectionLogoutHandler);
 	mapInventory = new MapInventory(function() {
 		mapShopBasket = new MapShopBasket(d3.select("body"), mapInventory);
-		mapShop = new MapShop(d3.select("div.mapshop"), mapInventory, mapShopBasket, function() {
+		mapShopToolbox = new MapShop(d3.select("div.mapshop-toolbox"), mapInventory, mapShopBasket, createMapShopToolboxOptions());
+		mapShop = new MapShop(d3.select("div.mapshop"), mapInventory, mapShopBasket, null, function() {
 			mapRenderer = createMapRenderer(mapInventory);
 			mapAtmosphereRenderer = createMapAtmosphereRenderer(mapInventory);
 			initControls();
@@ -35,6 +37,15 @@ function init() {
 			joinMapCollection();
 		});
 	});
+}
+
+function createMapShopToolboxOptions() {
+	var options = JSON.parse(JSON.stringify(defaultMapShopOptions));
+	options.dataUrl = "/gmm/data/map-shop-toolbox.json";
+	options.dimension["departmentsBar-height"] = 0;
+	options.dimension["maxRackHeightInTiles"] = 1;
+	options.dimension["maxItemHeightInTiles"] = 1;
+	return options;
 }
 
 function createMapRenderer(mapInventory) {
@@ -219,6 +230,7 @@ function countDistinctObjectTypesInMap() {
 }
 
 function updateShop() {
+	mapShopToolbox.draw();
 	mapShop.draw(createShopEnablementFunction());
 }
 
@@ -536,6 +548,7 @@ function updateCharacter() {
 		character = mapInventory.getCharactersList()[0];
 	}
 	mapShop.setReferenceCharacter(character);
+	mapShopToolbox.setReferenceCharacter(character);
 	mapShopBasket.setReferenceCharacter(character);
 	mapRenderer.setReferenceCharacter(character);
 }
