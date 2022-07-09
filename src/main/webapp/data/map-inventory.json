@@ -2417,7 +2417,7 @@
 			"heightInTiles": 2,
 			"interaction": "shield",
 			"depthLayer": "front",
-			"value": 4
+			"value": 15
 		}
 	]
 }

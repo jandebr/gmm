@@ -185,10 +185,10 @@ public class GameMapBitmapGenerator {
 				writer.writeDoubleDigitHexadecimalValue(convertMovementParameterValue(info.getMovementParameter2()));
 			}
 			writer.writeSingleDigitHexadecimalValue((int) Math.round(info.getTransparency() * 10));
-			if (Interaction.SCORE.equals(interaction) || Interaction.TELEPORT.equals(interaction)) {
-				writer.writeDoubleDigitHexadecimalValue(info.getValue());
-			} else if (Interaction.ATMOSPHERE.equals(interaction) || Interaction.TANGIBLE.equals(interaction)
+			if (Interaction.SCORE.equals(interaction) || Interaction.TELEPORT.equals(interaction)
 					|| Interaction.SHIELD.equals(interaction)) {
+				writer.writeDoubleDigitHexadecimalValue(info.getValue());
+			} else if (Interaction.ATMOSPHERE.equals(interaction) || Interaction.TANGIBLE.equals(interaction)) {
 				writer.writeSingleDigitHexadecimalValue(info.getValue());
 			}
 		}
