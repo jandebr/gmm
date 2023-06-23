@@ -13,16 +13,20 @@
 	</target>
 
 	<target name="compile" depends="init">
-		<javac includeantruntime="false" destdir="build/classes" debug="true" srcdir="src/main/java">
+		<javac includeantruntime="false" destdir="build/classes" source="1.8" target="1.8" debug="true" srcdir="src/main/java">
 			<classpath refid="compile.classpath" />
 		</javac>
-		<jar destfile="lib/data.jar" basedir="src/main/webapp/data">
+		<jar destfile="lib/data.jar">
+			<fileset dir="src/main/webapp/data">
+				<include name="*.json" />
+			</fileset>
 		</jar>
 	</target>
 
 	<target name="clean">
 		<delete dir="dist" />
 		<delete dir="build" />
+		<delete file="lib/data.jar" />
 	</target>
 
 	<target name="war" depends="clean,compile">
@@ -33,7 +37,7 @@
 		</copy>
 		<war destfile="dist/gmm.war" webxml="dist/web.xml">
 			<fileset dir="src/main/webapp">
-				<exclude name="WEB-INF/web.xml"/>
+				<exclude name="WEB-INF/web.xml" />
 			</fileset>
 			<lib dir="lib" />
 			<classes dir="build/classes" />
