@@ -520,7 +520,7 @@ function doDownloadMap(callback) {
 }
 
 function chooseBackground() {
-	new ChooseMapBackgroundDialog("Choose a background", mapInventory.getBackgroundsList(), mapInventory.getBackgroundsPath(), function(error, backgroundId) {
+	new ChooseMapBackgroundDialog("Choose a background", mapShop.getAvailableBackgrounds(), mapInventory.getBackgroundsPath(), function(error, backgroundId) {
 		if (backgroundId) {
 			console.log("Chose background '" + backgroundId + "'");
 			currentMap.definition.background = backgroundId;
@@ -532,7 +532,7 @@ function chooseBackground() {
 }
 
 function chooseCharacter() {
-	new ChooseMapCharacterDialog("Choose a character", mapInventory.getCharactersList(), mapInventory.getCharactersPath(), function(error, characterId) {
+	new ChooseMapCharacterDialog("Choose a character", mapShop.getAvailableCharacters(), mapInventory.getCharactersPath(), function(error, characterId) {
 		if (characterId) {
 			console.log("Chose character '" + characterId + "'");
 			currentMap.definition.character = characterId;
@@ -545,7 +545,7 @@ function chooseCharacter() {
 function updateCharacter() {
 	var character = mapInventory.getCharacter(currentMap.definition.character);
 	if (!character) {
-		character = mapInventory.getCharactersList()[0];
+		character = mapShop.getAvailableCharacters()[0];
 	}
 	mapShop.setReferenceCharacter(character);
 	mapShopToolbox.setReferenceCharacter(character);

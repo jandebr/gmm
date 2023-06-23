@@ -553,6 +553,32 @@ class MapShop {
 			return this.getInventory().getObjectTypesPath() + objectType.image;
 		}
 	}
+	
+	getAvailableBackgrounds() {
+		var backgrounds = this.getInventory().getBackgroundsList();
+		var backgroundIds = this.getData().backgrounds;
+		if (backgroundIds) {
+			console.log("filtering backgrounds before");
+			console.log(backgrounds);
+			backgrounds = backgrounds.filter(background => backgroundIds.includes(background.id));
+			console.log("filtering backgrounds after");
+			console.log(backgrounds);
+		}
+		return backgrounds;
+	}
+
+	getAvailableCharacters() {
+		var characters = this.getInventory().getCharactersList();
+		var characterIds = this.getData().characters;
+		if (characterIds) {
+			console.log("filtering characters before");
+			console.log(characters);
+			characters = characters.filter(character => characterIds.includes(character.id));
+			console.log("filtering characters after");
+			console.log(characters);
+		}
+		return characters;
+	}
 
 	getRootPane() {
 		return this.rootPane;
