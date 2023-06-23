@@ -35,7 +35,7 @@ public abstract class GameMapServlet extends BaseServlet {
 
 	protected String getGameMapCollectionId(HttpServletRequest request) {
 		String collectionId = request.getParameter("collection");
-		if (collectionId == null) {
+		if (collectionId == null && request.getCookies() != null) {
 			for (Cookie cookie : request.getCookies()) {
 				if (cookie.getName().equals(COOKIE_NAME_COLLECTION) && !cookie.getValue().isEmpty()) {
 					collectionId = cookie.getValue();
