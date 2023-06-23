@@ -1,0 +1,331 @@
+{
+	"departments": [
+		{
+			"label": "All",
+			"type": "ALL",
+			"racks": []
+		},
+		{
+			"label": "Shared",
+			"type": "SHARED",
+			"racks": [
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"level-sign_3x4",
+						"finish_1x10"
+					]
+				}
+			]
+		},
+		{
+			"label": "Common",
+			"type": "COMMON",
+			"racks": [
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"soil_15x1",
+						"soil_4x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"soil-surface_8x1",
+						"meadow-surface_8x1",
+						"stone-surface_8x1",
+						"lava-surface_8x1",
+						"snow-surface_8x1",
+						"ice-surface_8x1",
+						"sea_8x1",
+						"rapid-river_4x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"stone_4x1",
+						"stone_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"plank_4x1",
+						"plank-birds_4x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 18,
+					"items": [
+						"wood-pillar_1x3",
+						"wood-log-trunk_12x2",
+						"wood-log-trunk_6x2",
+						"wood-log-platform_6x5",
+						"wood-log-platform-cut_6x6",
+						"wood-log-cut_12x4",
+						"wood-trunk-chopped_2x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 6,
+					"items": [
+						"chest_2x2",
+						"barrel_2x2",
+						"dynamite-box_3x2",
+						"fireworks-box_3x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 6,
+					"items": [
+						"frog-sit_1x1",
+						"frog-jump_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 2,
+					"items": [
+						"coin_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 3,
+					"items": [
+						"cloud_3x2",
+						"cloud-dark_3x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"ATMOS_dusk_8",
+						"ATMOS_night_8",
+						"ATMOS_wind_8",
+						"ATMOS_blast_8",
+						"ATMOS_rain_15",
+						"ATMOS_heavyrain_15",
+						"ATMOS_snowfall_15",
+						"ATMOS_blizzard_15"
+					]
+				},
+				{
+					"maxWidthInTiles": 10,
+					"items": [
+						"teleport-entrance-2",
+						"teleport-entrance-5",
+						"teleport-entrance-10",
+						"teleport-entrance-20",
+						"teleport-entrance-50"
+					]
+				}
+			]
+		},
+		{
+			"label": "Wild West",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 6,
+					"items": [
+						"cactus_2x3",
+						"snake_2x2"
+					]
+				}
+			]
+		},
+		{
+			"label": "Pirates",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"swinging-ship_11x10"
+					]
+				},
+				{
+					"maxWidthInTiles": 6,
+					"items": [
+						"shooting-cannon_4x3",
+						"bomb_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 6,
+					"items": [
+						"seagull_2x2",
+						"shark_3x4"
+					]
+				},
+				{
+					"maxWidthInTiles": 6,
+					"items": [
+						"treasure-chest_5x4",
+						"coin_1x1"
+					]
+				}
+			]
+		},
+		{
+			"label": "Themepark",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"cart_3x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"swinging-ship_11x10",
+						"droptower_7x9"
+					]
+				},
+				{
+					"maxWidthInTiles": 2,
+					"items": [
+						"ticket_1x1"
+					]
+				}
+			]
+		},
+		{
+			"label": "Christmas",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"iglo-finish_9x6"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"ATMOS_snowfall_15",
+						"ATMOS_blizzard_15"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"snow-surface_8x1",
+						"ice-surface_8x1",
+						"sea_8x1",
+						"rapid-river_4x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"ice-block_4x1",
+						"ice-block_2x2",
+						"ice-block_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 10,
+					"items": [
+						"ice-field-side-left_1x3",
+						"ice-field_3x3",
+						"ice-field-side-right_1x3",
+						"snow-field-side-left_1x3",
+						"snow-field_3x3",
+						"snow-field-side-right_1x3",
+						"snow-topping-side-left_1x1",
+						"snow-topping_2x1",
+						"snow-topping_3x1",
+						"snow-topping-side-right_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 12,
+					"items": [
+						"ice-berg_5x4",
+						"killer-whale-ascent_8x4",
+						"drift-ice-ascent_8x2",
+						"drift-ice_8x2",
+						"drift-ice-ascent_2x2",
+						"drift-ice_2x2",
+						"drift-ice-descent_4x1",
+						"drift-ice_4x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"whale-jumping_10x11",
+						"whale-surfacing_10x5"
+					]
+				},
+				{
+					"maxWidthInTiles": 10,
+					"items": [
+						"snowy-owl_2x2",
+						"snowy-owl_3x3",
+						"albatros-3x2",
+						"halloween-pumpkin_2x2",
+						"narwhal_9x3",
+						"penguin-sliding_2x1",
+						"penguin-diving_2x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 16,
+					"items": [
+						"icicles-falling-down_4x3",
+						"icicles-down-solid_4x3",
+						"icicles-up-solid_4x3",
+						"icicles-left-solid_3x4"
+					]
+				},
+				{
+					"maxWidthInTiles": 22,
+					"items": [
+						"geyser_8x11",
+						"polar-bear_7x4",
+						"snowman-throwing_5x5",
+						"grinch_4x6",
+						"snowball-rolling_3x3",
+						"snowball-rolling_2x2",
+						"fireworks-box-firecrackers_3x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 12,
+					"items": [
+						"candy-cane-4x8",
+						"candy-cane-1x2",
+						"ginger-bread-boy_1x1",
+						"ginger-bread-boy_2x2",
+						"ginger-bread-girl_2x2",
+						"ginger-bread-tree_2x2",
+						"ginger-bread-boot_2x2",
+						"ginger-bread-girl_1x1",
+						"christmas-tree-ball_2x2",
+						"gift_2x2",
+						"snow-flake_2x2",
+						"snowglobe_2x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 22,
+					"items": [
+						"christmas-tree_4x5",
+						"christmas-tree-back_4x5",
+						"santa-sleigh-deer_27x8",
+						"santa-sleigh-sky_12x6",
+						"eskimo-boy_2x3",
+						"eskimo-girl_3x3",
+						"polar-bears_8x4",
+						"penguin-dancing_2x2"
+					]
+				}
+			]
+		}
+	]
+}
