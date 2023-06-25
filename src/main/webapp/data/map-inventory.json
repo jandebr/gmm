@@ -134,6 +134,14 @@
 			"image": "teacher-wim.png",
 			"appearancesRunning": 8,
 			"height": 92
+		},
+		{
+			"id": "TeacherInge",
+			"code": 3,
+			"label": "Teacher Inge",
+			"image": "teacher-inge.png",
+			"appearancesRunning": 8,
+			"height": 92
 		}
 	],
 	"objectTypes": [
@@ -2669,6 +2677,45 @@
 			"widthInTiles": 4,
 			"heightInTiles": 2,
 			"interaction": "tangible"
+		},
+		{
+			"id": "elixir-green_1x1",
+			"code": 157,
+			"label": "Elixir green (shield)",
+			"image": "elixir-green_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "shield",
+			"depthLayer": "front"
+		},
+		{
+			"id": "elixir-yellow_1x1",
+			"code": 158,
+			"label": "Elixir yellow (shrink)",
+			"image": "elixir-yellow_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "size-shrink",
+			"depthLayer": "front"
+		},
+		{
+			"id": "elixir-purple_1x1",
+			"code": 159,
+			"label": "Elixir purple (restore size)",
+			"image": "elixir-purple_1x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 1,
+			"interaction": "size-restore",
+			"depthLayer": "front"
 		}
 	]
 }

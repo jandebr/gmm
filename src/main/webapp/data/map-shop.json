@@ -5,7 +5,8 @@
 		"HallwayClassroom"
 	],
 	"characters": [
-		"TeacherWim"
+		"TeacherWim",
+		"TeacherInge"
 	],
 	"departments": [
 		{
@@ -193,6 +194,7 @@
 					"maxWidthInTiles": 8,
 					"items": [
 						"coin_1x1",
+						"medal-gold_1x2",
 						"gift_2x2"
 					]
 				},
@@ -211,7 +213,9 @@
 				{
 					"maxWidthInTiles": 4,
 					"items": [
-						"snowglobe_2x2"
+						"elixir-green_1x1",
+						"elixir-yellow_1x1",
+						"elixir-purple_1x1"
 					]
 				}
 			]
@@ -239,7 +243,8 @@
 					"maxWidthInTiles": 4,
 					"items": [
 						"guitar_2x2",
-						"medal-gold_1x2"
+						"medal-gold_1x2",
+						"coin_1x1"
 					]
 				},
 				{
