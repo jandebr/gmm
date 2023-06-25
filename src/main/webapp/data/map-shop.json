@@ -242,6 +242,12 @@
 					]
 				},
 				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"plant-indoor_3x4"
+					]
+				},
+				{
 					"maxWidthInTiles": 8,
 					"items": [
 						"horse-white_7x6",

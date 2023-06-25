@@ -2790,6 +2790,19 @@
 			"heightInTiles": 2,
 			"interaction": "intangible",
 			"depthLayer": "back"
+		},
+		{
+			"id": "plant-indoor_3x4",
+			"code": 165,
+			"label": "Indoor plant",
+			"image": "plant-indoor_3x4.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 3,
+			"heightInTiles": 4,
+			"interaction": "intangible",
+			"depthLayer": "back"
 		}
 	]
 }
