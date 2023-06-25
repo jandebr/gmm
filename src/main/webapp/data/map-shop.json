@@ -20,10 +20,8 @@
 			"type": "SHARED",
 			"racks": [
 				{
-					"maxWidthInTiles": 4,
+					"maxWidthInTiles": 5,
 					"items": [
-						"level-sign_3x4",
-						"finish_1x10"
 					]
 				}
 			]
@@ -32,6 +30,13 @@
 			"label": "Common",
 			"type": "COMMON",
 			"racks": [
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"level-sign_3x4",
+						"finish_1x10"
+					]
+				},
 				{
 					"maxWidthInTiles": 8,
 					"items": [
@@ -58,13 +63,6 @@
 					"items": [
 						"stone_4x1",
 						"stone_1x1"
-					]
-				},
-				{
-					"maxWidthInTiles": 3,
-					"items": [
-						"cloud_3x2",
-						"cloud-dark_3x2"
 					]
 				},
 				{
@@ -163,18 +161,19 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 8,
+					"maxWidthInTiles": 16,
 					"items": [
 						"shark_3x4",
-						"narwhal_9x3"
+						"narwhal_9x3",
+						"polar-bear_7x4",
+						"wolf_5x3"
 					]
 				},
 				{
 					"maxWidthInTiles": 12,
 					"items": [
 						"snowman-throwing_5x5",
-						"grinch_4x6",
-						"polar-bear_7x4"
+						"grinch_4x6"
 					]
 				},
 				{
@@ -191,11 +190,12 @@
 			"type": "EXTENSION",
 			"racks": [
 				{
-					"maxWidthInTiles": 8,
+					"maxWidthInTiles": 5,
 					"items": [
-						"coin_1x1",
 						"medal-gold_1x2",
-						"gift_2x2"
+						"gift_2x2",
+						"unicorn-emblem_2x2",
+						"coin_1x1"
 					]
 				},
 				{
@@ -211,11 +211,47 @@
 			"type": "EXTENSION",
 			"racks": [
 				{
+					"maxWidthInTiles": 1,
+					"items": [
+						"elixir-green_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 1,
+					"items": [
+						"elixir-yellow_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 1,
+					"items": [
+						"elixir-purple_1x1"
+					]
+				}
+			]
+		},
+		{
+			"label": "Scenery",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 3,
+					"items": [
+						"cloud_3x2",
+						"cloud-dark_3x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"horse-white_7x6",
+						"horse-brown_4x5"
+					]
+				},
+				{
 					"maxWidthInTiles": 4,
 					"items": [
-						"elixir-green_1x1",
-						"elixir-yellow_1x1",
-						"elixir-purple_1x1"
+						"dwarf-wobbling_1x2"
 					]
 				}
 			]
@@ -243,8 +279,7 @@
 					"maxWidthInTiles": 4,
 					"items": [
 						"guitar_2x2",
-						"medal-gold_1x2",
-						"coin_1x1"
+						"medal-gold_1x2"
 					]
 				},
 				{

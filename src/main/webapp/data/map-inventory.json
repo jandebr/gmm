@@ -105,7 +105,7 @@
 				"Park/Park4.png"
 			],
 			"gmm-style": {
-				"opacity": 0.2,
+				"opacity": 0.3,
 				"grid-brightness": 0.7
 			}
 		}
@@ -2716,6 +2716,80 @@
 			"heightInTiles": 1,
 			"interaction": "size-restore",
 			"depthLayer": "front"
+		},
+		{
+			"id": "horse-white_7x6",
+			"code": 160,
+			"label": "White horse",
+			"image": "horse-white_7x6.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 7,
+			"heightInTiles": 6,
+			"interaction": "intangible",
+			"depthLayer": "back"
+		},
+		{
+			"id": "horse-brown_4x5",
+			"code": 161,
+			"label": "Brown horse",
+			"image": "horse-brown_4x5.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 5,
+			"interaction": "intangible",
+			"depthLayer": "back"
+		},
+		{
+			"id": "wolf_5x3",
+			"code": 162,
+			"label": "Wolf",
+			"image": "wolf_5x3.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 5,
+			"heightInTiles": 3,
+			"interaction": "fatal"
+		},
+		{
+			"id": "unicorn-emblem_2x2",
+			"code": 163,
+			"label": "Unicorn emblem",
+			"image": "unicorn-emblem_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "score",
+			"depthLayer": "front",
+			"value": 5
+		},
+		{
+			"id": "dwarf-wobbling_1x2",
+			"code": 164,
+			"label": "Wobbling dwarf",
+			"image": "dwarf-wobbling_1x2.png",
+			"appearances": 4,
+			"appearancesSpeedWhileMoving": 220,
+			"movement": "smoothHorizontalSweep",
+			"movementParameter1": 0,
+			"movementParameter2": -60,
+			"lifeStartAt": "activity",
+			"activityCycles": 1,
+			"activitySpeed": 180,
+			"inactivityTimeMinimum": 0,
+			"inactivityTimeMaximum": 0,
+			"inactivityAppearance": 1,
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 2,
+			"interaction": "intangible",
+			"depthLayer": "back"
 		}
 	]
 }
