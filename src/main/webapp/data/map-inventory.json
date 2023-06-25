@@ -63,6 +63,51 @@
 				"opacity": 0.2,
 				"grid-brightness": 0.7
 			}
+		},
+		{
+			"id": "HallwayClassroom",
+			"code": 4,
+			"label": "School",
+			"images": [
+				"HallwayClassroom/HallwayClassroom1.png",
+				"HallwayClassroom/HallwayClassroom2.png",
+				"HallwayClassroom/HallwayClassroom3.png",
+				"HallwayClassroom/HallwayClassroom4.png"
+			],
+			"gmm-style": {
+				"opacity": 0.3,
+				"grid-brightness": 0.7
+			}
+		},
+		{
+			"id": "OutdoorsSeaside",
+			"code": 5,
+			"label": "Outdoors at the seaside",
+			"images": [
+				"OutdoorsSeaside/OutdoorsSeaside1.png",
+				"OutdoorsSeaside/OutdoorsSeaside2.png",
+				"OutdoorsSeaside/OutdoorsSeaside3.png",
+				"OutdoorsSeaside/OutdoorsSeaside4.png"
+			],
+			"gmm-style": {
+				"opacity": 0.3,
+				"grid-brightness": 0.7
+			}
+		},
+		{
+			"id": "Park",
+			"code": 6,
+			"label": "Park",
+			"images": [
+				"Park/Park1.png",
+				"Park/Park2.png",
+				"Park/Park3.png",
+				"Park/Park4.png"
+			],
+			"gmm-style": {
+				"opacity": 0.2,
+				"grid-brightness": 0.7
+			}
 		}
 	],
 	"characters": [
@@ -80,6 +125,14 @@
 			"label": "Santa Claus",
 			"image": "santa-claus.png",
 			"appearancesRunning": 15,
+			"height": 92
+		},
+		{
+			"id": "TeacherWim",
+			"code": 2,
+			"label": "Teacher Wim",
+			"image": "teacher-wim.png",
+			"appearancesRunning": 8,
 			"height": 92
 		}
 	],
@@ -2418,6 +2471,204 @@
 			"interaction": "shield",
 			"depthLayer": "front",
 			"value": 15
+		},
+		{
+			"id": "tiled-floor_8x1",
+			"code": 143,
+			"label": "Tiled floor",
+			"image": "tiled-floor_8x1.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 8,
+			"heightInTiles": 1,
+			"interaction": "tangible",
+			"value": 0
+		},
+		{
+			"id": "angry-teacher_4x4",
+			"code": 144,
+			"label": "Angry teacher",
+			"image": "angry-teacher_4x4.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 4,
+			"interaction": "fatal"
+		},
+		{
+			"id": "bully-boy_2x2",
+			"code": 145,
+			"label": "Bully boy",
+			"image": "bully-boy_2x2.png",
+			"appearances": 1,
+			"movement": "verticalJump",
+			"movementParameter1": 0,
+			"movementParameter2": 60,
+			"lifeStartAt": "activity",
+			"activityCycles": 1,
+			"activitySpeed": 230,
+			"inactivityTimeMinimum": 3,
+			"inactivityTimeMaximum": 6,
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "fatal"
+		},
+		{
+			"id": "bully-boy_5x5",
+			"code": 146,
+			"label": "Bully boy",
+			"image": "bully-boy_5x5.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 5,
+			"heightInTiles": 5,
+			"interaction": "fatal"
+		},
+		{
+			"id": "ovsg-papers_3x4",
+			"code": 147,
+			"label": "OVSG exam",
+			"image": "ovsg-papers_3x4.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 3,
+			"heightInTiles": 4,
+			"interaction": "fatal"
+		},
+		{
+			"id": "guitar_2x2",
+			"code": 148,
+			"label": "Guitar",
+			"image": "guitar_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "score",
+			"depthLayer": "front",
+			"value": 5
+		},
+		{
+			"id": "medal-gold_1x2",
+			"code": 149,
+			"label": "Gold medal",
+			"image": "medal-gold_1x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 1,
+			"heightInTiles": 2,
+			"interaction": "score",
+			"depthLayer": "front",
+			"value": 100
+		},
+		{
+			"id": "score-nill_2x2",
+			"code": 150,
+			"label": "Bad score",
+			"image": "score-nill_2x2.png",
+			"appearances": 1,
+			"movement": "verticalStroke",
+			"movementParameter1": 0,
+			"movementParameter2": -180,
+			"lifeStartAt": "activity",
+			"activityCycles": 1,
+			"activitySpeed": 220,
+			"inactivityTimeMinimum": 2,
+			"inactivityTimeMaximum": 2,
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "fatal",
+			"depthLayer": "front"
+		},
+		{
+			"id": "score-perfect_2x2",
+			"code": 151,
+			"label": "Perfect score",
+			"image": "score-perfect_2x2.png",
+			"appearances": 1,
+			"movement": "verticalStroke",
+			"movementParameter1": 0,
+			"movementParameter2": -180,
+			"lifeStartAt": "activity",
+			"activityCycles": 1,
+			"activitySpeed": 220,
+			"inactivityTimeMinimum": 2,
+			"inactivityTimeMaximum": 2,
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "score",
+			"depthLayer": "front",
+			"value": 10
+		},
+		{
+			"id": "desk-bright_4x2",
+			"code": 152,
+			"label": "Desk bright",
+			"image": "desk-bright_4x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "desk-school_4x2",
+			"code": 153,
+			"label": "School desk",
+			"image": "desk-school_4x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "book-stack_3x8",
+			"code": 154,
+			"label": "Stack of books",
+			"image": "book-stack_3x8.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 3,
+			"heightInTiles": 8,
+			"interaction": "intangible",
+			"depthLayer": "front"
+		},
+		{
+			"id": "book-stack_2x2",
+			"code": 155,
+			"label": "Stack of books",
+			"image": "book-stack_2x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 2,
+			"heightInTiles": 2,
+			"interaction": "tangible"
+		},
+		{
+			"id": "desk-dark_4x2",
+			"code": 156,
+			"label": "Desk dark",
+			"image": "desk-dark_4x2.png",
+			"appearances": 1,
+			"movement": "none",
+			"transparency": 0,
+			"widthInTiles": 4,
+			"heightInTiles": 2,
+			"interaction": "tangible"
 		}
 	]
 }

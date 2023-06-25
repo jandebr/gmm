@@ -1,10 +1,11 @@
 {
 	"backgrounds": [
-		"MountainTree",
-		"SnowyLandscape"
+		"Park",
+		"OutdoorsSeaside",
+		"HallwayClassroom"
 	],
 	"characters": [
-		"Cowboy"
+		"TeacherWim"
 	],
 	"departments": [
 		{
@@ -31,13 +32,6 @@
 			"type": "COMMON",
 			"racks": [
 				{
-					"maxWidthInTiles": 4,
-					"items": [
-						"soil_15x1",
-						"soil_4x1"
-					]
-				},
-				{
 					"maxWidthInTiles": 8,
 					"items": [
 						"soil-surface_8x1",
@@ -53,49 +47,16 @@
 				{
 					"maxWidthInTiles": 4,
 					"items": [
-						"stone_4x1",
-						"stone_1x1"
+						"tiled-floor_8x1",
+						"soil_15x1",
+						"soil_4x1"
 					]
 				},
 				{
 					"maxWidthInTiles": 4,
 					"items": [
-						"plank_4x1",
-						"plank-birds_4x2"
-					]
-				},
-				{
-					"maxWidthInTiles": 18,
-					"items": [
-						"wood-pillar_1x3",
-						"wood-log-trunk_12x2",
-						"wood-log-trunk_6x2",
-						"wood-log-platform_6x5",
-						"wood-log-platform-cut_6x6",
-						"wood-log-cut_12x4",
-						"wood-trunk-chopped_2x1"
-					]
-				},
-				{
-					"maxWidthInTiles": 6,
-					"items": [
-						"chest_2x2",
-						"barrel_2x2",
-						"dynamite-box_3x2",
-						"fireworks-box_3x2"
-					]
-				},
-				{
-					"maxWidthInTiles": 6,
-					"items": [
-						"frog-sit_1x1",
-						"frog-jump_1x1"
-					]
-				},
-				{
-					"maxWidthInTiles": 2,
-					"items": [
-						"coin_1x1"
+						"stone_4x1",
+						"stone_1x1"
 					]
 				},
 				{
@@ -126,6 +87,180 @@
 						"teleport-entrance-10",
 						"teleport-entrance-20",
 						"teleport-entrance-50"
+					]
+				}
+			]
+		},
+		{
+			"label": "Wood",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"plank_4x1",
+						"plank-birds_4x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 2,
+					"items": [
+						"chest_2x2",
+						"barrel_2x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 18,
+					"items": [
+						"wood-pillar_1x3",
+						"wood-log-trunk_12x2",
+						"wood-log-trunk_6x2",
+						"wood-log-platform_6x5",
+						"wood-log-platform-cut_6x6",
+						"wood-log-cut_12x4",
+						"wood-trunk-chopped_2x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 3,
+					"items": [
+						"dynamite-box_3x2",
+						"fireworks-box_3x2"
+					]
+				}
+			]
+		},
+		{
+			"label": "Enemies",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"snowy-owl_3x3",
+						"snowy-owl_2x2",
+						"seagull_2x2",
+						"albatros-3x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 6,
+					"items": [
+						"cactus_2x3",
+						"snake_2x2",
+						"halloween-pumpkin_2x2",
+						"frog-sit_1x1",
+						"frog-jump_1x1"
+					]
+				},
+				{
+					"maxWidthInTiles": 12,
+					"items": [
+						"bomb_1x1",
+						"firecracker-blue_2x2",
+						"firecracker-red_1x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"shark_3x4",
+						"narwhal_9x3"
+					]
+				},
+				{
+					"maxWidthInTiles": 12,
+					"items": [
+						"snowman-throwing_5x5",
+						"grinch_4x6",
+						"polar-bear_7x4"
+					]
+				},
+				{
+					"maxWidthInTiles": 5,
+					"items": [
+						"snowball-rolling_2x2",
+						"snowball-rolling_3x3"
+					]
+				}
+			]
+		},
+		{
+			"label": "Rewards",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"coin_1x1",
+						"gift_2x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 5,
+					"items": [
+						"treasure-chest_5x4"
+					]
+				}
+			]
+		},
+		{
+			"label": "Effects",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"snowglobe_2x2"
+					]
+				}
+			]
+		},
+		{
+			"label": "School",
+			"type": "EXTENSION",
+			"racks": [
+				{
+					"maxWidthInTiles": 8,
+					"items": [
+						"desk-bright_4x2",
+						"desk-dark_4x2",
+						"desk-school_4x2",
+						"book-stack_2x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"book-stack_3x8"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"guitar_2x2",
+						"medal-gold_1x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 2,
+					"items": [
+						"score-perfect_2x2",
+						"score-nill_2x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 12,
+					"items": [
+						"angry-teacher_4x4",
+						"bully-boy_5x5",
+						"bully-boy_2x2"
+					]
+				},
+				{
+					"maxWidthInTiles": 4,
+					"items": [
+						"ovsg-papers_3x4"
 					]
 				}
 			]
