@@ -304,9 +304,12 @@
 					]
 				},
 				{
-					"maxWidthInTiles": 4,
+					"maxWidthInTiles": 5,
 					"items": [
-						"ovsg-papers_3x4"
+						"ovsg-papers_3x4",
+						"paper-plane-blue_2x1",
+						"paper-plane-green_2x1",
+						"paper-plane-pink_2x1"
 					]
 				}
 			]
